@@ -10,6 +10,7 @@ module Hercules
     end
     def self.after_deploy(options)
       cmd = options[:shell]
+      cmd.run "chmod -R o-w #{options[:dir]}"
       cmd.run "kill -HUP `cat /home/portal_inafag/pids/unicorn_production.pid`"
     end
   end
