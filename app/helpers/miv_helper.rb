@@ -1,0 +1,2 @@
+module MivHelper
+end

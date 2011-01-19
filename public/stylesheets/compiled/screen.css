@@ -1,83 +1,63 @@
-/*
-Syntax error: Undefined mixin 'background-image'.
-        on line 8 of /Users/nicolasiensen/Projects/portal_inafag/app/stylesheets/screen.scss, in `background-image'
-        from line 8 of /Users/nicolasiensen/Projects/portal_inafag/app/stylesheets/screen.scss
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 14, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
 
-3:  * Import this file using the following HTML or equivalent:
-4:  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-5: @import "compass";
-6: 
-7: html {
-8:   @include background-image(linear-gradient(white, #aaaaaa)); }
+/* line 17, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
 
-Backtrace:
-/Users/nicolasiensen/Projects/portal_inafag/app/stylesheets/screen.scss:8:in `background-image'
-/Users/nicolasiensen/Projects/portal_inafag/app/stylesheets/screen.scss:8
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/mixin_node.rb:74:in `perform!'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:305:in `_perform'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:213:in `perform'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:326:in `block in perform_children'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:326:in `map'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:326:in `perform_children'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:317:in `perform!'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/rule_node.rb:191:in `perform!'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:305:in `_perform'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:213:in `perform'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:326:in `block in perform_children'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:326:in `map'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:326:in `perform_children'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:317:in `perform!'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/root_node.rb:59:in `perform!'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:305:in `_perform'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/node.rb:213:in `perform'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/root_node.rb:37:in `perform'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/tree/root_node.rb:29:in `render'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/plugin.rb:220:in `update_stylesheet'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/plugin.rb:85:in `block (2 levels) in update_stylesheets'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/plugin.rb:78:in `each'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/plugin.rb:78:in `block in update_stylesheets'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/plugin.rb:76:in `each'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/plugin.rb:76:in `update_stylesheets'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/plugin.rb:50:in `check_for_updates'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/haml-3.0.24/lib/sass/plugin/rack.rb:40:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/warden-0.10.7/lib/warden/manager.rb:35:in `block in call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `block in call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/lock.rb:11:in `block in call'
-<internal:prelude>:10:in `synchronize'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
-/Users/nicolasiensen/.rvm/gems/ruby-1.9.2-p136/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
-/Users/nicolasiensen/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
-/Users/nicolasiensen/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
-/Users/nicolasiensen/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined mixin 'background-image'.\A         on line 8 of /Users/nicolasiensen/Projects/portal_inafag/app/stylesheets/screen.scss, in `background-image'\A         from line 8 of /Users/nicolasiensen/Projects/portal_inafag/app/stylesheets/screen.scss\A \A 3:  * Import this file using the following HTML or equivalent:\A 4:  * <link href=\"/stylesheets/screen.css\" media=\"screen, projection\" rel=\"stylesheet\" type=\"text/css\" /> */\A 5: @import \"compass\";\A 6: \A 7: html {\A 8:   @include background-image(linear-gradient(white, #aaaaaa)); }"; }
+/* line 19, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+/* line 23, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 25, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: "" "";
+}
+/* line 96, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+}
+
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
