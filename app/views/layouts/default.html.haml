@@ -1,0 +1,10 @@
+- content_for :default do
+  #menu menu
+  #default
+    = image_tag "ina-fag.png"
+    - if flash[:notice]
+      %p.notice= flash[:notice]
+    - if flash[:alert]
+      %p.alert= flash[:alert]
+    = yield
+= render :file => 'layouts/application'

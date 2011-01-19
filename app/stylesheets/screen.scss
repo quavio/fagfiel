@@ -4,3 +4,66 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "compass/css3";
+
+$green: #00823c;
+$blue: #064e75;
+$orange: #b86400;
+$red: #b82900;
+$font: 12px;
+
+body{
+  background:$green;
+  padding:20px;
+  font-family:"Tahoma", "Geneva", "sans-serif";
+  font-size:$font;
+  line-height:150%;
+}
+
+#content{
+  background:white;
+  width:1000px;
+  margin:0 auto;
+  padding:10px;
+}
+
+#devise{
+  background:white;
+  padding:10px;
+  width:337px;
+  margin:0 auto;
+  @include box-shadow(white 2px 2px 10px);
+  @include border-radius(10px);
+  img{
+    margin:0 0 10px 0;
+  }
+}
+
+h2{
+  font-size:$font * 2;
+  padding:0 0 20px 0;
+}
+
+p{
+  padding:5px 0;
+}
+
+p.notice{
+  background:$green;
+  color:white;
+  padding:5px 5px;
+}
+
+p.alert{
+  background:$red;
+  color:white;
+  padding:5px 5px;
+}
+
+label{
+  font-weight:bold;
+}
+
+input{
+  font-size:$font * 1.5;
+}

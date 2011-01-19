@@ -19,4 +19,6 @@ group :test, :development do
   gem 'rcov'
   gem 'factory_girl_rails'
   gem 'mocha'
+  gem 'hpricot'
+  gem 'ruby_parser'
 end

@@ -62,6 +62,7 @@ GEM
       rake (>= 0.8.7)
     haml (3.0.24)
     has_scope (0.5.0)
+    hpricot (0.8.3)
     i18n (0.5.0)
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
@@ -113,12 +114,15 @@ GEM
       rspec-expectations (~> 2.0.1)
     rspec-rails (2.0.1)
       rspec (~> 2.0.0)
+    ruby_parser (2.0.5)
+      sexp_processor (~> 3.0)
     rubyzip (0.9.4)
     selenium-webdriver (0.1.1)
       childprocess (= 0.1.4)
       ffi (~> 0.6.3)
       json_pure
       rubyzip
+    sexp_processor (3.0.5)
     steak (1.0.0)
       rspec
     thor (0.14.6)
@@ -144,6 +148,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   haml
+  hpricot
   inherited_resources (>= 1.1.2)
   maxim-sexy_pg_constraints
   mocha
@@ -151,6 +156,7 @@ DEPENDENCIES
   rails (= 3.0.3)
   rcov
   rspec-rails (~> 2.0.1)
+  ruby_parser
   steak
   unicorn
   wirble
