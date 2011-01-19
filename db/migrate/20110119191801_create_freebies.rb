@@ -1,5 +1,5 @@
 require 'sexy_pg_constraints'
-class CreateFrebies < ActiveRecord::Migration
+class CreateFreebies < ActiveRecord::Migration
   def self.up
     create_table :freebies do |t|
       t.text :title, :null => false
@@ -12,6 +12,6 @@ class CreateFrebies < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :frebies
+    drop_table :freebies
   end
 end
