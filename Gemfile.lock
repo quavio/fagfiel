@@ -79,6 +79,7 @@ GEM
     mocha (0.9.8)
       rake
     nokogiri (1.4.4)
+    paperclip (2.3.1.1)
     pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -152,6 +153,7 @@ DEPENDENCIES
   inherited_resources (>= 1.1.2)
   maxim-sexy_pg_constraints
   mocha
+  paperclip
   pg
   rails (= 3.0.3)
   rcov

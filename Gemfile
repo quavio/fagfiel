@@ -10,6 +10,7 @@ gem 'inherited_resources', '>=1.1.2'
 gem 'maxim-sexy_pg_constraints'
 gem 'unicorn'
 gem 'devise'
+gem 'paperclip'
 
 group :test, :development do
   gem 'capybara', ">= 0.4.0"
