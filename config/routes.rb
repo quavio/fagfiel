@@ -1,5 +1,5 @@
 PortalInafag::Application.routes.draw do
-  get "miv/index"
+  match "miv" => "miv#index"
 
   devise_for :users
 
