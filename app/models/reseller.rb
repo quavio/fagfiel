@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Reseller < ActiveRecord::Base
   belongs_to :user
   belongs_to :manager, :class_name => 'User', :foreign_key => :manager_id
