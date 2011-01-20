@@ -10,13 +10,4 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 RSpec.configure do |config|
   config.mock_with :rspec
 
-  config.use_transactional_fixtures = false
-  config.before(:suite) do
-    ActiveRecord::Base.connection.execute "SET client_min_messages TO warning;"
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.clean
-  end
 end
