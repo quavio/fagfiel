@@ -1,10 +1,14 @@
 - content_for :default do
-  #menu menu
+  #menu
+    = link_to I18n.t("links.home"), root_path
+    = link_to I18n.t("links.resellers"), resellers_path
+    = link_to I18n.t("links.freebies"), root_path
   #default
-    = image_tag "ina-fag.png"
+    %h1 Revendas
     - if flash[:notice]
       %p.notice= flash[:notice]
     - if flash[:alert]
       %p.alert= flash[:alert]
     = yield
 = render :file => 'layouts/application'
+#footer ©2011 Imdepa Rolamentos Importação e Comércio Ltda

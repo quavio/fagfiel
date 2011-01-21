@@ -11,18 +11,37 @@ $blue: #064e75;
 $orange: #b86400;
 $red: #b82900;
 $font: 12px;
+$width: 940px;
 
 body{
   background:$green;
   padding:20px;
-  font-family:"Tahoma", "Geneva", "sans-serif";
-  font-size:$font;
+  font: normal normal normal $font 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
   line-height:150%;
 }
 
-#content{
+#menu{
+  width:$width;
+  margin:0 auto;
+  height:26px;
+  a {
+    background:darken($green, 10%);
+    color:white;
+    padding:10px 7px;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    @include border-radius(10px 10px 0 0);
+    &:hover, a.selected {
+      background:white;
+      color:darken($green, 10%);
+    }
+  }
+}
+
+#default{
   background:white;
-  width:1000px;
+  width:$width - 20;
   margin:0 auto;
   padding:10px;
 }
@@ -66,4 +85,11 @@ label{
 
 input{
   font-size:$font * 1.5;
+}
+
+#footer{
+  width:$width;
+  margin:0 auto;
+  margin-top:5px;
+  color: white;
 }

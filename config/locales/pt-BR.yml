@@ -211,3 +211,8 @@ pt-BR:
         subject: 'Instruções de reinicialização de senha'
       unlock_instructions:
         subject: 'Instruções de desbloqueio'  
+
+  links:
+    home: "Página inicial"
+    resellers: "Revendas"
+    freebies: "Brindes"
