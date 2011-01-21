@@ -5,5 +5,6 @@ PortalInafag::Application.routes.draw do
 
   devise_for :users
 
+  resources :freebies
   root :to => "home#index"
 end
