@@ -1,10 +1,15 @@
 - content_for :default do
-  #menu
-    = link_to I18n.t("links.home"), root_path
-    = link_to I18n.t("links.resellers"), resellers_path
-    = link_to I18n.t("links.freebies"), root_path
+  #header
+    %div
+      = image_tag "ina-fag.png", :id => "ina-fag"
+      = image_tag "imdepa.png", :id => "imdepa"
+    .clear
+    #menu
+      = link_to I18n.t("links.resellers"), resellers_path, :class => (params[:controller] == "resellers" ? "selected" : nil)
+      = link_to I18n.t("links.freebies"), freebies_path, :class => (params[:controller] == "freebies" ? "selected" : nil)
+      .clear
+  %h1= I18n.t "page_title.#{params[:controller]}.#{params[:action]}"
   #default
-    %h1 Revendas
     - if flash[:notice]
       %p.notice= flash[:notice]
     - if flash[:alert]

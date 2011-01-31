@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 14, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 14, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,42 +22,42 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 
-/* line 17, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
   color: black;
   background: white;
 }
 
-/* line 19, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 19, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 21, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
 }
 
-/* line 23, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 23, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 25, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 25, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: "" "";
 }
-/* line 96, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 96, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
 }
 
-/* line 27, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
@@ -65,107 +65,142 @@ a img {
 /* line 16, ../../../app/stylesheets/screen.scss */
 body {
   background: #00823c;
-  padding: 20px;
   font: normal normal normal 12px "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
   line-height: 150%;
 }
 
-/* line 23, ../../../app/stylesheets/screen.scss */
-#menu {
-  width: 940px;
-  margin: 0 auto;
-  height: 26px;
-}
-/* line 27, ../../../app/stylesheets/screen.scss */
-#menu a {
-  background: #004f24;
-  color: white;
-  padding: 10px 7px;
+/* line 22, ../../../app/stylesheets/screen.scss */
+h1 {
+  background: #e2f4fe;
+  font-size: 18px;
   font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
+  line-height: 150%;
+  margin: 0 auto;
+  padding: 10px;
+  width: 880px;
+}
+
+/* line 32, ../../../app/stylesheets/screen.scss */
+.clear {
+  clear: both;
+}
+
+/* line 34, ../../../app/stylesheets/screen.scss */
+#header {
+  background: white;
+  margin: 0 0 20px 0;
+  padding: 20px 0 0 0;
+}
+/* line 38, ../../../app/stylesheets/screen.scss */
+#header div {
+  width: 900px;
+  margin: 0 auto;
+}
+/* line 39, ../../../app/stylesheets/screen.scss */
+#header #ina-fag {
+  float: left;
+}
+/* line 40, ../../../app/stylesheets/screen.scss */
+#header #imdepa {
+  float: right;
+}
+/* line 42, ../../../app/stylesheets/screen.scss */
+#header #menu a {
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
   -o-border-radius: 10px 10px 0 0;
   -ms-border-radius: 10px 10px 0 0;
   -khtml-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
+  background: #004f24;
+  color: white;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-weight: bold;
+  margin: 0 5px 0 0;
+  padding: 10px 7px;
+  text-decoration: none;
 }
-/* line 35, ../../../app/stylesheets/screen.scss */
-#menu a:hover, #menu a a.selected {
-  background: white;
-  color: #004f24;
+/* line 53, ../../../app/stylesheets/screen.scss */
+#header #menu a:hover {
+  background: #00823c;
+}
+/* line 57, ../../../app/stylesheets/screen.scss */
+#header #menu a.selected {
+  background: #00823c;
 }
 
-/* line 42, ../../../app/stylesheets/screen.scss */
-#default {
-  background: white;
-  width: 920px;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-/* line 49, ../../../app/stylesheets/screen.scss */
+/* line 63, ../../../app/stylesheets/screen.scss */
 #devise {
-  background: white;
-  padding: 10px;
-  width: 337px;
-  margin: 0 auto;
-  -moz-box-shadow: white 2px 2px 10px 1px 1px 5px 0;
-  -webkit-box-shadow: white 2px 2px 10px 1px 1px 5px 0;
-  -o-box-shadow: white 2px 2px 10px 1px 1px 5px 0;
-  box-shadow: white 2px 2px 10px 1px 1px 5px 0;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   -o-border-radius: 10px;
   -ms-border-radius: 10px;
   -khtml-border-radius: 10px;
   border-radius: 10px;
+  -moz-box-shadow: white 2px 2px 10px 1px 1px 5px 0;
+  -webkit-box-shadow: white 2px 2px 10px 1px 1px 5px 0;
+  -o-box-shadow: white 2px 2px 10px 1px 1px 5px 0;
+  box-shadow: white 2px 2px 10px 1px 1px 5px 0;
+  background: white;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 10px;
+  width: 337px;
 }
-/* line 56, ../../../app/stylesheets/screen.scss */
+/* line 71, ../../../app/stylesheets/screen.scss */
 #devise img {
   margin: 0 0 10px 0;
 }
 
-/* line 61, ../../../app/stylesheets/screen.scss */
+/* line 76, ../../../app/stylesheets/screen.scss */
+#default {
+  background: white;
+  margin: 0 auto;
+  padding: 10px;
+  width: 880px;
+}
+
+/* line 83, ../../../app/stylesheets/screen.scss */
+#footer {
+  color: white;
+  margin-top: 5px;
+  margin: 0 auto;
+  width: 900px;
+}
+
+/* line 90, ../../../app/stylesheets/screen.scss */
 h2 {
   font-size: 24px;
   padding: 0 0 20px 0;
 }
 
-/* line 66, ../../../app/stylesheets/screen.scss */
+/* line 95, ../../../app/stylesheets/screen.scss */
 p {
   padding: 5px 0;
 }
 
-/* line 70, ../../../app/stylesheets/screen.scss */
+/* line 99, ../../../app/stylesheets/screen.scss */
 p.notice {
   background: #00823c;
   color: white;
   padding: 5px 5px;
 }
 
-/* line 76, ../../../app/stylesheets/screen.scss */
+/* line 105, ../../../app/stylesheets/screen.scss */
 p.alert {
   background: #b82900;
   color: white;
   padding: 5px 5px;
 }
 
-/* line 82, ../../../app/stylesheets/screen.scss */
+/* line 111, ../../../app/stylesheets/screen.scss */
 label {
   font-weight: bold;
 }
 
-/* line 86, ../../../app/stylesheets/screen.scss */
+/* line 115, ../../../app/stylesheets/screen.scss */
 input {
   font-size: 18px;
-}
-
-/* line 90, ../../../app/stylesheets/screen.scss */
-#footer {
-  width: 940px;
-  margin: 0 auto;
-  margin-top: 5px;
-  color: white;
 }

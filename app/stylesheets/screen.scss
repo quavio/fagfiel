@@ -11,51 +11,80 @@ $blue: #064e75;
 $orange: #b86400;
 $red: #b82900;
 $font: 12px;
-$width: 940px;
+$width: 900px;
 
 body{
   background:$green;
-  padding:20px;
   font: normal normal normal $font 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
   line-height:150%;
 }
 
-#menu{
-  width:$width;
+h1{
+  background:lighten($blue, 70%);
+  font-size:$font * 1.5;
+  font-weight:bold;
+  line-height:150%;
   margin:0 auto;
-  height:26px;
-  a {
-    background:darken($green, 10%);
-    color:white;
-    padding:10px 7px;
-    font-weight:bold;
-    cursor:pointer;
-    text-decoration:none;
-    @include border-radius(10px 10px 0 0);
-    &:hover, a.selected {
-      background:white;
-      color:darken($green, 10%);
+  padding:10px;
+  width:$width - 20;
+}
+
+.clear{ clear:both }
+
+#header{
+  background:white;
+  margin:0 0 20px 0;
+  padding:20px 0 0 0;
+  div{ width:$width; margin:0 auto; }
+  #ina-fag{ float:left }
+  #imdepa{ float:right }
+  #menu{
+    a {
+      @include border-radius(10px 10px 0 0);
+      background:darken($green, 10%);
+      color:white;
+      cursor:pointer;
+      display:block;
+      float:left;
+      font-weight:bold;
+      margin:0 5px 0 0;
+      padding:10px 7px;
+      text-decoration:none;
+      &:hover {
+        background:$green;
+      }
     }
+    a.selected {
+      background:$green;
+    }
+  }
+}
+
+#devise{
+  @include border-radius(10px);
+  @include box-shadow(white 2px 2px 10px);
+  background:white;
+  margin:0 auto;
+  margin-top:40px;
+  padding:10px;
+  width:337px;
+  img{
+    margin:0 0 10px 0;
   }
 }
 
 #default{
   background:white;
-  width:$width - 20;
   margin:0 auto;
   padding:10px;
+  width:$width - 20;
 }
 
-#devise{
-  background:white;
-  padding:10px;
-  width:337px;
+#footer{
+  color: white;
+  margin-top:5px;
   margin:0 auto;
-  @include box-shadow(white 2px 2px 10px);
-  @include border-radius(10px);
-  img{
-    margin:0 0 10px 0;
-  }
+  width:$width;
 }
 
 h2{
@@ -87,9 +116,3 @@ input{
   font-size:$font * 1.5;
 }
 
-#footer{
-  width:$width;
-  margin:0 auto;
-  margin-top:5px;
-  color: white;
-}

@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   protected 
   
   def specify_layout 
-    devise_controller? ? "devise" : "default" 
+    current_user ? "default" : "devise"
   end  
 end
