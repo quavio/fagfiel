@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ResellersController do
+  login
 
   describe "GET 'index'" do
     it "should be successful" do
