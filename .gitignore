@@ -5,3 +5,4 @@ tmp/**/*
 .*.swp
 schema.rb
 config/database.yml
+*.DS_Store
