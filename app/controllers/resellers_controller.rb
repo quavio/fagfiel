@@ -1,12 +1,4 @@
 class ResellersController < ApplicationController
-  def index
-  end
-
-  def edit
-    @reseller = Reseller.find params[:id]
-  end
-
-  def update
-  end
-
+  inherit_resources
+  defaults :resource_class => Reseller, :collection_name => 'resellers', :instance_name => 'reseller'
 end
