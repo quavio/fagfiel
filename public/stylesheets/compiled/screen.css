@@ -130,8 +130,23 @@ h1 {
 #header #menu a.selected {
   background: #00823c;
 }
+/* line 60, ../../../app/stylesheets/screen.scss */
+#header #menu #sign_out {
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -o-border-radius: 10px 10px 10px 10px;
+  -ms-border-radius: 10px 10px 10px 10px;
+  -khtml-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #9f2300;
+  padding: 7px 10px;
+}
+/* line 64, ../../../app/stylesheets/screen.scss */
+#header #menu #sign_out:hover {
+  background: #b82900;
+}
 
-/* line 63, ../../../app/stylesheets/screen.scss */
+/* line 71, ../../../app/stylesheets/screen.scss */
 #devise {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -149,12 +164,12 @@ h1 {
   padding: 10px;
   width: 337px;
 }
-/* line 71, ../../../app/stylesheets/screen.scss */
+/* line 79, ../../../app/stylesheets/screen.scss */
 #devise img {
   margin: 0 0 10px 0;
 }
 
-/* line 76, ../../../app/stylesheets/screen.scss */
+/* line 84, ../../../app/stylesheets/screen.scss */
 #default {
   background: white;
   margin: 0 auto;
@@ -162,7 +177,7 @@ h1 {
   width: 880px;
 }
 
-/* line 83, ../../../app/stylesheets/screen.scss */
+/* line 91, ../../../app/stylesheets/screen.scss */
 #footer {
   color: white;
   margin-top: 5px;
@@ -170,37 +185,45 @@ h1 {
   width: 900px;
 }
 
-/* line 90, ../../../app/stylesheets/screen.scss */
+/* line 98, ../../../app/stylesheets/screen.scss */
+#error_explanation {
+  border: #b82900 1px solid;
+  background: #ffc8b8;
+  color: #b82900;
+  padding: 10px;
+}
+
+/* line 105, ../../../app/stylesheets/screen.scss */
 h2 {
   font-size: 24px;
   padding: 0 0 20px 0;
 }
 
-/* line 95, ../../../app/stylesheets/screen.scss */
+/* line 110, ../../../app/stylesheets/screen.scss */
 p {
   padding: 5px 0;
 }
 
-/* line 99, ../../../app/stylesheets/screen.scss */
+/* line 114, ../../../app/stylesheets/screen.scss */
 p.notice {
   background: #00823c;
   color: white;
   padding: 5px 5px;
 }
 
-/* line 105, ../../../app/stylesheets/screen.scss */
+/* line 120, ../../../app/stylesheets/screen.scss */
 p.alert {
   background: #b82900;
   color: white;
   padding: 5px 5px;
 }
 
-/* line 111, ../../../app/stylesheets/screen.scss */
+/* line 126, ../../../app/stylesheets/screen.scss */
 label {
   font-weight: bold;
 }
 
-/* line 115, ../../../app/stylesheets/screen.scss */
+/* line 130, ../../../app/stylesheets/screen.scss */
 input {
   font-size: 18px;
 }
