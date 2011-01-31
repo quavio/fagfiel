@@ -169,6 +169,13 @@ pt-BR:
         odd: "deve ser ímpar"
         even: "deve ser par"
         record_invalid: "A validação falhou: %{errors}"
+    attributes:
+      user:
+        password: "Senha"
+        password_confirmation: "Repetir senha"
+        current_password: "Senha atual"
+        name: "Nome"
+        phone: "Telefone"
 
   errors:
     messages:
@@ -212,7 +219,20 @@ pt-BR:
       unlock_instructions:
         subject: 'Instruções de desbloqueio'  
 
+  helpers:
+    submit:
+      create: "Criar"
+      update: "Salvar"
+
   links:
     home: "Página inicial"
     resellers: "Revendas"
     freebies: "Brindes"
+
+  page_title:
+    resellers:
+      edit: "Alterar dados de revenda"
+      index: "Revendas"
+    "devise/registrations":
+      edit: "Meus dados"
+      update: "Meus dados"
