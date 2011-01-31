@@ -91,14 +91,15 @@ pt-BR:
         delimiter: '.'
     percentage:
       format:
-        delimiter: '.'
+        delimiter: ','
     precision:
       format:
-        delimiter: '.'
+        delimiter: ','
     human:
       format:
         precision: 2
         delimiter: '.'
+        separator: ','
         significant: true
         strip_unsignificant_zeros: true
       # number_to_human_size()
@@ -176,6 +177,10 @@ pt-BR:
         current_password: "Senha atual"
         name: "Nome"
         phone: "Telefone"
+      freebie:
+        title: "Nome"
+        description: "Descrição"
+        price: "Preço"
 
   errors:
     messages:
@@ -233,6 +238,7 @@ pt-BR:
     freebies:
       index: "Brindes"
       new: "Novo brinde"
+      show: "Brinde"
     resellers:
       edit: "Alterar dados de revenda"
       index: "Revendas"
@@ -246,3 +252,7 @@ pt-BR:
 
   actions: "Ações"
   back: "Voltar"
+  edit: "Alterar"
+  show: "Ver"
+  destroy: "Remover"
+  are_you_sure: "Você está certo disso?"

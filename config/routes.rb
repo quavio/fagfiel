@@ -3,7 +3,7 @@ PortalInafag::Application.routes.draw do
   resources :resellers
   resources :freebies
 
-  devise_for :users
+  devise_for :users, :path => '/', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
 
   match "miv" => "miv#index"
 
