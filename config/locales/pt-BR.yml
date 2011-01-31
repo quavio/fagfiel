@@ -242,9 +242,9 @@ pt-BR:
     resellers:
       edit: "Alterar dados de revenda"
       index: "Revendas"
-    "devise/registrations":
-      edit: "Meus dados"
-      update: "Meus dados"
+    users:
+      edit: "Alterar dados de usuário"
+      update: "Alterar dados de usuário"
 
   freebies:
     index:

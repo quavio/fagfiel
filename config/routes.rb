@@ -1,10 +1,11 @@
 PortalInafag::Application.routes.draw do
+  resources :users
   resources :resellers
-
-  match "miv" => "miv#index"
+  resources :freebies
 
   devise_for :users
 
-  resources :freebies
+  match "miv" => "miv#index"
+
   root :to => "home#index"
 end
