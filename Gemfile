@@ -17,7 +17,7 @@ group :test, :development do
   gem 'capybara', ">= 0.4.0"
   gem 'database_cleaner'
   gem 'steak'
-  gem 'rspec-rails', "~> 2.0.1"
+  gem 'rspec-rails', "~> 2.4.1"
   gem 'rcov'
   gem 'factory_girl_rails'
   gem 'mocha'
