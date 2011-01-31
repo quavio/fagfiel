@@ -11,6 +11,7 @@ gem 'maxim-sexy_pg_constraints'
 gem 'unicorn'
 gem 'devise'
 gem 'paperclip'
+gem 'formtastic', '>= 1.2.3'
 
 group :test, :development do
   gem 'capybara', ">= 0.4.0"

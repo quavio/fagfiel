@@ -17,8 +17,8 @@ pt-BR:
       default: "%A, %d de %B de %Y, %H:%M h"
       short: "%d/%m, %H:%M h"
       long: "%A, %d de %B de %Y, %H:%M h"
-    am: ''
-    pm: ''
+    am: ""
+    pm: ""
   
   # distancia do tempo em palavras
   datetime:
@@ -230,9 +230,19 @@ pt-BR:
     freebies: "Brindes"
 
   page_title:
+    freebies:
+      index: "Brindes"
+      new: "Novo brinde"
     resellers:
       edit: "Alterar dados de revenda"
       index: "Revendas"
     users:
       edit: "Alterar dados de usuário"
       update: "Alterar dados de usuário"
+
+  freebies:
+    index:
+      new_freebie: "Novo brinde"
+
+  actions: "Ações"
+  back: "Voltar"

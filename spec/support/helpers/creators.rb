@@ -14,5 +14,11 @@ module Creators
     }.merge(options)
     Reseller.create(defaults)
   end
+  def create_freebie options = {}
+    defaults = {
+      :title => "freebie #{(rand * 1000).round}"
+    }.merge(options)
+    Freebie.create(defaults)
+  end
 end
 RSpec.configuration.include Creators
