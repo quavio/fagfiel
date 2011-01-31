@@ -9,6 +9,6 @@ class AlterTableUserAddType < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :type
+    remove_column :users, :role
   end
 end
