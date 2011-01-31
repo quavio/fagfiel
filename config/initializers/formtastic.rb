@@ -77,4 +77,5 @@ Formtastic::SemanticFormBuilder.default_text_area_width = 50
 
 # You can add custom inputs or override parts of Formtastic by subclassing SemanticFormBuilder and
 # specifying that class here.  Defaults to SemanticFormBuilder.
-# Formtastic::SemanticFormHelper.builder = MyCustomBuilder
+require 'custom_form_builder'
+Formtastic::SemanticFormHelper.builder = CustomFormBuilder

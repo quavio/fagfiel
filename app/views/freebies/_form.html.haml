@@ -2,7 +2,7 @@
   - form.inputs "Basic", :id => "basic" do 
     = form.input :title, :as => :string, :required => true
     = form.input :description
-    = form.input :price, :required => true
+    = form.input :price, :required => true, :value_method => Proc.new { |a| "#{a}" }
   .actions
     - form.buttons do 
       = form.commit_button 
