@@ -1,13 +1,19 @@
-%p= link_to t('.new_freebie'), new_freeby_path
+%p= link_to t('.new_freebie'), new_freebie_path
 
 %table
   %thead
     %tr
+      %th{:colspan => 1}= Freebie.human_attribute_name('title')
+      %th{:colspan => 1}= Freebie.human_attribute_name('description')
+      %th{:colspan => 1}= Freebie.human_attribute_name('price')
       %th{:colspan => 3}= t 'actions'
   
   %tbody
-    - for freeby in @freebies
+    - for freebie in @freebies
       %tr{ :class => cycle(:odd, :even) }
-        %td.action= link_to t('show'), freeby
-        %td.action= link_to t('edit'), edit_freeby_path(freeby)
-        %td.action= link_to t('destroy'), freeby, :confirm => t('are_you_sure'), :method => :delete
+        %td= freebie.title
+        %td= freebie.description
+        %td= number_to_currency(freebie.price)
+        %td.action= link_to t('show'), freebie
+        %td.action= link_to t('edit'), edit_freebie_path(freebie)
+        %td.action= link_to t('destroy'), freebie, :confirm => t('are_you_sure'), :method => :delete
