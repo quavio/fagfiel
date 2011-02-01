@@ -7,7 +7,7 @@
     #menu
       = link_to I18n.t("links.resellers"), resellers_path, :class => (params[:controller] == "resellers" ? "selected" : nil)
       = link_to I18n.t("links.freebies"), freebies_path, :class => (params[:controller] == "freebies" ? "selected" : nil)
-      = link_to "Meus dados", edit_user_path(current_user), :class => (params[:controller] == "users" && params[:action] == "edit" && params[:id] == current_user.id.to_s ? "selected" : nil)
+      = link_to "Meus dados", edit_user_path(current_user), :class => (params[:controller] == "users" ? "selected" : nil)
       = link_to "Sair", destroy_user_session_path, :id => "sign_out"
       .clear
   %h1= I18n.t "page_title.#{params[:controller]}.#{params[:action]}"

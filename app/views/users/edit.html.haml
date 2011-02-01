@@ -1,24 +1,13 @@
-= form_for @user do |f|
+= semantic_form_for @user do |form|
   - if @user.errors.any?
     #error_explanation
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  %p
-    = f.label :name
-    %br/
-    = f.text_field :name
-  %p
-    = f.label :phone
-    %br/
-    = f.text_field :phone
-  %p
-    = f.label :password
-    %i (deixe em branco se você não quiser trocar de senha)
-    %br/
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %p= f.submit
+  - form.inputs do
+    = form.input :name, :as => :string
+    = form.input :phone, :as => :string
+    = form.input :password, :as => :password, :required => false, :hint => "Deixe em branco caso não queira trocar de senha"
+    = form.input :password_confirmation, :as => :password
+  - form.buttons do
+    = form.commit_button

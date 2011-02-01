@@ -256,3 +256,7 @@ pt-BR:
   show: "Ver"
   destroy: "Remover"
   are_you_sure: "Você está certo disso?"
+
+  formtastic:
+    actions:
+      update: "Salvar"

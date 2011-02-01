@@ -52,20 +52,20 @@ h1{
       text-decoration:none;
       &:hover {
         background:$green;
-      }
-    }
-    a.selected {
-      background:$green;
-    }
-    #sign_out {
-      @include border-radius(10px 10px 10px 10px);
-      background:darken($red, 5%);
-      padding:7px 10px;
-      &:hover{
-        background:$red;
-      }
     }
   }
+  a.selected {
+    background:$green;
+  }
+  #sign_out {
+    @include border-radius(10px 10px 10px 10px);
+    background:darken($red, 5%);
+    padding:7px 10px;
+    &:hover{
+      background:$red;
+    }
+  }
+}
 }
 
 #devise{
@@ -78,7 +78,7 @@ h1{
   width:337px;
   img{
     margin:0 0 10px 0;
-  }
+}
 }
 
 #default{
@@ -95,11 +95,20 @@ h1{
   width:$width;
 }
 
-#error_explanation{
+#error_explanation, p.alert{
   border:$red 1px solid;
   background:lighten($red, 50%);
   color:$red;
-  padding:10px;
+  padding:5px;
+  margin:0 0 10px 0;
+}
+
+p.notice{
+  border:$green 1px solid;
+  background:lighten($green, 70%);
+  color:$green;
+  padding:5px;
+  margin:0 0 10px 0;
 }
 
 h2{
@@ -111,18 +120,6 @@ p{
   padding:5px 0;
 }
 
-p.notice{
-  background:$green;
-  color:white;
-  padding:5px 5px;
-}
-
-p.alert{
-  background:$red;
-  color:white;
-  padding:5px 5px;
-}
-
 label{
   font-weight:bold;
 }
@@ -131,3 +128,17 @@ input{
   font-size:$font * 1.5;
 }
 
+form{
+  input{display:block;}
+  .inline-hints{
+    font-style:italic;
+    color:gray;
+  }
+  .inline-errors{display:none;}
+  .inputs{
+    li{margin:0 0 15px 0;}
+    li.error{
+      input{background:lighten($red, 50%);}
+    }
+  }
+}

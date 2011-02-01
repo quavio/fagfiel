@@ -1,1 +1,21 @@
-%h1 A revenda X alterou seus dados cadastrais...
+%table{:width => "100%", :bgcolor => "#00823c"}
+  %tr
+    %td{:height => "10px"}
+  %tr
+    %td
+      %table{:align => "center", :cellpadding => "10px"}
+        %tr
+          %td{:width => "600px", :bgcolor => "white"}
+            %p
+              %b
+                O cadastro da revenda
+                = @user.reseller.name
+                foi alterado:
+            %p
+              Nome do responsável:
+              %b= @user.name
+            %p
+              Telefone:
+              %b= @user.phone
+  %tr
+    %td{:height => "10px"}
