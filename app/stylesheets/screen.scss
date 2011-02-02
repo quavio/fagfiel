@@ -13,6 +13,25 @@ $red: #b82900;
 $font: 12px;
 $width: 900px;
 
+@mixin button($color, $font_size = $font) {
+  color:white;
+  padding:5px 10px;
+  font-size:$font-size;
+  line-height:150%;
+  text-decoration:none;
+  border:1px solid darken($color, 1%);
+  background:$color;
+  @include text-shadow(black, -1px, -1px, -1px);
+  @include linear-gradient(color-stops(lighten($color, 20%), $color));
+  @include border-radius(5px);
+  &:hover {
+    background:lighten($color, 20%);
+    @include linear-gradient(color-stops(lighten($color, 20%), $color));
+    @include box-shadow($color, 0, 0, 10px);
+    @include transition(all, 0.2s, linear);
+}
+}
+
 body{
   background:$green;
   font: normal normal normal $font 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
@@ -27,6 +46,7 @@ h1{
   margin:0 auto;
   padding:10px;
   width:$width - 20;
+  @include box-shadow(black, 2px, 2px, 2px);
 }
 
 .clear{ clear:both }
@@ -39,6 +59,7 @@ h1{
   #ina-fag{ float:left }
   #imdepa{ float:right }
   #menu{
+    margin-top:20px;
     a {
       @include border-radius(10px 10px 0 0);
       background:darken($green, 10%);
@@ -52,20 +73,17 @@ h1{
       text-decoration:none;
       &:hover {
         background:$green;
+      }
+    }
+    a.selected {
+      background:$green;
+    }
+    #sign_out {
+      @include button($red);
+      float:right;
+      margin:0;
     }
   }
-  a.selected {
-    background:$green;
-  }
-  #sign_out {
-    @include border-radius(10px 10px 10px 10px);
-    background:darken($red, 5%);
-    padding:7px 10px;
-    &:hover{
-      background:$red;
-    }
-  }
-}
 }
 
 #devise{
@@ -86,12 +104,13 @@ h1{
   margin:0 auto;
   padding:10px;
   width:$width - 20;
+  @include box-shadow(black, 2px, 2px, 2px);
 }
 
 #footer{
   color:white;
-  margin-top:5px;
   margin:0 auto;
+  margin-top:10px;
   width:$width;
 }
 
@@ -137,14 +156,14 @@ form{
   .inline-hints{
     font-style:italic;
     color:gray;
-  }
-  .inline-errors{display:none;}
-  .inputs{
-    li{margin:0 0 15px 0;}
-    li.error{
-      input{background:lighten($red, 50%);}
-    }
-  }
+}
+.inline-errors{display:none;}
+.inputs{
+  li{margin:0 0 15px 0;}
+  li.error{
+    input{background:lighten($red, 50%);}
+}
+}
 }
 
 .freebie{
@@ -154,24 +173,28 @@ form{
   img{
     float:left;
     margin:0 15px 0 0;
-  }
-  a{
-    font-size:$font * 2;
-  }
-  .description{
-    float:left;
-    width:600px;
-  }
-  .price{
-    float:right;
-    color:$red;
-    font-size:$font * 2;
-    font-weight:bold;
-  }
+}
+a{
+  font-size:$font * 2;
+}
+.description{
+  float:left;
+  width:600px;
+}
+.price{
+  float:right;
+  color:$red;
+  font-size:$font * 2;
+  font-weight:bold;
+}
 }
 
 .last{
   margin:0;
   padding:0;
   border:none;
+}
+
+.confirm_button{
+  @include button($blue, $font * 2);
 }

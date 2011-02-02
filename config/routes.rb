@@ -7,5 +7,5 @@ PortalInafag::Application.routes.draw do
 
   match "miv" => "miv#index"
 
-  root :to => "home#index"
+  root :to => "resellers#index"
 end

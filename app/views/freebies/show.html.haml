@@ -1,5 +1,7 @@
 %p
   = link_to t('back'), freebies_path
-  = link_to t('edit'), edit_freebie_path(@freeby)
+  = link_to t('edit'), edit_freebie_path(@freeby), :id => "alterar"
+  = link_to "Resgatar", root_path, :class => "confirm_button"
 
 %dl
+
