@@ -1,8 +1,9 @@
-= semantic_form_for @freebie do |form|
+= semantic_form_for @freebie, :html => { :multipart => true } do |form|
   - form.inputs "Basic", :id => "basic" do 
     = form.input :title, :as => :string, :required => true
-    = form.input :description
     = form.input :price, :required => true, :value_method => Proc.new { |a| "#{a}" }
+    = form.input :description
+    = form.input :image, :as => :file
   .actions
     - form.buttons do 
       = form.commit_button 

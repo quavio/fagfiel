@@ -6,3 +6,4 @@ tmp/**/*
 schema.rb
 config/database.yml
 *.DS_Store
+public/system

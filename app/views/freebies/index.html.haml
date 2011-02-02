@@ -1,19 +1,11 @@
-%p= link_to t('.new_freebie'), new_freebie_path
+- if current_user.role == "a"
+  %p= link_to t('.new_freebie'), new_freebie_path
 
-%table
-  %thead
-    %tr
-      %th{:colspan => 1}= Freebie.human_attribute_name('title')
-      %th{:colspan => 1}= Freebie.human_attribute_name('description')
-      %th{:colspan => 1}= Freebie.human_attribute_name('price')
-      %th{:colspan => 3}= t 'actions'
-  
-  %tbody
-    - for freebie in @freebies
-      %tr{ :class => cycle(:odd, :even) }
-        %td= freebie.title
-        %td= freebie.description
-        %td= number_to_currency(freebie.price)
-        %td.action= link_to t('show'), freebie
-        %td.action= link_to t('edit'), edit_freebie_path(freebie)
-        %td.action= link_to t('destroy'), freebie, :confirm => t('are_you_sure'), :method => :delete
+- for freebie in @freebies
+  .freebie{:class => @freebies.last == freebie ? "last" : nil}
+    = image_tag freebie.image.url(:normal)
+    .description
+      = link_to freebie.title, freebie
+      %p= freebie.description
+    .price= number_to_currency(freebie.price)
+    .clear

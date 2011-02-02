@@ -128,6 +128,10 @@ input{
   font-size:$font * 1.5;
 }
 
+a{
+  color:$blue;
+}
+
 form{
   input{display:block;}
   .inline-hints{
@@ -141,4 +145,33 @@ form{
       input{background:lighten($red, 50%);}
     }
   }
+}
+
+.freebie{
+  margin:0 0 15px 0;
+  padding:0 0 15px 0;
+  border-bottom:1px solid lightgray;
+  img{
+    float:left;
+    margin:0 15px 0 0;
+  }
+  a{
+    font-size:$font * 2;
+  }
+  .description{
+    float:left;
+    width:600px;
+  }
+  .price{
+    float:right;
+    color:$red;
+    font-size:$font * 2;
+    font-weight:bold;
+  }
+}
+
+.last{
+  margin:0;
+  padding:0;
+  border:none;
 }

@@ -224,24 +224,64 @@ input {
   font-size: 18px;
 }
 
-/* line 132, ../../../app/stylesheets/screen.scss */
+/* line 131, ../../../app/stylesheets/screen.scss */
+a {
+  color: #064e75;
+}
+
+/* line 136, ../../../app/stylesheets/screen.scss */
 form input {
   display: block;
 }
-/* line 133, ../../../app/stylesheets/screen.scss */
+/* line 137, ../../../app/stylesheets/screen.scss */
 form .inline-hints {
   font-style: italic;
   color: gray;
 }
-/* line 137, ../../../app/stylesheets/screen.scss */
+/* line 141, ../../../app/stylesheets/screen.scss */
 form .inline-errors {
   display: none;
 }
-/* line 139, ../../../app/stylesheets/screen.scss */
+/* line 143, ../../../app/stylesheets/screen.scss */
 form .inputs li {
   margin: 0 0 15px 0;
 }
-/* line 141, ../../../app/stylesheets/screen.scss */
+/* line 145, ../../../app/stylesheets/screen.scss */
 form .inputs li.error input {
   background: #ffc8b8;
+}
+
+/* line 150, ../../../app/stylesheets/screen.scss */
+.freebie {
+  margin: 0 0 15px 0;
+  padding: 0 0 15px 0;
+  border-bottom: 1px solid lightgray;
+}
+/* line 154, ../../../app/stylesheets/screen.scss */
+.freebie img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+/* line 158, ../../../app/stylesheets/screen.scss */
+.freebie a {
+  font-size: 24px;
+}
+/* line 161, ../../../app/stylesheets/screen.scss */
+.freebie .description {
+  float: left;
+  width: 600px;
+}
+/* line 165, ../../../app/stylesheets/screen.scss */
+.freebie .price {
+  float: right;
+  color: #b82900;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* line 173, ../../../app/stylesheets/screen.scss */
+.last {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
