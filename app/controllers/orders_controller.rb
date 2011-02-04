@@ -11,8 +11,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to(@order.freebie, :notice => I18n.t("notices.orders.create")) }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
-        @freebie = @order.freebie
-        format.html { render "freebies/show" }
+        format.html { redirect_to(@order.freebie, :alert => I18n.t("alerts.orders.insuficient_found", :reseller => @order.reseller.name)) }
         format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
       end
     end
