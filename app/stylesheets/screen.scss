@@ -57,12 +57,34 @@ h1{
 #header{
   background:white;
   margin:0 0 20px 0;
-  padding:20px 0 0 0;
-  div{ width:$width; margin:0 auto; }
-  #ina-fag{ float:left }
-  #imdepa{ float:right }
+  #top, #menu{ width:$width; margin:0 auto; }
+  #top{padding:10px 0 0 0;}
+  #connected_as{
+    margin:0 auto;
+    width:200px;
+    div{
+      @include border-radius(0 0 5px 5px);
+      background:lighten(gray, 40%);
+      @include linear-gradient(color-stops(lighten(gray,50%), lighten(gray, 30%)));
+      font-weight:bold;
+      border:lighten(gray, 30%) 1px solid;
+      border-top:0;
+      position:fixed;
+      top:0;
+      text-align:center;
+      padding:5px 10px;
+      color:lighten(gray, 30%);
+      .sign_out{ color:$red; }
+      a{
+        text-decoration:none;
+        &:hover{ text-decoration:underline; }
+      }
+    }
+  }
+  #ina-fag{ float:left; }
+  #imdepa{ float:right; }
   #menu{
-    margin-top:20px;
+    margin-top:10px;
     a {
       @include border-radius(10px 10px 0 0);
       background:darken($green, 10%);
@@ -86,11 +108,6 @@ h1{
       margin-top:0;
       border:1px $green solid;
       @include linear-gradient(color-stops(lighten($green, 10%), $green));
-    }
-    #sign_out {
-      @include button($red);
-      float:right;
-      margin:0;
     }
   }
 }

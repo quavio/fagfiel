@@ -271,3 +271,8 @@ pt-BR:
   alerts:
     orders:
       insuficient_found: "A %{reseller} não possui saldo suficiente para resgatar este brinde"
+
+  roles:
+    a: "Administrador"
+    m: "Gerente"
+    r: "Revenda"
