@@ -1,7 +1,35 @@
+- content_for :title, @freebie.title
+
+= semantic_form_for @order do |form|
+  %table
+    %tr
+      %td Saldo disponível:
+      %td
+        %b= number_to_currency current_user.reseller.balance
+    %tr
+      %td Valor do brinde:
+      %td
+        %b= number_to_currency @freebie.price
+    %tr
+      %td Saldo disponível - Valor do brinde:
+      %td
+        %b= number_to_currency(current_user.reseller.balance - @freebie.price)
+  - if @order.errors.any?
+    #error_explanation
+      %ul
+        - @order.errors.full_messages.each do |msg|
+          %li= msg
+  = form.inputs do
+    = form.input :freebie_id, :as => :hidden
+    = form.input :reseller_id, :as => :hidden
+  = form.buttons do
+    = form.commit_button :button_html => { :class => "confirm_button" }, :label => "Resgatar"
+
 %p
-  = link_to t('back'), freebies_path
-  = link_to t('edit'), edit_freebie_path(@freeby), :id => "alterar"
-  = link_to "Resgatar", root_path, :class => "confirm_button"
+  = link_to "Lista de brindes", freebies_path
+  - if current_user.role == "a"
+    |
+    = link_to "Alterar brinde", edit_freebie_path(@freebie), :id => "alterar"
 
-%dl
-
+= image_tag @freebie.image.url(:original), :class => "freebie"
+%p= @freebie.description
