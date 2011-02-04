@@ -12,8 +12,8 @@ feature "Redeem Freebie", %q{
       :role => "r", 
       :email => "reseller@quavio.com.br", 
       :password => "123456", 
-      :password_confirmation => "123456", 
-      :reseller => create_reseller(:goal => 1000, :credits => 1000))
+      :password_confirmation => "123456") 
+    create_reseller(:goal => 1000, :credits => 1000, :user => user)
     freebie = create_freebie(:price => 1000)
     visit "/login"
     fill_in "E-mail", :with => "reseller@quavio.com.br"
@@ -25,6 +25,7 @@ feature "Redeem Freebie", %q{
     click_link "Resgatar"
     
     # Then my debits should increase
+    raise user.reseller.debits.to_i.inspect
     user.reseller.debits.should be_eql(1000)
 
     # And it should send an email alerting about my redeem
