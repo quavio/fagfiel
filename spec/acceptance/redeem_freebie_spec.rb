@@ -25,7 +25,6 @@ feature "Redeem Freebie", %q{
     click_link "Resgatar"
     
     # Then my debits should increase
-    raise user.reseller.debits.to_i.inspect
     user.reseller.debits.should be_eql(1000)
 
     # And it should send an email alerting about my redeem

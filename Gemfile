@@ -12,7 +12,9 @@ gem 'unicorn'
 gem 'devise'
 gem 'paperclip'
 gem 'formtastic', '>= 1.2.3'
-
+git 'git@github.com:diogob/activerecord-postgres-copy.git' do
+  gem 'activerecord-postgres-copy'
+end
 group :test, :development do
   gem 'capybara', ">= 0.4.0"
   gem 'database_cleaner'

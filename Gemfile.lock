@@ -1,3 +1,9 @@
+GIT
+  remote: git@github.com:diogob/activerecord-postgres-copy.git
+  revision: 8c3904b60c47d9f3a68dc51a144d7d8beea1110e
+  specs:
+    activerecord-postgres-copy (0.0.0)
+
 GEM
   remote: http://rubygems.org/
   remote: http://gems.github.com/
@@ -150,6 +156,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgres-copy!
   capybara (>= 0.4.0)
   compass
   database_cleaner
