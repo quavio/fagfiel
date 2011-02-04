@@ -170,6 +170,7 @@ pt-BR:
         odd: "deve ser ímpar"
         even: "deve ser par"
         record_invalid: "A validação falhou: %{errors}"
+        insuficient_found: "não possui saldo suficiente para resgatar este brinde"
     attributes:
       user:
         password: "Senha"
@@ -181,6 +182,8 @@ pt-BR:
         title: "Nome"
         description: "Descrição"
         price: "Preço"
+      order:
+        reseller: "Revenda"
 
   errors:
     messages:
@@ -233,6 +236,7 @@ pt-BR:
     home: "Página inicial"
     resellers: "Revendas"
     freebies: "Brindes"
+    orders: "Resgates"
 
   page_title:
     freebies:
@@ -260,3 +264,7 @@ pt-BR:
   formtastic:
     actions:
       update: "Salvar"
+
+  notices:
+    orders:
+      create: "Resgate efetuado, aguarde para receber seu brinde."

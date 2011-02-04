@@ -62,14 +62,14 @@ a img {
   border: none;
 }
 
-/* line 35, ../../../app/stylesheets/screen.scss */
+/* line 38, ../../../app/stylesheets/screen.scss */
 body {
   background: #00823c;
   font: normal normal normal 12px "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
   line-height: 150%;
 }
 
-/* line 41, ../../../app/stylesheets/screen.scss */
+/* line 44, ../../../app/stylesheets/screen.scss */
 h1 {
   background: #e2f4fe;
   font-size: 18px;
@@ -84,35 +84,38 @@ h1 {
   box-shadow: black 2px 2px 2px 0;
 }
 
-/* line 52, ../../../app/stylesheets/screen.scss */
+/* line 55, ../../../app/stylesheets/screen.scss */
 .clear {
   clear: both;
+  padding: 0;
+  margin: 0;
+  height: 0;
 }
 
-/* line 54, ../../../app/stylesheets/screen.scss */
+/* line 57, ../../../app/stylesheets/screen.scss */
 #header {
   background: white;
   margin: 0 0 20px 0;
   padding: 20px 0 0 0;
 }
-/* line 58, ../../../app/stylesheets/screen.scss */
+/* line 61, ../../../app/stylesheets/screen.scss */
 #header div {
   width: 900px;
   margin: 0 auto;
 }
-/* line 59, ../../../app/stylesheets/screen.scss */
+/* line 62, ../../../app/stylesheets/screen.scss */
 #header #ina-fag {
   float: left;
 }
-/* line 60, ../../../app/stylesheets/screen.scss */
+/* line 63, ../../../app/stylesheets/screen.scss */
 #header #imdepa {
   float: right;
 }
-/* line 61, ../../../app/stylesheets/screen.scss */
+/* line 64, ../../../app/stylesheets/screen.scss */
 #header #menu {
   margin-top: 20px;
 }
-/* line 63, ../../../app/stylesheets/screen.scss */
+/* line 66, ../../../app/stylesheets/screen.scss */
 #header #menu a {
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
@@ -126,19 +129,27 @@ h1 {
   display: block;
   float: left;
   font-weight: bold;
-  margin: 0 5px 0 0;
-  padding: 10px 7px;
+  text-shadow: black -1px -1px -1px;
+  margin: 7px 0 0 0;
+  padding: 7px 7px 5px 7px;
   text-decoration: none;
 }
-/* line 74, ../../../app/stylesheets/screen.scss */
-#header #menu a:hover {
-  background: #00823c;
-}
 /* line 78, ../../../app/stylesheets/screen.scss */
+#header #menu a:hover {
+  padding-bottom: 12px;
+  margin-top: 0;
+}
+/* line 83, ../../../app/stylesheets/screen.scss */
 #header #menu a.selected {
   background: #00823c;
+  padding-bottom: 10px;
+  margin-top: 0;
+  border: 1px #00823c solid;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #00b554), color-stop(100%, #00823c));
+  background-image: -moz-linear-gradient(top, #00b554 0%, #00823c 100%);
+  background-image: linear-gradient(top, #00b554 0%, #00823c 100%);
 }
-/* line 81, ../../../app/stylesheets/screen.scss */
+/* line 90, ../../../app/stylesheets/screen.scss */
 #header #menu #sign_out {
   color: white;
   padding: 5px 10px;
@@ -147,29 +158,26 @@ h1 {
   text-decoration: none;
   border: 1px solid #b32800;
   background: #b82900;
+  cursor: pointer;
   text-shadow: black -1px -1px -1px;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ff511f), color-stop(100%, #b82900));
   background-image: -moz-linear-gradient(top, #ff511f 0%, #b82900 100%);
   background-image: linear-gradient(top, #ff511f 0%, #b82900 100%);
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
   float: right;
   margin: 0;
 }
-/* line 27, ../../../app/stylesheets/screen.scss */
+/* line 28, ../../../app/stylesheets/screen.scss */
 #header #menu #sign_out:hover {
   background: #ff511f;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ff511f), color-stop(100%, #b82900));
-  background-image: -moz-linear-gradient(top, #ff511f 0%, #b82900 100%);
-  background-image: linear-gradient(top, #ff511f 0%, #b82900 100%);
-  -moz-box-shadow: #b82900 0 0 10px 0;
-  -webkit-box-shadow: #b82900 0 0 10px 0;
-  -o-box-shadow: #b82900 0 0 10px 0;
-  box-shadow: #b82900 0 0 10px 0;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ff7952), color-stop(100%, #b82900));
+  background-image: -moz-linear-gradient(top, #ff7952 0%, #b82900 100%);
+  background-image: linear-gradient(top, #ff7952 0%, #b82900 100%);
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -183,8 +191,14 @@ h1 {
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
 }
+/* line 33, ../../../app/stylesheets/screen.scss */
+#header #menu #sign_out:active {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ff511f), color-stop(100%, #b82900));
+  background-image: -moz-linear-gradient(top, #ff511f 0%, #b82900 100%);
+  background-image: linear-gradient(top, #ff511f 0%, #b82900 100%);
+}
 
-/* line 89, ../../../app/stylesheets/screen.scss */
+/* line 98, ../../../app/stylesheets/screen.scss */
 #devise {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -202,12 +216,16 @@ h1 {
   padding: 10px;
   width: 337px;
 }
-/* line 97, ../../../app/stylesheets/screen.scss */
+/* line 106, ../../../app/stylesheets/screen.scss */
 #devise img {
   margin: 0 0 10px 0;
 }
+/* line 109, ../../../app/stylesheets/screen.scss */
+#devise input[type="text"], #devise input[type="password"] {
+  width: 80%;
+}
 
-/* line 102, ../../../app/stylesheets/screen.scss */
+/* line 114, ../../../app/stylesheets/screen.scss */
 #default {
   background: white;
   margin: 0 auto;
@@ -219,7 +237,7 @@ h1 {
   box-shadow: black 2px 2px 2px 0;
 }
 
-/* line 110, ../../../app/stylesheets/screen.scss */
+/* line 122, ../../../app/stylesheets/screen.scss */
 #footer {
   color: white;
   margin: 0 auto;
@@ -227,7 +245,7 @@ h1 {
   width: 900px;
 }
 
-/* line 117, ../../../app/stylesheets/screen.scss */
+/* line 129, ../../../app/stylesheets/screen.scss */
 #error_explanation, p.alert {
   border: #b82900 1px solid;
   background: #ffc8b8;
@@ -236,99 +254,99 @@ h1 {
   margin: 0 0 10px 0;
 }
 
-/* line 125, ../../../app/stylesheets/screen.scss */
+/* line 137, ../../../app/stylesheets/screen.scss */
 p.notice {
   border: #00823c 1px solid;
-  background: #e8fff3;
+  background: #ceffe5;
   color: #00823c;
   padding: 5px;
   margin: 0 0 10px 0;
 }
 
-/* line 133, ../../../app/stylesheets/screen.scss */
+/* line 145, ../../../app/stylesheets/screen.scss */
 h2 {
   font-size: 24px;
   padding: 0 0 20px 0;
 }
 
-/* line 138, ../../../app/stylesheets/screen.scss */
+/* line 150, ../../../app/stylesheets/screen.scss */
 p {
   padding: 5px 0;
 }
 
-/* line 142, ../../../app/stylesheets/screen.scss */
+/* line 154, ../../../app/stylesheets/screen.scss */
 label {
   font-weight: bold;
 }
 
-/* line 146, ../../../app/stylesheets/screen.scss */
+/* line 158, ../../../app/stylesheets/screen.scss */
 input {
   font-size: 18px;
 }
 
-/* line 150, ../../../app/stylesheets/screen.scss */
+/* line 162, ../../../app/stylesheets/screen.scss */
 a {
   color: #064e75;
 }
 
-/* line 155, ../../../app/stylesheets/screen.scss */
-form input {
+/* line 167, ../../../app/stylesheets/screen.scss */
+form input[type="text"], form input[type="password"] {
   display: block;
 }
-/* line 156, ../../../app/stylesheets/screen.scss */
+/* line 168, ../../../app/stylesheets/screen.scss */
 form .inline-hints {
   font-style: italic;
   color: gray;
 }
-/* line 160, ../../../app/stylesheets/screen.scss */
+/* line 172, ../../../app/stylesheets/screen.scss */
 form .inline-errors {
   display: none;
 }
-/* line 162, ../../../app/stylesheets/screen.scss */
+/* line 174, ../../../app/stylesheets/screen.scss */
 form .inputs li {
   margin: 0 0 15px 0;
 }
-/* line 164, ../../../app/stylesheets/screen.scss */
+/* line 176, ../../../app/stylesheets/screen.scss */
 form .inputs li.error input {
   background: #ffc8b8;
 }
 
-/* line 169, ../../../app/stylesheets/screen.scss */
-.freebie {
+/* line 181, ../../../app/stylesheets/screen.scss */
+div.freebie {
   margin: 0 0 15px 0;
   padding: 0 0 15px 0;
   border-bottom: 1px solid lightgray;
 }
-/* line 173, ../../../app/stylesheets/screen.scss */
-.freebie img {
+/* line 185, ../../../app/stylesheets/screen.scss */
+div.freebie img {
   float: left;
   margin: 0 15px 0 0;
 }
-/* line 177, ../../../app/stylesheets/screen.scss */
-.freebie a {
+/* line 189, ../../../app/stylesheets/screen.scss */
+div.freebie a {
   font-size: 24px;
 }
-/* line 180, ../../../app/stylesheets/screen.scss */
-.freebie .description {
+/* line 192, ../../../app/stylesheets/screen.scss */
+div.freebie .description {
   float: left;
   width: 600px;
 }
-/* line 184, ../../../app/stylesheets/screen.scss */
-.freebie .price {
+/* line 196, ../../../app/stylesheets/screen.scss */
+div.freebie .price {
   float: right;
   color: #b82900;
   font-size: 24px;
   font-weight: bold;
 }
 
-/* line 192, ../../../app/stylesheets/screen.scss */
-.last {
+/* line 204, ../../../app/stylesheets/screen.scss */
+div.last {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-/* line 198, ../../../app/stylesheets/screen.scss */
+/* line 210, ../../../app/stylesheets/screen.scss */
 .confirm_button {
   color: white;
   padding: 5px 10px;
@@ -337,27 +355,24 @@ form .inputs li.error input {
   text-decoration: none;
   border: 1px solid #064b70;
   background: #064e75;
+  cursor: pointer;
   text-shadow: black -1px -1px -1px;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #0b8fd6), color-stop(100%, #064e75));
   background-image: -moz-linear-gradient(top, #0b8fd6 0%, #064e75 100%);
   background-image: linear-gradient(top, #0b8fd6 0%, #064e75 100%);
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
 }
-/* line 27, ../../../app/stylesheets/screen.scss */
+/* line 28, ../../../app/stylesheets/screen.scss */
 .confirm_button:hover {
   background: #0b8fd6;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #0b8fd6), color-stop(100%, #064e75));
-  background-image: -moz-linear-gradient(top, #0b8fd6 0%, #064e75 100%);
-  background-image: linear-gradient(top, #0b8fd6 0%, #064e75 100%);
-  -moz-box-shadow: #064e75 0 0 10px 0;
-  -webkit-box-shadow: #064e75 0 0 10px 0;
-  -o-box-shadow: #064e75 0 0 10px 0;
-  box-shadow: #064e75 0 0 10px 0;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #20a9f4), color-stop(100%, #064e75));
+  background-image: -moz-linear-gradient(top, #20a9f4 0%, #064e75 100%);
+  background-image: linear-gradient(top, #20a9f4 0%, #064e75 100%);
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -370,4 +385,45 @@ form .inputs li.error input {
   -webkit-transition-timing-function: linear;
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
+}
+/* line 33, ../../../app/stylesheets/screen.scss */
+.confirm_button:active {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #0b8fd6), color-stop(100%, #064e75));
+  background-image: -moz-linear-gradient(top, #0b8fd6 0%, #064e75 100%);
+  background-image: linear-gradient(top, #0b8fd6 0%, #064e75 100%);
+}
+
+/* line 214, ../../../app/stylesheets/screen.scss */
+.order {
+  float: right;
+  width: 350px;
+}
+/* line 215, ../../../app/stylesheets/screen.scss */
+.order ol, .order li {
+  margin: 0;
+  padding: 0;
+  height: 0;
+}
+/* line 217, ../../../app/stylesheets/screen.scss */
+.order #error_explanation ol, .order #error_explanation li {
+  height: auto;
+}
+/* line 221, ../../../app/stylesheets/screen.scss */
+.order input {
+  float: right;
+}
+/* line 224, ../../../app/stylesheets/screen.scss */
+.order table {
+  width: 100%;
+  margin: 0 0 10px 0;
+  background: lightgray;
+}
+/* line 228, ../../../app/stylesheets/screen.scss */
+.order table td {
+  padding: 10px;
+}
+
+/* line 234, ../../../app/stylesheets/screen.scss */
+img.freebie {
+  max-width: 400px;
 }

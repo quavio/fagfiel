@@ -18,6 +18,7 @@ describe FreebiesController do
     it "assigns the requested freebie as @freebie" do
       get :show, :id => @freebie.id
       assigns(:freebie).id.should eq(@freebie.id)
+      assigns(:order).freebie.should be_== @freebie
     end
   end
 
