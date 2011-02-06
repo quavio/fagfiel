@@ -12,7 +12,6 @@
     #menu
       = link_to I18n.t("links.resellers"), resellers_path, :class => (params[:controller] == "resellers" ? "selected" : nil)
       = link_to I18n.t("links.freebies"), freebies_path, :class => (params[:controller] == "freebies" ? "selected" : nil)
-      = link_to I18n.t("links.orders"), orders_path, :class => (params[:controller] == "orders" ? "selected" : nil)
       .clear
   %h1= yield(:title)
   #default

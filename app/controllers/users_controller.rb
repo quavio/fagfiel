@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(@params)
-        Mailer.user_changed(@user).deliver
+        Mailer.user_changed(@user).deliver if @user.reseller
         format.html { redirect_to edit_user_path(@user), :notice => 'Usuário alterado com sucesso.' }
         format.xml  { head :ok }
       else

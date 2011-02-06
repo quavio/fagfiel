@@ -4,6 +4,8 @@ class FreebiesController < ApplicationController
 
   def show
     @freebie = Freebie.find params[:id]
-    @order = Order.new(:freebie => @freebie, :reseller => current_user.reseller)
+    if current_user.reseller
+      @order = Order.new(:freebie => @freebie, :reseller => current_user.reseller)
+    end
   end
 end

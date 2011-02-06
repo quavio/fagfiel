@@ -181,7 +181,7 @@ a{
 }
 
 form{
-  input[type="text"], input[type="password"]{display:block;}
+  input[type="text"], input[type="password"], textarea{display:block;}
   .inline-hints{
     font-style:italic;
     color:gray;

@@ -283,7 +283,7 @@ a {
 }
 
 /* line 184, ../../../app/stylesheets/screen.scss */
-form input[type="text"], form input[type="password"] {
+form input[type="text"], form input[type="password"], form textarea {
   display: block;
 }
 /* line 185, ../../../app/stylesheets/screen.scss */

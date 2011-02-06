@@ -1,29 +1,30 @@
 - content_for :title, @freebie.title
 
-= semantic_form_for @order do |form|
-  %table
-    %tr
-      %td Saldo disponível:
-      %td
-        %b= number_to_currency current_user.reseller.balance
-    %tr
-      %td Valor do brinde:
-      %td
-        %b= number_to_currency @freebie.price
-    %tr
-      %td Saldo disponível - Valor do brinde:
-      %td
-        %b= number_to_currency(current_user.reseller.balance - @freebie.price)
-  - if @order.errors.any?
-    #error_explanation
-      %ul
-        - @order.errors.full_messages.each do |msg|
-          %li= msg
-  = form.inputs do
-    = form.input :freebie_id, :as => :hidden
-    = form.input :reseller_id, :as => :hidden
-  = form.buttons do
-    = form.commit_button :button_html => { :class => "confirm_button" }, :label => "Resgatar"
+- if @order
+  = semantic_form_for @order do |form|
+    %table
+      %tr
+        %td Saldo disponível:
+        %td
+          %b= number_to_currency @order.reseller.balance
+      %tr
+        %td Valor do brinde:
+        %td
+          %b= number_to_currency @freebie.price
+      %tr
+        %td Saldo disponível - Valor do brinde:
+        %td
+          %b= number_to_currency(@order.reseller.balance - @freebie.price)
+    - if @order.errors.any?
+      #error_explanation
+        %ul
+          - @order.errors.full_messages.each do |msg|
+            %li= msg
+    = form.inputs do
+      = form.input :freebie_id, :as => :hidden
+      = form.input :reseller_id, :as => :hidden
+    = form.buttons do
+      = form.commit_button :button_html => { :class => "confirm_button" }, :label => "Resgatar"
 
 %p
   = link_to "Lista de brindes", freebies_path

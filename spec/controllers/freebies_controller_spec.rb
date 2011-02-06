@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe FreebiesController do
-  login
-
   before(:each) do
+    sign_out :user
+    user = create_user(:role => "r")
+    create_reseller(:user => user)
+    sign_in user
     @freebie = create_freebie
   end
 
