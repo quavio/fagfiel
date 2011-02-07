@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+User.create(:role => "a", :email => "admin@quavio.com.br", :password => "20110206", :password_confirmation => "20110206")
+User.create(:role => "r", :email => "revenda@quavio.com.br", :password => "20110206", :password_confirmation => "20110206")
+User.create(:role => "m", :email => "gerente@quavio.com.br", :password => "20110206", :password_confirmation => "20110206")
+
+Reseller.create(
+  :name => "Quavio", 
+  :manager => User.find_by_email("gerente@quavio.com.br"), 
+  :user => User.find_by_email("revenda@quavio.com.br")) if Reseller.find_by_name("Quavio").nil?

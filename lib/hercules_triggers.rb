@@ -7,6 +7,7 @@ module Hercules
       cmd.run "rm -rf log"
       cmd.run "ln -s /home/portal_inafag/logs log"
       cmd.run "bundle exec rake db:migrate RAILS_ENV=#{options[:branch]}"
+      cmd.run "bundle exec rake db:seed RAILS_ENV=#{options[:branch]}"
     end
     def self.after_deploy(options)
       cmd = options[:shell]
