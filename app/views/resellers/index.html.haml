@@ -1,12 +1,32 @@
 - content_for :title, "Lista de revendas"
+- content_for :stylesheet, stylesheet_link_tag("ui.progress-bar.css")
+- content_for :stylesheet, stylesheet_link_tag("ios.css", :media => "only screen and (max-device-width: 480px)")
 
-- @resellers.each do |reseller|
-  .reseller
-    = reseller.name
-    = reseller.user.name
-    = reseller.manager.name
-    = reseller.phone
-    = reseller.goal
-    = reseller.credits
-    = reseller.debits
-    = link_to "Alterar meta", edit_reseller_path(reseller)
+.list
+  - @resellers.each do |reseller|
+    .reseller{:class => @resellers.last == reseller ? "last" : nil}
+      %h2= reseller.name
+      .details
+        Usuário:
+        %b= link_to reseller.user.name, user_path(reseller.user)
+        |
+        Gerente:
+        %b= link_to reseller.manager.name, user_path(reseller.manager)
+      .clear
+      #progress_bar{:class => "ui-progress-bar ui-container"}
+        .ui-progress{:style => "width: 79%;"}
+          %span.ui-label
+            Meta
+            %b{:class => "value"} 79%
+      %p
+        Meta:
+        %b= number_to_currency reseller.goal
+        (
+        = link_to "Alterar meta", edit_reseller_path(reseller)
+        )
+        |
+        Créditos:
+        %b= number_to_currency reseller.credits
+        |
+        Débitos:
+        %b= number_to_currency reseller.debits

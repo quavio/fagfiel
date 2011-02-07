@@ -1,12 +1,14 @@
 - content_for :title, "Lista de brindes"
+
 - if current_user.role == "a"
   %p= link_to t('links.new_freebie'), new_freebie_path
 
-- for freebie in @freebies
-  .freebie{:class => @freebies.last == freebie ? "last" : nil}
-    = image_tag freebie.image.url(:normal)
-    .description
-      = link_to freebie.title, freebie
-      %p= freebie.description
-    .price= number_to_currency(freebie.price)
-    .clear
+.list
+  - for freebie in @freebies
+    .freebie{:class => @freebies.last == freebie ? "last" : nil}
+      = image_tag freebie.image.url(:normal)
+      .description
+        = link_to freebie.title, freebie
+        %p= freebie.description
+      .price= number_to_currency(freebie.price)
+      .clear

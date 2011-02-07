@@ -26,8 +26,7 @@ $width: 900px;
   @include linear-gradient(color-stops(lighten($color, 20%), $color));
   @include border-radius(10px);
   &:hover{background:lighten($color, 20%); @include linear-gradient(color-stops(lighten($color, 30%), $color)); @include transition(all, 0.2s, linear);}
-  &:active{@include linear-gradient(color-stops(lighten($color, 20%), $color));}
-}
+  &:active{@include linear-gradient(color-stops(lighten($color, 20%), $color));}}
 
 body{background:$green; font: normal normal normal $font 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; line-height:150%;}
 h1{background:lighten($blue, 70%); font-size:$font * 1.5; font-weight:bold; line-height:150%; margin:0 auto; padding:10px; width:$width - 20; @include box-shadow(black, 2px, 2px, 2px);}
@@ -53,7 +52,7 @@ form{
 .confirm_button{@include button($blue, $font * 2);}
 
 #error_explanation, p.alert{border:$red 1px solid; background:lighten($red, 50%); color:$red; padding:5px; margin:0 0 10px 0;}
-p.notice{border:$green 1px solid; background:lighten($green, 65%); color:$green; padding:5px; margin:0 0 10px 0;}
+p.notice{border:$green 1px solid; background:lighten($green, 70%); color:$green; padding:5px; margin:0 0 10px 0;}
 
 #header{
   background:white;
@@ -144,17 +143,25 @@ p.notice{border:$green 1px solid; background:lighten($green, 65%); color:$green;
   width:$width;
 }
 
-div.freebie{
-  margin:0 0 15px 0;
-  padding:0 0 15px 0;
-  border-bottom:1px solid lightgray;
-  img{float:left; margin:0 15px 0 0;}
-  a{font-size:$font * 2;}
-  .description{float:left; width:600px;}
-  .price{float:right; color:$red; font-size:$font * 2; font-weight:bold;}
+.list{
+  div.freebie, div.reseller{
+    h2{@include text-shadow(white, 0, 1px, 0); padding:0 0 10px 0; float:left;}
+    padding:20px; 
+    border:1px solid gray;
+    background:lighten(gray, 40%);
+    @include linear-gradient(color-stops(lighten(gray, 40%), gray));
+    @include border-radius(10px);
+  }
+  div.freebie{
+    img{float:left; margin:0 15px 0 0; @include border-radius(10px);}
+    a{font-size:$font * 2;}
+    .description{float:left; width:600px;}
+    .price{float:right; color:$red; font-size:$font * 2; font-weight:bold; @include text-shadow(white, 0, 1px, 0);}
+  }
+  div.reseller{
+    .details{float:right;}
+  }
 }
-
-div.last{margin:0; padding:0; border:none;}
 
 .order{
   ol, li{margin:0; padding:0; height:0}
