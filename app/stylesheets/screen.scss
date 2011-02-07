@@ -25,34 +25,35 @@ $width: 900px;
   @include text-shadow(black, -1px, -1px, -1px);
   @include linear-gradient(color-stops(lighten($color, 20%), $color));
   @include border-radius(10px);
-  &:hover {
-    background:lighten($color, 20%);
-    @include linear-gradient(color-stops(lighten($color, 30%), $color));
-    @include transition(all, 0.2s, linear);
-  }
-  &:active{
-    @include linear-gradient(color-stops(lighten($color, 20%), $color));
-  }
+  &:hover{background:lighten($color, 20%); @include linear-gradient(color-stops(lighten($color, 30%), $color)); @include transition(all, 0.2s, linear);}
+  &:active{@include linear-gradient(color-stops(lighten($color, 20%), $color));}
 }
 
-body{
-  background:$green;
-  font: normal normal normal $font 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
-  line-height:150%;
-}
+body{background:$green; font: normal normal normal $font 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; line-height:150%;}
+h1{background:lighten($blue, 70%); font-size:$font * 1.5; font-weight:bold; line-height:150%; margin:0 auto; padding:10px; width:$width - 20; @include box-shadow(black, 2px, 2px, 2px);}
+h2{font-size:$font * 2; padding:0 0 20px 0;}
+p{padding:5px 0;}
+label{font-weight:bold;}
+input{font-size:$font * 1.5;}
+a{color:$blue;}
 
-h1{
-  background:lighten($blue, 70%);
-  font-size:$font * 1.5;
-  font-weight:bold;
-  line-height:150%;
-  margin:0 auto;
-  padding:10px;
-  width:$width - 20;
-  @include box-shadow(black, 2px, 2px, 2px);
+form{
+  input[type="text"], input[type="password"], textarea{display:block;}
+  .inline-hints{font-style:italic; color:gray;}
+  .inline-errors{display:none;}
+  .inputs{
+    li{margin:0 0 15px 0;}
+    li.error{
+      input{background:lighten($red, 50%);}
+    }
+  }
 }
 
 .clear{ clear:both; padding:0; margin:0; height:0; }
+.confirm_button{@include button($blue, $font * 2);}
+
+#error_explanation, p.alert{border:$red 1px solid; background:lighten($red, 50%); color:$red; padding:5px; margin:0 0 10px 0;}
+p.notice{border:$green 1px solid; background:lighten($green, 65%); color:$green; padding:5px; margin:0 0 10px 0;}
 
 #header{
   background:white;
@@ -143,90 +144,17 @@ h1{
   width:$width;
 }
 
-#error_explanation, p.alert{
-  border:$red 1px solid;
-  background:lighten($red, 50%);
-  color:$red;
-  padding:5px;
-  margin:0 0 10px 0;
-}
-
-p.notice{
-  border:$green 1px solid;
-  background:lighten($green, 65%);
-  color:$green;
-  padding:5px;
-  margin:0 0 10px 0;
-}
-
-h2{
-  font-size:$font * 2;
-  padding:0 0 20px 0;
-}
-
-p{
-  padding:5px 0;
-}
-
-label{
-  font-weight:bold;
-}
-
-input{
-  font-size:$font * 1.5;
-}
-
-a{
-  color:$blue;
-}
-
-form{
-  input[type="text"], input[type="password"], textarea{display:block;}
-  .inline-hints{
-    font-style:italic;
-    color:gray;
-}
-.inline-errors{display:none;}
-.inputs{
-  li{margin:0 0 15px 0;}
-  li.error{
-    input{background:lighten($red, 50%);}
-}
-}
-}
-
 div.freebie{
   margin:0 0 15px 0;
   padding:0 0 15px 0;
   border-bottom:1px solid lightgray;
-  img{
-    float:left;
-    margin:0 15px 0 0;
-}
-a{
-  font-size:$font * 2;
-}
-.description{
-  float:left;
-  width:600px;
-}
-.price{
-  float:right;
-  color:$red;
-  font-size:$font * 2;
-  font-weight:bold;
-}
+  img{float:left; margin:0 15px 0 0;}
+  a{font-size:$font * 2;}
+  .description{float:left; width:600px;}
+  .price{float:right; color:$red; font-size:$font * 2; font-weight:bold;}
 }
 
-div.last{
-  margin:0;
-  padding:0;
-  border:none;
-}
-
-.confirm_button{
-  @include button($blue, $font * 2);
-}
+div.last{margin:0; padding:0; border:none;}
 
 .order{
   ol, li{margin:0; padding:0; height:0}
@@ -235,16 +163,12 @@ div.last{
   }
   float:right;
   width:350px;
-  input{
-    float:right;
-  }
+  input{float:right;}
   table{
     width:100%;
     margin:0 0 10px 0;
     background:lightgray;
-    td{
-      padding:10px;
-    }
+    td{padding:10px;}
   }
 }
 

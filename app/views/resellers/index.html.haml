@@ -1,2 +1,12 @@
-%h1 Resellers#index
-%p Find me in app/views/resellers/index.html.haml
+- content_for :title, "Lista de revendas"
+
+- @resellers.each do |reseller|
+  .reseller
+    = reseller.name
+    = reseller.user.name
+    = reseller.manager.name
+    = reseller.phone
+    = reseller.goal
+    = reseller.credits
+    = reseller.debits
+    = link_to "Alterar meta", edit_reseller_path(reseller)
