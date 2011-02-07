@@ -1,2 +1,3 @@
-%p= link_to t('back'), freebies_path
+- content_for :title, t("page_title.freebies.new")
+= link_to t('links.freebies'), freebies_path
 = render 'form'

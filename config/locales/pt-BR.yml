@@ -170,6 +170,8 @@ pt-BR:
         odd: "deve ser ímpar"
         even: "deve ser par"
         record_invalid: "A validação falhou: %{errors}"
+    models:
+      freebie: "Brinde"
     attributes:
       user:
         password: "Senha"
@@ -181,8 +183,11 @@ pt-BR:
         title: "Nome"
         description: "Descrição"
         price: "Preço"
+        image: "Foto"
       order:
         reseller: "Revenda"
+      reseller:
+        goal: "Meta"
 
   errors:
     messages:
@@ -226,16 +231,15 @@ pt-BR:
       unlock_instructions:
         subject: 'Instruções de desbloqueio'  
 
-  helpers:
-    submit:
-      create: "Criar"
-      update: "Salvar"
-
   links:
-    home: "Página inicial"
-    resellers: "Revendas"
-    freebies: "Brindes"
-    orders: "Resgates"
+    new_freebie: "Novo brinde"
+    edit_freebie: "Alterar brinde"
+    freebies: "Lista de brindes"
+    resellers: "Lista de revendas"
+    sign_out: "Sair"
+    menu:
+      freebies: "Brindes"
+      resellers: "Revendas"
 
   page_title:
     freebies:
@@ -243,15 +247,11 @@ pt-BR:
       new: "Novo brinde"
       show: "Brinde"
     resellers:
-      edit: "Alterar dados de revenda"
-      index: "Revendas"
+      edit: "Alterar meta da %{revenda}"
+      index: "Lista de revendas"
     users:
-      edit: "Alterar dados de usuário"
+      edit: "Meus dados"
       update: "Alterar dados de usuário"
-
-  freebies:
-    index:
-      new_freebie: "Novo brinde"
 
   actions: "Ações"
   back: "Voltar"
@@ -261,16 +261,27 @@ pt-BR:
   are_you_sure: "Você está certo disso?"
 
   formtastic:
+    hints:
+      user:
+        password: "Deixe em branco caso não queira trocar de senha"
     actions:
+      create: "Criar %{model}"
       update: "Salvar"
+      order:
+        create: "Resgatar"
 
   notices:
     orders:
       create: "Resgate efetuado, aguarde para receber seu brinde."
+    resellers:
+      update: "Meta da %{reseller} alterada."
 
   alerts:
+    require_same_user: "Apenas o próprio usuário pode alterar seus dados."
+    require_admin: "Apenas administradores podem acessar esta página."
+    require_admin_or_manager: "Apenas administradores e gerentes podem acessar esta página."
     orders:
-      insuficient_found: "A %{reseller} não possui saldo suficiente para resgatar este brinde"
+      insuficient_found: "A %{reseller} não possui saldo suficiente para resgatar este brinde."
 
   roles:
     a: "Administrador"

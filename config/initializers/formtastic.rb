@@ -79,3 +79,4 @@ Formtastic::SemanticFormBuilder.default_text_area_width = 50
 # specifying that class here.  Defaults to SemanticFormBuilder.
 require 'custom_form_builder'
 Formtastic::SemanticFormHelper.builder = CustomFormBuilder
+Formtastic::SemanticFormBuilder.i18n_lookups_by_default = true

@@ -1,5 +1,5 @@
 = semantic_form_for @freebie, :html => { :multipart => true } do |form|
-  - form.inputs "Basic", :id => "basic" do 
+  - form.inputs do 
     = form.input :title, :as => :string, :required => true
     = form.input :price, :required => true, :value_method => Proc.new { |a| "#{a}" }
     = form.input :description

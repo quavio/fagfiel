@@ -1,4 +1,8 @@
-%h1
-  Alterar 
-  = @reseller.name
-%p Find me in app/views/resellers/edit.html.haml
+- content_for :title, t("page_title.resellers.edit", :revenda => @reseller.name)
+= link_to t("links.resellers"), resellers_path
+
+= semantic_form_for @reseller do |form|
+  = form.inputs do
+    = form.input :goal
+  = form.buttons do
+    = form.commit_button
