@@ -38,7 +38,7 @@ input{font-size:$font * 1.5;}
 a{color:$blue;}
 
 form{
-  input[type="text"], input[type="password"], textarea{display:block;}
+  input[type="text"], input[type="password"], input[type="file"], textarea{display:block;}
   .inline-hints{font-style:italic; color:gray;}
   .inline-errors{display:none;}
   .inputs{

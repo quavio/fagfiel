@@ -170,6 +170,8 @@ pt-BR:
         odd: "deve ser ímpar"
         even: "deve ser par"
         record_invalid: "A validação falhou: %{errors}"
+    models:
+      freebie: "Brinde"
     attributes:
       user:
         password: "Senha"
@@ -181,6 +183,7 @@ pt-BR:
         title: "Nome"
         description: "Descrição"
         price: "Preço"
+        image: "Foto"
       order:
         reseller: "Revenda"
       reseller:
