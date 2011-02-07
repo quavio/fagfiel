@@ -25,9 +25,7 @@ GEM
       activesupport (= 3.0.3)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
-    activerecord-postgres-copy (0.0.0)
-      activerecord
-      pg
+    activerecord-postgres-copy (0.2.1)
     activeresource (3.0.3)
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
