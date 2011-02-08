@@ -1,1 +1,6 @@
 - content_for :title, t("page_title.general.contact")
+
+= form_tag contact_path, :class => "contact" do
+  = label_tag(:message, t("contact_form.message"))
+  = text_area_tag(:message)
+  %p= submit_tag(t "contact_form.send")

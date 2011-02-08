@@ -287,6 +287,12 @@ img.freebie {
   padding: 10px;
 }
 
+/* line 160, ../../../app/stylesheets/screen.scss */
+form.contact textarea {
+  width: 100%;
+  height: 100px;
+}
+
 /* line 1, ../../../app/stylesheets/header.scss */
 #header {
   background: white;

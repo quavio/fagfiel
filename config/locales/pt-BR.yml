@@ -263,6 +263,10 @@ pt-BR:
   destroy: "Remover"
   are_you_sure: "Você está certo disso?"
 
+  contact_form:
+    message: "Mensagem"
+    send: "Enviar"
+
   formtastic:
     hints:
       user:
@@ -278,6 +282,8 @@ pt-BR:
       create: "Resgate efetuado, aguarde para receber seu brinde."
     resellers:
       update: "Meta da %{reseller} alterada."
+    contact:
+      sent: "Seu contato foi recebido pela nossa equipe, em breve retornaremos."
 
   alerts:
     require_same_user: "Apenas o próprio usuário pode alterar seus dados."

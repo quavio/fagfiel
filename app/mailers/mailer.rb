@@ -13,6 +13,12 @@ class Mailer < ActionMailer::Base
     mail(:to => recipient, :subject => "Novo resgate de brinde")
   end
 
+  def contact user, message
+    @user = user
+    @message = message
+    mail(:to => recipient, :subject => "Contato através do Portal Fag Fiel")
+  end
+
   def recipient
     return "nicolas@quavio.com.br" if Rails.env == "development"
     return "natalie.bolzan@imdepa.com.br" if Rails.env == "production"
