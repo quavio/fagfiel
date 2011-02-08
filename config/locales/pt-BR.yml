@@ -240,6 +240,7 @@ pt-BR:
     menu:
       freebies: "Brindes"
       resellers: "Revendas"
+      contact: "Contato"
 
   page_title:
     freebies:
@@ -252,6 +253,8 @@ pt-BR:
     users:
       edit: "Meus dados"
       update: "Alterar dados de usuário"
+    general:
+      contact: "Contato"
 
   actions: "Ações"
   back: "Voltar"

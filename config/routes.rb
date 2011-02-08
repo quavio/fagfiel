@@ -1,4 +1,6 @@
 PortalInafag::Application.routes.draw do
+  get "general/contact", :as => :contact
+
   resources :users
   resources :resellers
   resources :orders
