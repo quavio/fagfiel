@@ -216,6 +216,7 @@ p.notice {
 }
 /* line 115, ../../../app/stylesheets/screen.scss */
 .list div.freebie img {
+  width: 80px;
   float: left;
   margin: 0 15px 0 0;
   -moz-border-radius: 10px;
@@ -225,16 +226,16 @@ p.notice {
   -khtml-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 119, ../../../app/stylesheets/screen.scss */
+/* line 120, ../../../app/stylesheets/screen.scss */
 .list div.freebie a {
   font-size: 24px;
 }
-/* line 121, ../../../app/stylesheets/screen.scss */
+/* line 122, ../../../app/stylesheets/screen.scss */
 .list div.freebie .description {
   float: left;
   width: 600px;
 }
-/* line 124, ../../../app/stylesheets/screen.scss */
+/* line 125, ../../../app/stylesheets/screen.scss */
 .list div.freebie .price {
   float: right;
   color: #b82900;
@@ -242,46 +243,46 @@ p.notice {
   font-weight: bold;
   text-shadow: white 0 1px 0;
 }
-/* line 131, ../../../app/stylesheets/screen.scss */
+/* line 132, ../../../app/stylesheets/screen.scss */
 .list div.reseller .details {
   float: right;
 }
-/* line 133, ../../../app/stylesheets/screen.scss */
+/* line 134, ../../../app/stylesheets/screen.scss */
 .list div.last {
   margin: 0;
 }
 
-/* line 136, ../../../app/stylesheets/screen.scss */
+/* line 137, ../../../app/stylesheets/screen.scss */
 img.freebie {
   max-width: 400px;
 }
 
-/* line 139, ../../../app/stylesheets/screen.scss */
+/* line 140, ../../../app/stylesheets/screen.scss */
 .order {
   float: right;
   width: 350px;
 }
-/* line 142, ../../../app/stylesheets/screen.scss */
+/* line 143, ../../../app/stylesheets/screen.scss */
 .order ol, .order li {
   margin: 0;
   padding: 0;
   height: 0;
 }
-/* line 147, ../../../app/stylesheets/screen.scss */
+/* line 148, ../../../app/stylesheets/screen.scss */
 .order #error_explanation ol, .order #error_explanation li {
   height: auto;
 }
-/* line 149, ../../../app/stylesheets/screen.scss */
+/* line 150, ../../../app/stylesheets/screen.scss */
 .order input {
   float: right;
 }
-/* line 151, ../../../app/stylesheets/screen.scss */
+/* line 152, ../../../app/stylesheets/screen.scss */
 .order table {
   width: 100%;
   margin: 0 0 10px 0;
   background: lightgray;
 }
-/* line 155, ../../../app/stylesheets/screen.scss */
+/* line 156, ../../../app/stylesheets/screen.scss */
 .order table td {
   padding: 10px;
 }
