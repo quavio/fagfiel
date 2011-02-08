@@ -1,0 +1,6 @@
+#default{
+  background:white;
+  margin:0 auto;
+  padding:10px;
+  width:$width - 20;
+  @include box-shadow(black, 2px, 2px, 2px);}

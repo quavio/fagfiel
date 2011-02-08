@@ -1,0 +1,56 @@
+#header{
+  background:white;
+  margin:0 0 20px 0;
+  #top, #menu{
+    width:$width;
+    margin:0 auto;}
+  #top{
+    padding:10px 0 0 0;
+    #ina-fag{
+      float:left;}
+    #imdepa{
+      float:right;}}
+  #connected_as{
+    margin:0 auto;
+    width:200px;
+    div{
+      background:lighten(gray, 50%);
+      border:lighten(gray, 30%) 1px solid;
+      border-top:0;
+      color:lighten(gray, 30%);
+      font-weight:bold;
+      padding:5px 10px;
+      position:fixed;
+      text-align:center;
+      top:0;
+      @include border-radius(0 0 5px 5px);
+      @include linear-gradient(color-stops(lighten(gray, 50%), lighten(gray, 30%)));
+      .sign_out{
+        color:$red;}
+      a{
+        text-decoration:none;
+        &:hover{
+          text-decoration:underline;}}}}
+  #menu{
+    margin-top:10px;
+    a{
+      background:darken($green, 10%);
+      color:white;
+      cursor:pointer;
+      display:block;
+      float:left;
+      font-weight:bold;
+      margin:7px 0 0 0;
+      padding:7px 7px 5px 7px;
+      text-decoration:none;
+      @include text-shadow(black, -1px, -1px, -1px);
+      @include border-radius(10px 10px 0 0);
+      &:hover{
+        padding-bottom:12px;
+        margin-top:0;}}
+    a.selected{
+      background:$green;
+      padding-bottom:10px;
+      margin-top:0;
+      border:1px $green solid;
+      @include linear-gradient(color-stops(lighten($green, 10%), $green));}}}

@@ -1,0 +1,12 @@
+#devise{
+  background:white;
+  margin:0 auto;
+  margin-top:40px;
+  padding:10px;
+  width:337px;
+  @include border-radius(10px);
+  @include box-shadow(black, 0, 0, 10px, 1px);
+  img{
+    margin:0 0 10px 0;}
+  input[type="text"], input[type="password"]{
+    width:80%;}}
