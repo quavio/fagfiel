@@ -6,8 +6,8 @@
           = link_to "#{current_user.name} (#{t("roles." + current_user.role).downcase})", edit_user_path(current_user)
           |
           = link_to t("links.sign_out"), destroy_user_session_path, :class => "sign_out"
-      = image_tag "ina-fag.png", :id => "ina-fag"
-      = image_tag "imdepa.png", :id => "imdepa"
+      = link_to image_tag("ina-fag.png", :id => "ina-fag"), "http://www.schaeffler.com/content.schaeffler.com.br/pt/ina_fag_products/index.jsp", :target => "_blank"
+      = link_to image_tag("imdepa.png", :id => "imdepa"), "http://imdepa.com.br/", :target => "_blank"
     .clear
     #menu
       = link_to t("links.menu.freebies"), freebies_path, :class => (params[:controller] == "freebies" ? "selected" : nil)
