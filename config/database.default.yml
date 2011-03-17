@@ -5,6 +5,7 @@ development:
   database: fagfiel_development
   pool: 5
   timeout: 5000
+  username: portal_inafag
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -14,9 +15,11 @@ test:
   database: fagfiel_test
   pool: 5
   timeout: 5000
+  username: portal_inafag
 
 production:
   adapter: postgresql
   database: fagfiel_production
   pool: 5
   timeout: 5000
+  username: portal_inafag
