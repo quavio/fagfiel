@@ -241,6 +241,7 @@ pt-BR:
       freebies: "Brindes"
       resellers: "Revendas"
       contact: "Contato"
+      faq: "FAQ"
 
   page_title:
     freebies:
@@ -255,6 +256,7 @@ pt-BR:
       update: "Alterar dados de usuário"
     general:
       contact: "Contato"
+      faq: "Perguntas Freqüentes (FAQ)"
 
   actions: "Ações"
   back: "Voltar"
