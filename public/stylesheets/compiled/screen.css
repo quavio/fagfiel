@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 14, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 14, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,42 +22,42 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 
-/* line 17, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
   color: black;
   background: white;
 }
 
-/* line 19, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 19, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 21, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 21, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
 }
 
-/* line 23, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 23, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 25, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 25, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: "" "";
 }
-/* line 96, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 96, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
 }
 
-/* line 27, ../../../../../.rvm/gems/ruby-1.9.2-p136@portal_inafag/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 27, ../../../../../.rvm/gems/ruby-1.9.2-p136/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
@@ -139,7 +139,17 @@ form .inputs li.error input {
   height: 0;
 }
 
-/* line 85, ../../../app/stylesheets/screen.scss */
+/* line 86, ../../../app/stylesheets/screen.scss */
+.left {
+  float: left;
+}
+
+/* line 90, ../../../app/stylesheets/screen.scss */
+.right {
+  float: right;
+}
+
+/* line 94, ../../../app/stylesheets/screen.scss */
 .confirm_button {
   background: #064e75;
   border: 1px solid #064b70;
@@ -174,7 +184,7 @@ form .inputs li.error input {
   background-image: linear-gradient(top, #0b8fd6 0%, #064e75 100%);
 }
 
-/* line 88, ../../../app/stylesheets/screen.scss */
+/* line 97, ../../../app/stylesheets/screen.scss */
 #error_explanation, p.alert {
   border: #b82900 1px solid;
   background: #ffc8b8;
@@ -183,7 +193,7 @@ form .inputs li.error input {
   margin: 0 0 10px 0;
 }
 
-/* line 95, ../../../app/stylesheets/screen.scss */
+/* line 104, ../../../app/stylesheets/screen.scss */
 p.notice {
   border: #00823c 1px solid;
   background: #e8fff3;
@@ -192,7 +202,7 @@ p.notice {
   margin: 0 0 10px 0;
 }
 
-/* line 103, ../../../app/stylesheets/screen.scss */
+/* line 112, ../../../app/stylesheets/screen.scss */
 .list div.freebie, .list div.reseller {
   background: #e6e6e6;
   border: 1px solid gray;
@@ -208,13 +218,17 @@ p.notice {
   -khtml-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 110, ../../../app/stylesheets/screen.scss */
+/* line 119, ../../../app/stylesheets/screen.scss */
+.list div.freebie .top, .list div.freebie .progress_bar, .list div.reseller .top, .list div.reseller .progress_bar {
+  width: 100%;
+}
+/* line 122, ../../../app/stylesheets/screen.scss */
 .list div.freebie h2, .list div.reseller h2 {
   padding: 0 0 10px 0;
   float: left;
   text-shadow: white 0 1px 0;
 }
-/* line 115, ../../../app/stylesheets/screen.scss */
+/* line 127, ../../../app/stylesheets/screen.scss */
 .list div.freebie img {
   width: 80px;
   float: left;
@@ -226,16 +240,16 @@ p.notice {
   -khtml-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 120, ../../../app/stylesheets/screen.scss */
+/* line 132, ../../../app/stylesheets/screen.scss */
 .list div.freebie a {
   font-size: 24px;
 }
-/* line 122, ../../../app/stylesheets/screen.scss */
+/* line 134, ../../../app/stylesheets/screen.scss */
 .list div.freebie .description {
   float: left;
   width: 500px;
 }
-/* line 125, ../../../app/stylesheets/screen.scss */
+/* line 137, ../../../app/stylesheets/screen.scss */
 .list div.freebie .price {
   float: right;
   color: #b82900;
@@ -243,51 +257,51 @@ p.notice {
   font-weight: bold;
   text-shadow: white 0 1px 0;
 }
-/* line 132, ../../../app/stylesheets/screen.scss */
+/* line 144, ../../../app/stylesheets/screen.scss */
 .list div.reseller .details {
   float: right;
 }
-/* line 134, ../../../app/stylesheets/screen.scss */
+/* line 146, ../../../app/stylesheets/screen.scss */
 .list div.last {
   margin: 0;
 }
 
-/* line 137, ../../../app/stylesheets/screen.scss */
+/* line 149, ../../../app/stylesheets/screen.scss */
 img.freebie {
   max-width: 400px;
 }
 
-/* line 140, ../../../app/stylesheets/screen.scss */
+/* line 152, ../../../app/stylesheets/screen.scss */
 .order {
   float: right;
   width: 350px;
 }
-/* line 143, ../../../app/stylesheets/screen.scss */
+/* line 155, ../../../app/stylesheets/screen.scss */
 .order ol, .order li {
   margin: 0;
   padding: 0;
   height: 0;
 }
-/* line 148, ../../../app/stylesheets/screen.scss */
+/* line 160, ../../../app/stylesheets/screen.scss */
 .order #error_explanation ol, .order #error_explanation li {
   height: auto;
 }
-/* line 150, ../../../app/stylesheets/screen.scss */
+/* line 162, ../../../app/stylesheets/screen.scss */
 .order input {
   float: right;
 }
-/* line 152, ../../../app/stylesheets/screen.scss */
+/* line 164, ../../../app/stylesheets/screen.scss */
 .order table {
   width: 100%;
   margin: 0 0 10px 0;
   background: lightgray;
 }
-/* line 156, ../../../app/stylesheets/screen.scss */
+/* line 168, ../../../app/stylesheets/screen.scss */
 .order table td {
   padding: 10px;
 }
 
-/* line 160, ../../../app/stylesheets/screen.scss */
+/* line 172, ../../../app/stylesheets/screen.scss */
 form.contact textarea {
   width: 100%;
   height: 100px;

@@ -5,16 +5,16 @@
 .list
   - @resellers.each do |reseller|
     .reseller{:class => @resellers.last == reseller ? "last" : nil}
-      %h2= reseller.name
-      .details
-        Usuário:
-        %b= link_to reseller.user.name, user_path(reseller.user)
-        |
-        Gerente:
-        %b= link_to reseller.manager.name, user_path(reseller.manager)
-      .clear
-      .progress_bar{:class => "ui-progress-bar ui-container"}
-        .ui-progress{:style => "width: #{reseller.goal_percentage > 100 ? 100 : reseller.goal_percentage}%;"}
+      .top.left
+        %h2= reseller.name
+        .details
+          Usuário:
+          %b= link_to reseller.user.name, user_path(reseller.user)
+          |
+          Gerente:
+          %b= link_to reseller.manager.name, user_path(reseller.manager)
+      .progress_bar.left.ui-progress-bar.ui-container
+        .ui-progress{:style => "width: #{(reseller.goal_percentage > 100 ? 100 : (reseller.goal_percentage < 10 ? 10 : reseller.goal_percentage))}%;"}
           %span.ui-label
             Meta
             %b{:class => "value"} #{reseller.goal_percentage}%

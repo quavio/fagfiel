@@ -10,7 +10,7 @@ describe "resellers/index.html.haml" do
         render
         assert_select('.reseller', 1) do |r|
           assert_select('.progress_bar', 1) do |progress_bar|
-            progress_bar.first.to_s.should match /width: #{percentage > 100 ? 100 : percentage}%/
+            progress_bar.first.to_s.should match /width: #{(percentage > 100 ? 100 : (percentage < 10 ? 10 : percentage))}%/
           end
           assert_select('span.ui-label b', 1) do |value|
             value.first.should match /#{percentage}%/

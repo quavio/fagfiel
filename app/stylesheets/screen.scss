@@ -80,7 +80,16 @@ form{
   clear:both;
   padding:0;
   margin:0;
-  height:0;}
+  height:0;
+}
+
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
 
 .confirm_button{
   @include button($blue, $font * 2);}
@@ -107,6 +116,9 @@ p.notice{
     margin:0 0 20px 0;
     @include linear-gradient(color-stops(lighten(gray, 40%), gray));
     @include border-radius(10px);
+    .top, .progress_bar{
+      width: 100%;
+    }
     h2{
       padding:0 0 10px 0; 
       float:left;
