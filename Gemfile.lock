@@ -71,6 +71,9 @@ GEM
     inherited_resources (1.2.1)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
+    jquery-rails (0.2.7)
+      rails (~> 3.0)
+      thor (~> 0.14.4)
     json_pure (1.5.1)
     kgio (2.1.1)
     mail (2.2.15)
@@ -161,6 +164,7 @@ DEPENDENCIES
   haml
   hpricot
   inherited_resources (>= 1.1.2)
+  jquery-rails
   maxim-sexy_pg_constraints
   mocha
   paperclip
