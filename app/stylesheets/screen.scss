@@ -76,6 +76,35 @@ form{
       input{
         background:lighten($red, 50%);}}}}
 
+table{
+  width:100%;
+  td.no_items{
+    font-size: $font * 1.5;
+    text-align: center;
+    color: gray;}
+  td, th{
+    border:1px solid white;
+    padding:5px}
+  th.product{
+    background:gray;
+    color:white}
+  th.past{
+    text-align:center;
+    background:$red;
+    color:white;}
+  th.future{
+    text-align:center;
+    background:$green;
+    color:white;}
+  td.product{
+    background:lighten(gray, 40%)}
+  td.past{
+    text-align:center;
+    background:lighten($red, 40%)}
+  td.future{
+    text-align:center;
+    background:lighten($green, 40%)}}
+
 .clear{
   clear:both;
   padding:0;
@@ -98,6 +127,9 @@ p.notice{
   color:$green; 
   padding:5px; 
   margin:0 0 10px 0;}
+
+.submenu{
+  margin-bottom:10px}
 
 .list{
   div.freebie, div.reseller{

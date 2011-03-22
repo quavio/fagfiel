@@ -21,6 +21,9 @@
       %p.notice= flash[:notice]
     - if flash[:alert]
       %p.alert= flash[:alert]
+    - if content_for?(:submenu)
+      .submenu
+        = yield :submenu
     = yield
 = render :file => 'layouts/application'
 #footer ©2011 Imdepa Rolamentos Importação e Comércio Ltda

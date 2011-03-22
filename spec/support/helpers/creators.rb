@@ -31,5 +31,25 @@ module Creators
     }.merge(options)
     Order.create(defaults)
   end
+
+  def create_product options = {}
+    defaults = {
+      :code => rand * 1000,
+      :reference => "REF #{rand * 1000}",
+      :brand => "FAG",
+      :group => "Rolamentos"
+    }.merge(options)
+    Product.create(defaults)
+  end
+
+  def create_purchase_expectation options = {}
+    defaults = {
+      :product => create_product,
+      :reseller => create_reseller,
+      :quantity => rand * 1000,
+      :date => Date.today
+    }.merge(options)
+    PurchaseExpectation.create(defaults)
+  end
 end
 RSpec.configuration.include Creators

@@ -30,3 +30,5 @@
         |
         Débitos:
         %b= number_to_currency reseller.debits
+        |
+        = link_to "Previsão de compra", reseller_purchase_expectations_path(reseller, Date.today.year, Date.today.month)

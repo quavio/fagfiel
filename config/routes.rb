@@ -3,7 +3,9 @@ PortalInafag::Application.routes.draw do
   post "general/contact"
 
   resources :users
-  resources :resellers
+  resources :resellers do
+    resources :purchase_expectations, :path => "purchase_expectations/:year/:month"
+  end
   resources :orders
   resources :freebies
 

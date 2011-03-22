@@ -1,0 +1,30 @@
+- content_for :title, t("page_title.purchase_expectation.index", :reseller => @reseller.name, :date => l(@date, :format => :month_and_year))
+- content_for :submenu do
+  = link_to t("links.resellers"), resellers_path
+  |
+  = select_tag :date, options_for_select(@dates), :onchange => "window.location = $(date).value"
+
+%table
+  - if @purchase_expectations.empty?
+    %tr
+      %td.no_items{:colspan => 9}= "A #{@reseller.name} ainda não tem previsão de compra para #{l(@date, :format => :month_and_year)}."
+  - else
+    %tr
+      %th{:colspan => 3}
+      %th.past{:colspan => 2}= l(@date - 1.year, :format => :month_and_year)
+      %th.future= l(@date, :format => :month_and_year)
+    %tr
+      %th.product Referência
+      %th.product Marca
+      %th.product Grupo
+      %th.past Qt. Consultada
+      %th.past Qt. Comprada
+      %th.future Previsão de compra
+    - @purchase_expectations.each do |purchase_expectation|
+      %tr
+        %td.product= purchase_expectation.product.reference
+        %td.product= purchase_expectation.product.brand
+        %td.product= purchase_expectation.product.group
+        %td.past 10
+        %td.past 10
+        %td.future= purchase_expectation.quantity
