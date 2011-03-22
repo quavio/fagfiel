@@ -13,6 +13,25 @@ describe Reseller do
     r.should_not be_valid
   end
 
+  describe "#goal_percentage" do
+    context "when goal is reached" do
+      subject{create_reseller :goal => 100, :credits => 100}
+      its(:goal_percentage){ should == 100 }
+    end
+    context "when credits are zero" do
+      subject{create_reseller :goal => 100, :credits => 0}
+      its(:goal_percentage){ should == 0 }
+    end
+    context "when credits exceed the goal" do
+      subject{create_reseller :goal => 100, :credits => 1000}
+      its(:goal_percentage){ should == 1000 }
+    end
+    context "should return Fixnum" do
+      subject{create_reseller( :goal => 100, :credits => 1000).goal_percentage}
+      its(:class){ should == Fixnum }
+    end
+  end
+
   describe "#debits" do
     context "when no order is done" do
       subject{create_reseller}

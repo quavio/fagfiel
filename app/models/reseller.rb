@@ -18,4 +18,8 @@ class Reseller < ActiveRecord::Base
     self.credits - self.debits
   end
 
+  def goal_percentage
+    (credits / goal * 100).round
+  end
+
 end
