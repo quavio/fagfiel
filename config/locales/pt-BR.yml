@@ -242,6 +242,7 @@ pt-BR:
       freebies: "Brindes"
       resellers: "Revendas"
       contact: "Contato"
+      faq: "FAQ"
 
   page_title:
     freebies:
@@ -258,6 +259,7 @@ pt-BR:
       index: "Previsão de compra da %{reseller} para %{date}"
     general:
       contact: "Contato"
+      faq: "Perguntas Freqüentes (FAQ)"
 
   actions: "Ações"
   back: "Voltar"

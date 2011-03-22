@@ -5,4 +5,7 @@ class GeneralController < ApplicationController
       redirect_to contact_path, :notice => I18n.t("notices.contact.sent")
     end
   end
+
+  def faq
+  end
 end

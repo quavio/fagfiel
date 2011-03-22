@@ -14,6 +14,7 @@
       - if current_user.role == "a" || current_user.role == "m"
         = link_to t("links.menu.resellers"), resellers_path, :class => (params[:controller] == "resellers" ? "selected" : nil)
       = link_to t("links.menu.contact"), contact_path, :class => (params[:controller] == "general" && params[:action] == "contact" ? "selected" : nil)
+      = link_to t("links.menu.faq"), faq_path, :class => (params[:controller] == "general" && params[:action] == "faq" ? "selected" : nil)
       .clear
   %h1= yield(:title)
   #default
