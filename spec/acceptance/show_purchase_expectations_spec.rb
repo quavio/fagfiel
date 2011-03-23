@@ -7,9 +7,9 @@ feature "Show Purchase Expectations" do
     sign_in_as_admin
     reseller = create_reseller
     purchase_expectation1 = create_purchase_expectation(:reseller => reseller)
-    purchase_expectation2 = create_purchase_expectation(:reseller => reseller, :date => Date.today + 1.month)
-    purchase_expectation3 = create_purchase_expectation(:reseller => reseller, :date => Date.today - 1.month)
-    purchase_expectation4 = create_purchase_expectation(:reseller => reseller, :date => Date.today - 1.year)
+    purchase_expectation2 = create_purchase_expectation(:reseller => reseller, :month => Date.today.month + 1)
+    purchase_expectation3 = create_purchase_expectation(:reseller => reseller, :month => Date.today.month - 1)
+    purchase_history = create_purchase_history(:reseller => reseller, :product => purchase_expectation1.product, :year => Date.today.year - 1)
 
     click_link "Revendas"
     click_link "Previsão de compra"
@@ -19,6 +19,8 @@ feature "Show Purchase Expectations" do
     page.should have_selector("td", :text => purchase_expectation1.product.brand)
     page.should have_selector("td", :text => purchase_expectation1.product.group)
     page.should have_selector("td", :text => purchase_expectation1.quantity.to_s)
+    page.should have_selector("td", :text => purchase_history.consulted.to_s)
+    page.should have_selector("td", :text => purchase_history.bought.to_s)
     page.should_not have_selector("td", :text => purchase_expectation2.product.reference)
     page.should_not have_selector("td", :text => purchase_expectation3.product.reference)
   end
@@ -30,6 +32,6 @@ feature "Show Purchase Expectations" do
     click_link "Revendas"
     click_link "Previsão de compra"
 
-    page.should have_selector(".no_items", :text => "A #{reseller.name} ainda não tem previsão de compra para #{I18n.l(Date.today, :format => :month_and_year)}.")
+    page.should have_selector(".no_item", :text => "A #{reseller.name} ainda não tem previsão de compra para #{I18n.l(Date.today, :format => :month_and_year)}.")
   end
 end
