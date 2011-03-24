@@ -42,27 +42,32 @@ module Creators
     Product.create(defaults)
   end
 
-  def create_purchase_expectation options = {}
+  def create_seasonal_purchase options = {}
     defaults = {
-      :product => create_product,
       :reseller => create_reseller,
-      :quantity => rand * 1000,
-      :year => Date.today.year,
+      :product => create_product,
       :month => Date.today.month
     }.merge(options)
-    PurchaseExpectation.create(defaults)
+    SeasonalPurchase.create(defaults)
+  end
+
+  def create_purchase_expectation options = {}
+    defaults = {
+      :seasonal_purchase => create_seasonal_purchase,
+      :quantity => rand * 1000,
+      :year => Date.today.year
+    }.merge(options)
+    SeasonalPurchaseExpectation.create(defaults)
   end
 
   def create_purchase_history options = {}
     defaults = {
-      :product => create_product,
-      :reseller => create_reseller,
+      :seasonal_purchase => create_seasonal_purchase,
       :consulted => rand * 1000,
       :bought => rand * 1000,
-      :year => Date.today.year,
-      :month => Date.today.month
+      :year => Date.today.year
     }.merge(options)
-    PurchaseHistory.create(defaults)
+    SeasonalPurchaseHistory.create(defaults)
   end
 end
 RSpec.configuration.include Creators

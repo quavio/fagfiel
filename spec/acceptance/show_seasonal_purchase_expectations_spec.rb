@@ -6,10 +6,13 @@ feature "Show Purchase Expectations" do
   scenario "Show purchase expectations as admin" do
     sign_in_as_admin
     reseller = create_reseller
-    purchase_expectation1 = create_purchase_expectation(:reseller => reseller)
-    purchase_expectation2 = create_purchase_expectation(:reseller => reseller, :month => Date.today.month + 1)
-    purchase_expectation3 = create_purchase_expectation(:reseller => reseller, :month => Date.today.month - 1)
-    purchase_history = create_purchase_history(:reseller => reseller, :product => purchase_expectation1.product, :year => Date.today.year - 1)
+    seasonal_purchase1 = create_seasonal_purchase(:reseller => reseller)
+    seasonal_purchase2 = create_seasonal_purchase(:reseller => reseller, :month => Date.today.month + 1)
+    seasonal_purchase3 = create_seasonal_purchase(:reseller => reseller, :month => Date.today.month - 1)
+    purchase_expectation1 = create_purchase_expectation(:seasonal_purchase => seasonal_purchase1)
+    purchase_expectation2 = create_purchase_expectation(:seasonal_purchase => seasonal_purchase2)
+    purchase_expectation3 = create_purchase_expectation(:seasonal_purchase => seasonal_purchase3)
+    purchase_history = create_purchase_history(:seasonal_purchase => seasonal_purchase1, :year => Date.today.year - 1)
 
     click_link "Revendas"
     click_link "Previsão de compra"

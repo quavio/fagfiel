@@ -2,7 +2,7 @@
 - content_for :submenu do
   = link_to t("links.resellers"), resellers_path
   |
-  = select_tag :date, options_for_select((Date.today..Date.today + 1.year - 1.month).map{|date| [l(date, :format => :month_and_year), reseller_purchase_expectations_path(@reseller, date.year, date.month)]}.uniq.insert(0, "Prever compra para:")), :onchange => "window.location = this.value"
+  = select_tag :date, options_for_select((Date.today..Date.today + 1.year - 1.month).map{|date| [l(date, :format => :month_and_year), reseller_seasonal_purchase_expectations_path(@reseller, date.year, date.month)]}.uniq.insert(0, "Prever compra para:")), :onchange => "window.location = this.value"
 
 %table
   - if @purchase_expectations.empty?

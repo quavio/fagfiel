@@ -3,8 +3,8 @@ class Reseller < ActiveRecord::Base
   belongs_to :user
   belongs_to :manager, :class_name => 'User', :foreign_key => :manager_id
   has_many :orders
-  has_many :purchase_expectations
-  has_many :purchase_histories
+  has_many :seasonal_purchases
+  has_many :seasonal_purchase_expectations, :through => :seasonal_purchases
   validate :verify_user_is_not_manager
 
   def verify_user_is_not_manager
@@ -23,4 +23,7 @@ class Reseller < ActiveRecord::Base
     (credits / goal * 100).round
   end
 
+  def purchase_expectations_for month, year
+    seasonal_purchase_expectations.where('seasonal_purchases.month = ? AND year = ?', month, year)
+  end
 end
