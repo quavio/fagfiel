@@ -3,6 +3,16 @@ require 'spec_helper'
 
 describe "resellers/index.html.haml" do
   context "manager is loged in" do
+    before :each do
+      controller.stub(:current_user).and_return(create_user(:role => "m"))
+    end
+
+    it('should not render "Alterar Meta" link') do
+      assign(:resellers, [create_reseller({:goal => 100, :credits => 100})])
+      render
+      assert_not_match(rendered, /Alterar meta/)
+    end
+
     [{:goal => 100, :credits => 0}, {:goal => 100, :credits => 100}, {:goal => 100, :credits => 1000}].each do |fields|
       percentage = (fields[:credits] / fields[:goal] * 100)
       it "should render the goal percentage #{percentage}" do

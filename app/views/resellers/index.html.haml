@@ -21,10 +21,11 @@
       %p
         Meta:
         %b= number_to_currency reseller.goal
-        (
-        = link_to "Alterar meta", edit_reseller_path(reseller)
-        )
-        |
+        - if current_user.role == 'a'
+          (
+          = link_to "Alterar meta", edit_reseller_path(reseller)
+          )
+          |
         Créditos:
         %b= number_to_currency reseller.credits
         |
