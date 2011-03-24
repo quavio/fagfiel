@@ -47,9 +47,22 @@ module Creators
       :product => create_product,
       :reseller => create_reseller,
       :quantity => rand * 1000,
-      :date => Date.today
+      :year => Date.today.year,
+      :month => Date.today.month
     }.merge(options)
     PurchaseExpectation.create(defaults)
+  end
+
+  def create_purchase_history options = {}
+    defaults = {
+      :product => create_product,
+      :reseller => create_reseller,
+      :consulted => rand * 1000,
+      :bought => rand * 1000,
+      :year => Date.today.year,
+      :month => Date.today.month
+    }.merge(options)
+    PurchaseHistory.create(defaults)
   end
 end
 RSpec.configuration.include Creators

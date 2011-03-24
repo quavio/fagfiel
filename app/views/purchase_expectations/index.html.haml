@@ -2,12 +2,12 @@
 - content_for :submenu do
   = link_to t("links.resellers"), resellers_path
   |
-  = select_tag :date, options_for_select(@dates), :onchange => "window.location = $(date).value"
+  = select_tag :date, options_for_select((Date.today..Date.today + 1.year - 1.month).map{|date| [l(date, :format => :month_and_year), reseller_purchase_expectations_path(@reseller, date.year, date.month)]}.uniq.insert(0, "Prever compra para:")), :onchange => "window.location = this.value"
 
 %table
   - if @purchase_expectations.empty?
     %tr
-      %td.no_items{:colspan => 9}= "A #{@reseller.name} ainda não tem previsão de compra para #{l(@date, :format => :month_and_year)}."
+      %td.no_item{:colspan => 9}= "A #{@reseller.name} ainda não tem previsão de compra para #{l(@date, :format => :month_and_year)}."
   - else
     %tr
       %th{:colspan => 3}
@@ -25,6 +25,6 @@
         %td.product= purchase_expectation.product.reference
         %td.product= purchase_expectation.product.brand
         %td.product= purchase_expectation.product.group
-        %td.past 10
-        %td.past 10
+        %td.past= purchase_expectation.history ? purchase_expectation.history.consulted : 0
+        %td.past= purchase_expectation.history ? purchase_expectation.history.bought : 0
         %td.future= purchase_expectation.quantity
