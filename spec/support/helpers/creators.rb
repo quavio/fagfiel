@@ -12,7 +12,7 @@ module Creators
     defaults = {
       :name => "reseller #{(rand * 1000).round}",
       :manager => create_user,
-      :user => create_user
+      :user_id => create_user.id
     }.merge(options)
     Reseller.create(defaults)
   end
