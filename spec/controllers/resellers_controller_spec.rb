@@ -39,6 +39,14 @@ describe ResellersController do
       sign_in @manager
     end
 
+    describe "GET 'index'" do
+      it "should respond succefully" do
+        get 'index'
+        assigns[:resellers].should be_empty
+        response.should be_success
+      end
+    end
+
     context "and has resellers" do
       before :each do
         @reseller1 = create_reseller
