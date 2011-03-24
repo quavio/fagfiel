@@ -34,35 +34,40 @@ describe ResellersController do
 
   context "when manager is signed in" do
     before :each do
-      manager = create_user(:role => "m")
-      @reseller1 = create_reseller
-      @reseller2 = create_reseller(:manager => manager)
+      @manager = create_user(:role => "m")
       sign_out :user
-      sign_in manager
+      sign_in @manager
     end
 
-    describe "GET 'index'" do
-      it "should assign only manager's resellers to @resellers" do
-        get 'index'
-        assigns[:resellers].should be_== [@reseller2]
+    context "and has resellers" do
+      before :each do
+        @reseller1 = create_reseller
+        @reseller2 = create_reseller(:manager => @manager)
       end
-    end
 
-    describe "GET 'edit'" do
-      it "should be redirected" do
-        reseller = create_reseller
-        get 'edit', :id => reseller
-        flash[:alert].should be_== I18n.t("alerts.require_admin")
-        response.should redirect_to(root_path)
+      describe "GET 'index'" do
+        it "should assign only manager's resellers to @resellers" do
+          get 'index'
+          assigns[:resellers].should be_== [@reseller2]
+        end
       end
-    end
 
-    describe "PUT 'update'" do
-      it "should be redirected" do
-        reseller = create_reseller
-        put 'update', :id => reseller
-        flash[:alert].should be_== I18n.t("alerts.require_admin")
-        response.should redirect_to(root_path)
+      describe "GET 'edit'" do
+        it "should be redirected" do
+          reseller = create_reseller
+          get 'edit', :id => reseller
+          flash[:alert].should be_== I18n.t("alerts.require_admin")
+          response.should redirect_to(root_path)
+        end
+      end
+
+      describe "PUT 'update'" do
+        it "should be redirected" do
+          reseller = create_reseller
+          put 'update', :id => reseller
+          flash[:alert].should be_== I18n.t("alerts.require_admin")
+          response.should redirect_to(root_path)
+        end
       end
     end
   end
