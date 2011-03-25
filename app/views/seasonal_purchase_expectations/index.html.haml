@@ -4,6 +4,13 @@
   |
   = select_tag :date, options_for_select((Date.today..Date.today + 1.year - 1.month).map{|date| [l(date, :format => :month_and_year), reseller_seasonal_purchase_expectations_path(@reseller, date.year, date.month)]}.uniq.insert(0, "Prever compra para:")), :onchange => "window.location = this.value"
 
+= form_for [@reseller, @seasonal_purchase_expectation] do |form|
+  = label_tag :product_id, "Produto"
+  = text_field_tag :product_id
+  = form.label :quantity, "Quantidade"
+  = form.text_field :quantity
+  = form.submit "Adicionar previsão"
+
 %table
   - if @purchase_expectations.empty?
     %tr

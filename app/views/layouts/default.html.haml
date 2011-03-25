@@ -13,6 +13,8 @@
       = link_to t("links.menu.freebies"), freebies_path, :class => (params[:controller] == "freebies" ? "selected" : nil)
       - if current_user.role == "a" || current_user.role == "m"
         = link_to t("links.menu.resellers"), resellers_path, :class => (params[:controller] == "resellers" || params[:controller] == "purchase_expectations" ? "selected" : nil)
+      - if current_user.role == "r"
+        = link_to t("links.menu.seasonal_puchase_expectations"), reseller_seasonal_purchase_expectations_path(current_user.reseller.id, Date.today.year, Date.today.month), :class => (params[:controller] == "seasonal_puchase_expectations_controller" && params[:action] == "contact" ? "selected" : nil)
       = link_to t("links.menu.contact"), contact_path, :class => (params[:controller] == "general" && params[:action] == "contact" ? "selected" : nil)
       = link_to t("links.menu.faq"), faq_path, :class => (params[:controller] == "general" && params[:action] == "faq" ? "selected" : nil)
       .clear

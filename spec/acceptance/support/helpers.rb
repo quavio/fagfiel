@@ -15,6 +15,17 @@ module HelperMethods
     sign_in user.email, "123456"
     user
   end
+
+  def sign_in_as_reseller
+    user = create_user(
+      :role => "r",
+      :email => "reseller@quavio.com.br",
+      :password => "123456",
+      :password_confirmation => "123456")
+    create_reseller :user => user
+    sign_in user.email, "123456"
+    user
+  end
 end
 
 RSpec.configuration.include HelperMethods, :type => :acceptance
