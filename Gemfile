@@ -25,4 +25,5 @@ group :test, :development do
   gem 'mocha'
   gem 'hpricot'
   gem 'ruby_parser'
+  gem 'rails-erd'
 end
