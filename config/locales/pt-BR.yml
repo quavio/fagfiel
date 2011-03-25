@@ -239,6 +239,7 @@ pt-BR:
     resellers: "Lista de revendas"
     sign_out: "Sair"
     menu:
+      courses: "Cursos"
       freebies: "Brindes"
       resellers: "Revendas"
       contact: "Contato"
@@ -246,6 +247,8 @@ pt-BR:
       seasonal_puchase_expectations: "Previsão de compra"
 
   page_title:
+    courses:
+      index: "Cursos"
     freebies:
       index: "Brindes"
       new: "Novo brinde"

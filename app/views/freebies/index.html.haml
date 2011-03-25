@@ -1,4 +1,4 @@
-- content_for :title, "Lista de brindes"
+- content_for :title, t('page_title.freebies.index')
 
 - if current_user.role == "a"
   %p= link_to t('links.new_freebie'), new_freebie_path

@@ -1,0 +1,15 @@
+- content_for :title, t('page_title.courses.index')
+
+- if current_user.role == "a"
+  %p= link_to t('links.new_course'), new_course_path
+
+.list
+  - for course in @courses
+    .course{:class => @courses.last == course ? "last" : nil}
+      = image_tag course.image.url(:normal)
+      .description
+        = link_to course.title, course
+        %p= course.description
+      .price= number_to_currency(course.price)
+      .clear
+
