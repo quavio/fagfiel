@@ -17,6 +17,13 @@ module Creators
     Reseller.create(defaults)
   end
   
+  def create_course options = {}
+    defaults = {
+      :title => "course #{(rand * 1000).round}"
+    }.merge(options)
+    Course.create(defaults)
+  end
+
   def create_freebie options = {}
     defaults = {
       :title => "freebie #{(rand * 1000).round}"
