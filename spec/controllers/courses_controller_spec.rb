@@ -10,7 +10,7 @@ describe CoursesController do
   end
 
   describe "GET index" do
-      before(:each){ get :index }
+    before(:each){ get :index }
 
     it "assigns all active courses as @courses" do
       Set.new(assigns(:courses)).should == Set.new(Course.active.all)
