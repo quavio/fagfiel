@@ -6,11 +6,12 @@ describe Course do
     its(:class) { should == Course }
   end
 
-  context "when we have courses which start_at is in the past" do
-    subject { Course }
+  context "when we have courses which start_at is in the past and future" do
     before(:each) do
-      @c = create_course :start_at => Time.now - 1.day
+      @past = create_course :start_at => Time.now - 1.day
+      @future = create_course :start_at => Time.now + 1.day
     end
-    its(:active) { should == [@c] }
+    subject { Course }
+    its(:active) { should == [@future] }
   end
 end
