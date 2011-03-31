@@ -359,6 +359,39 @@ form.contact textarea {
   height: 100px;
 }
 
+/* line 208, ../../../app/stylesheets/screen.scss */
+form.new_seasonal_purchase_expectation {
+  margin-bottom: 10px;
+  border: 1px gray solid;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #e6e6e6), color-stop(100%, #808080));
+  background-image: -moz-linear-gradient(top, #e6e6e6 0%, #808080 100%);
+  background-image: linear-gradient(top, #e6e6e6 0%, #808080 100%);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+/* line 214, ../../../app/stylesheets/screen.scss */
+form.new_seasonal_purchase_expectation #product {
+  width: 300px;
+}
+/* line 216, ../../../app/stylesheets/screen.scss */
+form.new_seasonal_purchase_expectation #seasonal_purchase_expectation_quantity {
+  width: 60px;
+}
+/* line 218, ../../../app/stylesheets/screen.scss */
+form.new_seasonal_purchase_expectation label {
+  text-shadow: white 1px 1px 1px;
+}
+/* line 220, ../../../app/stylesheets/screen.scss */
+form.new_seasonal_purchase_expectation input[type='text'] {
+  display: inline;
+  margin-right: 10px;
+}
+
 /* line 1, ../../../app/stylesheets/header.scss */
 #header {
   background: white;

@@ -1,15 +1,22 @@
 - content_for :title, t("page_title.purchase_expectation.index", :reseller => @reseller.name, :date => l(@date, :format => :month_and_year))
+- content_for :javascript, javascript_include_tag("jquery.ui.core.min.js")
+- content_for :javascript, javascript_include_tag("jquery.ui.widget.min.js")
+- content_for :javascript, javascript_include_tag("jquery.ui.position.min.js")
+- content_for :javascript, javascript_include_tag("jquery.ui.autocomplete.min.js")
+- content_for :stylesheet, stylesheet_link_tag("jquery-ui-1.8.11.custom.css")
 - content_for :submenu do
   = link_to t("links.resellers"), resellers_path
   |
-  = select_tag :date, options_for_select((Date.today..Date.today + 1.year - 1.month).map{|date| [l(date, :format => :month_and_year), reseller_seasonal_purchase_expectations_path(@reseller, date.year, date.month)]}.uniq.insert(0, "Prever compra para:")), :onchange => "window.location = this.value"
+  = select_tag :date, options_for_select((Date.today..Date.today + 1.year - 1.month).map{|date| [l(date, :format => :month_and_year), reseller_seasonal_purchase_expectations_path(@reseller, date.year, date.month)]}.uniq.insert(0, "Ver previsão para:")), :onchange => "window.location = this.value"
 
-= form_for [@reseller, @seasonal_purchase_expectation] do |form|
-  = label_tag :product_id, "Produto"
-  = text_field_tag :product_id
-  = form.label :quantity, "Quantidade"
-  = form.text_field :quantity
-  = form.submit "Adicionar previsão"
+- if current_user.is_reseller?
+  = form_for [@reseller, @seasonal_purchase_expectation] do |form|
+    = label_tag :product_id, "Produto"
+    = text_field_tag :product_id
+    = text_field_tag :product
+    = form.label :quantity, "Quantidade"
+    = form.text_field :quantity
+    = form.submit "Adicionar previsão"
 
 %table
   - if @purchase_expectations.empty?
@@ -35,3 +42,45 @@
         %td.past= purchase_expectation.history ? purchase_expectation.history.consulted : 0
         %td.past= purchase_expectation.history ? purchase_expectation.history.bought : 0
         %td.future= purchase_expectation.quantity
+
+:javascript
+  $(function() {
+    function log( message ) {
+      $( "<div/>" ).text( message ).prependTo( "#log" );
+      $( "#log" ).attr( "scrollTop", 0 );
+    }
+
+    $( "#product" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: "http://ws.geonames.org/searchJSON",
+          dataType: "jsonp",
+          data: {
+            featureClass: "P",
+            style: "full",
+            maxRows: 12,
+            name_startsWith: request.term
+          },
+          success: function( data ) {
+            response( $.map( data.geonames, function( item ) {
+              return {
+                label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+                value: item.name
+              }
+            }));
+          }
+        });
+      },
+      minLength: 2,
+      select: function( event, ui ) {
+        log( ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
+      },
+      open: function() {
+        $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+      },
+      close: function() {
+        $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+      }
+    });
+  });
+

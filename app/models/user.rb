@@ -9,4 +9,16 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :phone, :name, :role
+
+  def is_admin?
+    role == "a"
+  end
+  
+  def is_manager?
+    role == "m"
+  end
+  
+  def is_reseller?
+    role == "r"
+  end
 end
