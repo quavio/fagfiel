@@ -26,7 +26,7 @@ describe SeasonalPurchaseExpectationsController do
 
       it "creates a new purchase expectation" do
         expect{
-          post :create, :reseller_id => reseller.id, :year => Date.today.year, :month => Date.today.month, :product_id => product.id, :seasonal_purchase_expectation => {:quantity => 10}
+          post :create, :reseller_id => reseller.id, :year => Date.today.year, :month => Date.today.month, :product_reference => product.reference, :seasonal_purchase_expectation => {:quantity => 10}
         }.to change{SeasonalPurchaseExpectation.count}.by(1)
       end
 
@@ -34,7 +34,7 @@ describe SeasonalPurchaseExpectationsController do
         reseller.reload
         another_reseller = create_reseller
         expect{
-          post :create, :reseller_id => another_reseller.id, :year => Date.today.year, :month => Date.today.month, :product_id => product.id, :seasonal_purchase_expectation => {:quantity => 10}
+          post :create, :reseller_id => another_reseller.id, :year => Date.today.year, :month => Date.today.month, :product_reference => product.reference, :seasonal_purchase_expectation => {:quantity => 10}
         }.to_not change{SeasonalPurchaseExpectation.count}
       end
     end

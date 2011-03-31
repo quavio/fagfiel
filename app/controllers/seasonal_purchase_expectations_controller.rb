@@ -10,10 +10,11 @@ class SeasonalPurchaseExpectationsController < ApplicationController
   end
 
   def create
-    seasonal_purchase = SeasonalPurchase.find_by_reseller_id_and_product_id_and_month(@reseller.id, params[:product_id].to_i, params[:month].to_i)
+    product = Product.find_by_reference(params[:product_reference])
+    seasonal_purchase = SeasonalPurchase.find_by_reseller_id_and_product_id_and_month(@reseller.id, product.id, params[:month].to_i)
     if seasonal_purchase
     else
-      seasonal_purchase = SeasonalPurchase.create :product_id => params[:product_id].to_i, :reseller => @reseller, :month => params[:month]
+      seasonal_purchase = SeasonalPurchase.create :product_id => product.id, :reseller => @reseller, :month => params[:month]
       SeasonalPurchaseExpectation.create :seasonal_purchase => seasonal_purchase, :year => params[:year], :quantity => params[:seasonal_purchase_expectation][:quantity]
     end
     redirect_to reseller_seasonal_purchase_expectations_path(@reseller, params[:year], params[:month])

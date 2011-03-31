@@ -375,19 +375,16 @@ form.new_seasonal_purchase_expectation {
   padding: 10px;
 }
 /* line 214, ../../../app/stylesheets/screen.scss */
-form.new_seasonal_purchase_expectation #product {
-  width: 300px;
-}
-/* line 216, ../../../app/stylesheets/screen.scss */
 form.new_seasonal_purchase_expectation #seasonal_purchase_expectation_quantity {
   width: 60px;
 }
-/* line 218, ../../../app/stylesheets/screen.scss */
+/* line 216, ../../../app/stylesheets/screen.scss */
 form.new_seasonal_purchase_expectation label {
   text-shadow: white 1px 1px 1px;
 }
-/* line 220, ../../../app/stylesheets/screen.scss */
+/* line 218, ../../../app/stylesheets/screen.scss */
 form.new_seasonal_purchase_expectation input[type='text'] {
+  font-size: 12px;
   display: inline;
   margin-right: 10px;
 }

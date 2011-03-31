@@ -7,7 +7,7 @@ feature "Add purchase expectation" do
     product = create_product
     
     click_link "Previsão de compra"
-    fill_in "Produto", :with => product.id
+    fill_in "Produto", :with => product.reference
     fill_in "Quantidade", :with => 10
     click_button "Adicionar previsão"
 

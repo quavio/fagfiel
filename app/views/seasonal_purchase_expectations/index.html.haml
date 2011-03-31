@@ -1,9 +1,9 @@
 - content_for :title, t("page_title.purchase_expectation.index", :reseller => @reseller.name, :date => l(@date, :format => :month_and_year))
-- content_for :javascript, javascript_include_tag("jquery.ui.core.min.js")
-- content_for :javascript, javascript_include_tag("jquery.ui.widget.min.js")
-- content_for :javascript, javascript_include_tag("jquery.ui.position.min.js")
-- content_for :javascript, javascript_include_tag("jquery.ui.autocomplete.min.js")
-- content_for :stylesheet, stylesheet_link_tag("jquery-ui-1.8.11.custom.css")
+- content_for :javascript, javascript_include_tag("jquery-ui/jquery.ui.core.min.js")
+- content_for :javascript, javascript_include_tag("jquery-ui/jquery.ui.widget.min.js")
+- content_for :javascript, javascript_include_tag("jquery-ui/jquery.ui.position.min.js")
+- content_for :javascript, javascript_include_tag("jquery-ui/jquery.ui.autocomplete.min.js")
+- content_for :stylesheet, stylesheet_link_tag("jquery-ui.css")
 - content_for :submenu do
   = link_to t("links.resellers"), resellers_path
   |
@@ -11,9 +11,8 @@
 
 - if current_user.is_reseller?
   = form_for [@reseller, @seasonal_purchase_expectation] do |form|
-    = label_tag :product_id, "Produto"
-    = text_field_tag :product_id
-    = text_field_tag :product
+    = label_tag :product_reference, "Produto"
+    = text_field_tag :product_reference
     = form.label :quantity, "Quantidade"
     = form.text_field :quantity
     = form.submit "Adicionar previsão"
@@ -45,27 +44,17 @@
 
 :javascript
   $(function() {
-    function log( message ) {
-      $( "<div/>" ).text( message ).prependTo( "#log" );
-      $( "#log" ).attr( "scrollTop", 0 );
-    }
-
-    $( "#product" ).autocomplete({
-      source: function( request, response ) {
+    $( "#product_reference" ).autocomplete({
+      source: function(request, response) {
         $.ajax({
-          url: "http://ws.geonames.org/searchJSON",
-          dataType: "jsonp",
-          data: {
-            featureClass: "P",
-            style: "full",
-            maxRows: 12,
-            name_startsWith: request.term
-          },
-          success: function( data ) {
-            response( $.map( data.geonames, function( item ) {
+          url: "http://localhost:3000/products.json",
+          dataType: "json",
+          data: { search: request.term },
+          success: function(data){
+            response( $.map( data, function( item ) {
               return {
-                label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
-                value: item.name
+                label: item.product.reference + ", " + item.product.brand + ", " + item.product.group,
+                value: item.product.reference
               }
             }));
           }
@@ -73,14 +62,10 @@
       },
       minLength: 2,
       select: function( event, ui ) {
-        log( ui.item ? "Selected: " + ui.item.label : "Nothing selected, input was " + this.value);
       },
       open: function() {
-        $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
       },
       close: function() {
-        $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
       }
     });
   });
-
