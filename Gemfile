@@ -15,6 +15,7 @@ gem 'paperclip'
 gem 'formtastic', '>= 1.2.3'
 gem 'postgres-copy'
 gem 'jquery-rails'
+gem 'texticle'
 
 group :test, :development do
   gem 'capybara', ">= 0.4.0"
