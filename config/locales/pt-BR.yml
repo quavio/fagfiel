@@ -233,6 +233,9 @@ pt-BR:
         subject: 'Instruções de desbloqueio'  
 
   links:
+    new_course: "Novo curso"
+    edit_course: "Alterar curso"
+    courses: "Lista de cursos"
     new_freebie: "Novo brinde"
     edit_freebie: "Alterar brinde"
     freebies: "Lista de brindes"
