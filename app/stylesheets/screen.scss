@@ -103,7 +103,10 @@ table{
     background:lighten($red, 40%)}
   td.future{
     text-align:center;
-    background:lighten($green, 40%)}}
+    background:lighten($green, 40%)}
+  td.actions{
+    text-align:right;
+    background:lighten(gray, 40%)}}
 
 .clear{
   clear:both;
@@ -217,6 +220,11 @@ form.new_seasonal_purchase_expectation{
     @include text-shadow(white, 1px, 1px ,1px);}
   input[type='text']{
     font-size:$font;
+    display:inline;
+    margin-right:10px;}}
+
+form.edit_seasonal_purchase_expectation{
+  input{
     display:inline;
     margin-right:10px;}}
 

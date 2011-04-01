@@ -33,6 +33,7 @@
       %th.past Qt. Consultada
       %th.past Qt. Comprada
       %th.future Previsão de compra
+      %th
     - @purchase_expectations.each do |purchase_expectation|
       %tr
         %td.product= purchase_expectation.product.reference
@@ -41,6 +42,10 @@
         %td.past= purchase_expectation.history ? purchase_expectation.history.consulted : 0
         %td.past= purchase_expectation.history ? purchase_expectation.history.bought : 0
         %td.future= purchase_expectation.quantity
+        %td.actions
+          = link_to("Editar", edit_reseller_seasonal_purchase_expectation_path(@reseller, params[:year], params[:month], purchase_expectation))
+          | 
+          Remover
 
 :javascript
   $(function() {
