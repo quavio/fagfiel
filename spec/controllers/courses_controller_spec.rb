@@ -36,4 +36,26 @@ describe CoursesController do
       end
     end
   end
+
+  describe "POST create" do
+
+    describe "with valid params" do
+      it "assigns a newly created course as @course" do
+        post :create, :course => {'title' => 'new course'}
+        assigns(:course).id.should be(Course.where(["id <> ?", @course.id]).first.id)
+      end
+    end
+
+  end
+
+  describe "PUT update" do
+
+    describe "with valid params" do
+      it "updates the requested course" do
+        put :update, :id => @course.id, :course => {'title' => 'updated'}
+        @course.reload.title.should == 'updated'
+      end
+    end
+
+  end
 end

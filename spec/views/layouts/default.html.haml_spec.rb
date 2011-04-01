@@ -5,9 +5,7 @@ describe "layouts/default" do
 
   context "when reseller is logged in" do
     before :each do
-      u = create_user(:role => "r")
-      create_reseller :user => u
-      controller.stub(:current_user).and_return(u)
+      controller.stub(:current_user).and_return(stub_model(User, :id => 1, :role => 'r', :reseller => stub_model(Reseller, :id => 2)))
       render
     end
     it { should_not match /<a.*>#{t('links.menu.courses')}<\/a>/ } 
@@ -15,7 +13,7 @@ describe "layouts/default" do
 
   context "when manager is logged in" do
     before :each do
-      controller.stub(:current_user).and_return(create_user(:role => "m"))
+      controller.stub(:current_user).and_return(stub_model(User, :id => 1, :role => 'm'))
       render
     end
     it { should_not match /<a.*>#{t('links.menu.courses')}<\/a>/ } 
@@ -23,7 +21,7 @@ describe "layouts/default" do
 
   context "when admin is logged in" do
     before :each do
-      controller.stub(:current_user).and_return(create_user(:role => "a"))
+      controller.stub(:current_user).and_return(stub_model(User, :id => 1, :role => 'a'))
       render
     end
     it { should match /<a.*>#{t('links.menu.courses')}<\/a>/ } 

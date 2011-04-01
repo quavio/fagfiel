@@ -251,6 +251,7 @@ pt-BR:
 
   page_title:
     courses:
+      new: "Novo curso"
       index: "Cursos"
     freebies:
       index: "Brindes"
