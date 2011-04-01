@@ -1,0 +1,5 @@
+- content_for :title, t("page_title.purchase_expectation.edit", :product => @seasonal_purchase_expectation.product.reference, :date => l(@date, :format => :month_and_year))
+= form_for [@reseller, @seasonal_purchase_expectation] do |form|
+  = form.label :quantity, "Quantidade"
+  = form.text_field :quantity
+  = submit_tag "Salvar"
