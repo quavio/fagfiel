@@ -11,8 +11,15 @@
 
 - if current_user.is_reseller?
   = form_for [@reseller, @seasonal_purchase_expectation] do |form|
+    - if @seasonal_purchase_expectation.errors.any?
+      #error_explanation
+        %ul
+          - @seasonal_purchase_expectation.errors.full_messages.each do |msg|
+            %li= msg
     = label_tag :product_reference, "Produto"
     = text_field_tag :product_reference
+    %span#purchase_history Ano passado: consultou 10, comprou 10
+    %img#purchase_history_loading{:src => "/images/ajax-loader.gif", :style => "display:none"}
     = form.label :quantity, "Quantidade"
     = form.text_field :quantity
     = form.submit "Adicionar previsão"
@@ -45,7 +52,7 @@
         %td.actions
           = link_to("Editar", edit_reseller_seasonal_purchase_expectation_path(@reseller, params[:year], params[:month], purchase_expectation))
           | 
-          Remover
+          = link_to("Remover", reseller_seasonal_purchase_expectation_path(@reseller, params[:year], params[:month], purchase_expectation), :method => "delete", :class => "alert")
 
 :javascript
   $(function() {
@@ -54,7 +61,7 @@
         $.ajax({
           url: "http://localhost:3000/products.json",
           dataType: "json",
-          data: { search: request.term },
+          data: { search: request.term + "*" },
           success: function(data){
             response( $.map( data, function( item ) {
               return {
@@ -66,11 +73,20 @@
         });
       },
       minLength: 2,
-      select: function( event, ui ) {
+      select: function(event, ui) {
+        $("#purchase_history_loading").fadeIn();
+        $.ajax({
+          url: "#{reseller_seasonal_purchase_histories_path(@reseller, @date.year - 1, @date.month)}",
+          data: {product_reference: ui.item.value},
+          success: function(data){
+            $("#purchase_history").text(data);
+            $("#purchase_history_loading").hide();
+            $("#purchase_history").fadeIn();
+          }
+        });
       },
       open: function() {
-      },
-      close: function() {
+        $("#purchase_history").fadeOut();
       }
     });
   });

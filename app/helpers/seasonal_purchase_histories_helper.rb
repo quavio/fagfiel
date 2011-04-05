@@ -1,0 +1,2 @@
+module SeasonalPurchaseHistoriesHelper
+end
