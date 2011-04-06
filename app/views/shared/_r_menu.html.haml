@@ -1,0 +1,6 @@
+#menu
+  = link_to t("links.menu.freebies"), freebies_path, :class => (params[:controller] == "freebies" ? "selected" : nil)
+  = link_to t("links.menu.seasonal_purchase_expectations"), reseller_seasonal_purchase_expectations_path(current_user.reseller.id, Date.today.year, Date.today.month), :class => (params[:controller] == "seasonal_purchase_expectations" ? "selected" : nil)
+  = link_to t("links.menu.contact"), contact_path, :class => (params[:controller] == "general" && params[:action] == "contact" ? "selected" : nil)
+  = link_to t("links.menu.faq"), faq_path, :class => (params[:controller] == "general" && params[:action] == "faq" ? "selected" : nil)
+  .clear 

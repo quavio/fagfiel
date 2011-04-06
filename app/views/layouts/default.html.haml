@@ -9,17 +9,7 @@
       = link_to image_tag("ina-fag.png", :id => "ina-fag"), "http://www.schaeffler.com/content.schaeffler.com.br/pt/ina_fag_products/index.jsp", :target => "_blank"
       = link_to image_tag("imdepa.png", :id => "imdepa"), "http://imdepa.com.br/", :target => "_blank"
     .clear
-    #menu
-      = link_to t("links.menu.freebies"), freebies_path, :class => (params[:controller] == "freebies" ? "selected" : nil)
-      - if current_user.is_admin?
-        = link_to t("links.menu.courses"), courses_path, :class => (params[:controller] == "courses" ? "selected" : nil)
-      - if current_user.role == "a" || current_user.role == "m"
-        = link_to t("links.menu.resellers"), resellers_path, :class => (params[:controller] == "resellers" || params[:controller] == "purchase_expectations" ? "selected" : nil)
-      - if current_user.role == "r"
-        = link_to t("links.menu.seasonal_purchase_expectations"), reseller_seasonal_purchase_expectations_path(current_user.reseller.id, Date.today.year, Date.today.month), :class => (params[:controller] == "seasonal_purchase_expectations" ? "selected" : nil)
-      = link_to t("links.menu.contact"), contact_path, :class => (params[:controller] == "general" && params[:action] == "contact" ? "selected" : nil)
-      = link_to t("links.menu.faq"), faq_path, :class => (params[:controller] == "general" && params[:action] == "faq" ? "selected" : nil)
-      .clear
+    = render :partial => "shared/#{current_user.role}_menu"
   %h1= yield(:title)
   #default
     - if flash[:notice]
