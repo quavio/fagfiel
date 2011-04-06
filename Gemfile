@@ -22,6 +22,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'steak'
   gem 'rspec-rails', "~> 2.5"
+  gem 'shoulda'
   gem 'rcov'
   gem 'factory_girl_rails'
   gem 'mocha'
