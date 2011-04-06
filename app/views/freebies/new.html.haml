@@ -1,3 +1,5 @@
 - content_for :title, t("page_title.freebies.new")
-= link_to t('links.freebies'), freebies_path
+- content_for :submenu do
+  = link_to t('links.freebies'), freebies_path
+
 = render 'form'

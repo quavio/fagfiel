@@ -15,10 +15,10 @@ class SeasonalPurchaseExpectationsController < ApplicationController
     if product
       seasonal_purchase = SeasonalPurchase.find_or_create_by_product_id_and_reseller_id_and_month(product.id, @reseller.id, params[:month])
       unless SeasonalPurchaseExpectation.create(params[:seasonal_purchase_expectation].merge({:seasonal_purchase => seasonal_purchase, :year => params[:year]})).valid?
-        flash[:alert] = "Já existe uma previsão de compra do produto #{product.reference} para este mês"
+        flash[:alert] = t("alerts.seasonal_purchase_expectations.expectation_already_exist", :product => product.reference)
       end
     else
-      flash[:alert] = "Produto não existe"
+      flash[:alert] = t("alerts.seasonal_purchase_expectations.invalid_product")
     end
     redirect_to reseller_seasonal_purchase_expectations_path(@reseller, params[:year], params[:month])
   end
