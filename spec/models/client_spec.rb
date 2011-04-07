@@ -9,13 +9,26 @@ describe ERP::Client do
       'mail_cliente' => 'mail',
       'gerente_cliente' => 'manager_id',
       'vendedor_cliente' => 'vendor',
-      'faturamento_cliente' => 'expenditure'
+      'faturamento_cliente' => 'expenditure',
+      'cnpj_cliente' => 'cnpj'
     }
-    ERP::Client.pg_copy_from(File.open("#{Rails.root}/spec/fixtures/cliente.csv", 'r'), :delimiter => ';', :map => map)
+    ERP::Client.pg_copy_from(File.open("#{Rails.root}/spec/fixtures/cliente.csv", 'r'), {
+      :delimiter => ';', 
+      :map => map
+    })
     at = ERP::Client.first.attributes
     at.delete 'id'
     at.delete 'created_at'
     at.delete 'updated_at'
-    assert_equal({'erp_id' => '000001', 'name' => 'IMDEPA ROLAMENTOS', 'phone' => '3000-9000', 'mail' => 'cliente@cliente.com', 'manager_id' => '555555', 'vendor' => '444444', 'expenditure' => '000000000012324'}, at)
+    at.should == {
+      'erp_id' => '005851', 
+      'name' => 'EMTECO COM E REPRES LTDA                ', 
+      'phone' => '36712236       ', 
+      'mail' => 'emtecocb@hotmail.com                                        ', 
+      'manager_id' => '000467', 
+      'vendor' => '000097', 
+      'expenditure' => '000000000022400',
+      'cnpj' => '55447189000157'
+    }
   end
 end
