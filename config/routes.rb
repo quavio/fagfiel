@@ -6,6 +6,7 @@ PortalInafag::Application.routes.draw do
   resources :users
   resources :resellers do
     resources :seasonal_purchase_expectations, :path => "seasonal_purchase_expectations/:year/:month"
+    resources :seasonal_purchase_histories, :path => "seasonal_purchase_histories/:year/:month"
   end
   resources :orders
   resources :freebies

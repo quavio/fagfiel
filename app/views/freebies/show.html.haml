@@ -1,4 +1,11 @@
 - content_for :title, @freebie.title
+- content_for :submenu do
+  = link_to t("links.freebies"), freebies_path
+  - if current_user.is_admin?
+    |
+    = link_to t("links.edit_freebie"), edit_freebie_path(@freebie)
+    |
+    = link_to t("links.destroy_freebie"), freebie_path(@freebie), :method => :delete, :class => "alert"
 
 - if @order
   = semantic_form_for @order do |form|
@@ -25,12 +32,6 @@
       = form.input :reseller_id, :as => :hidden
     = form.buttons do
       = form.commit_button :button_html => { :class => "confirm_button" }
-
-%p
-  = link_to t("links.freebies"), freebies_path
-  - if current_user.role == "a"
-    |
-    = link_to t("links.edit_freebie"), edit_freebie_path(@freebie)
 
 = image_tag @freebie.image.url(:original), :class => "freebie"
 %p= @freebie.description

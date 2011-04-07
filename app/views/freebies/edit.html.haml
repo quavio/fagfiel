@@ -1,4 +1,7 @@
-%p
-  = link_to t('back'), freebies_path
+- content_for :title, t("page_title.freebies.edit", :freebie => @freebie.title)
+- content_for :submenu do
+  = link_to t("links.freebies"), freebies_path
+  |
   = link_to t('show'), @freebie
+
 = render 'form'

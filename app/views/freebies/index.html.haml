@@ -1,7 +1,7 @@
 - content_for :title, t('page_title.freebies.index')
-
-- if current_user.role == "a"
-  %p= link_to t('links.new_freebie'), new_freebie_path
+- content_for :submenu do
+  - if current_user.is_admin?
+    = link_to t('links.new_freebie'), new_freebie_path
 
 .list
   - for freebie in @freebies

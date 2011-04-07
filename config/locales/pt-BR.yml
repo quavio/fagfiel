@@ -238,6 +238,7 @@ pt-BR:
     courses: "Lista de cursos"
     new_freebie: "Novo brinde"
     edit_freebie: "Alterar brinde"
+    destroy_freebie: "Remover brinde"
     freebies: "Lista de brindes"
     resellers: "Lista de revendas"
     sign_out: "Sair"
@@ -247,7 +248,7 @@ pt-BR:
       resellers: "Revendas"
       contact: "Contato"
       faq: "FAQ"
-      seasonal_puchase_expectations: "Previsão de compra"
+      seasonal_purchase_expectations: "Previsão de compra"
 
   page_title:
     courses:
@@ -257,6 +258,7 @@ pt-BR:
       index: "Brindes"
       new: "Novo brinde"
       show: "Brinde"
+      edit: "Alterar %{freebie}"
     resellers:
       edit: "Alterar meta da %{revenda}"
       index: "Lista de revendas"
@@ -305,6 +307,9 @@ pt-BR:
     require_admin_or_manager: "Apenas administradores e gerentes podem acessar esta página."
     orders:
       insuficient_found: "A %{reseller} não possui saldo suficiente para resgatar este brinde."
+    seasonal_purchase_expectations:
+      expectation_already_exist: "Já existe uma previsão de compra do produto %{product} para este mês"
+      invalid_product: "Produto não existe"
 
   roles:
     a: "Administrador"

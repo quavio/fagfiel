@@ -1,6 +1,7 @@
 class FreebiesController < ApplicationController
   inherit_resources
   defaults :resource_class => Freebie, :collection_name => 'freebies', :instance_name => 'freebie'
+  before_filter :require_admin, :except => [:show, :index]
 
   def show
     @freebie = Freebie.find params[:id]
