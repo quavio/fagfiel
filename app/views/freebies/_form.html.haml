@@ -1,3 +1,9 @@
+- if @freebie.errors.any?
+  #error_explanation
+    %ul
+      - @freebie.errors.full_messages.each do |msg|
+        %li= msg
+
 = semantic_form_for @freebie, :html => { :multipart => true } do |form|
   - form.inputs do 
     = form.input :title, :as => :string, :required => true
@@ -7,10 +13,3 @@
   .actions
     - form.buttons do 
       = form.commit_button 
-- if @freebie.errors.any?
-  #errorExplanation
-    %h2= "#{pluralize(@freebie.errors.count, 'error')} prohibited this user from being saved:"
-    %ul
-    - @freebie.errors.full_messages.each do |msg|
-      %li= msg
-

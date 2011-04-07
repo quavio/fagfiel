@@ -4,6 +4,8 @@
   - if current_user.is_admin?
     |
     = link_to t("links.edit_freebie"), edit_freebie_path(@freebie)
+    |
+    = link_to t("links.destroy_freebie"), freebie_path(@freebie), :method => :delete, :class => "alert"
 
 - if @order
   = semantic_form_for @order do |form|

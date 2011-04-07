@@ -238,6 +238,7 @@ pt-BR:
     courses: "Lista de cursos"
     new_freebie: "Novo brinde"
     edit_freebie: "Alterar brinde"
+    destroy_freebie: "Remover brinde"
     freebies: "Lista de brindes"
     resellers: "Lista de revendas"
     sign_out: "Sair"
