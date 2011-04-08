@@ -12,7 +12,7 @@ describe ERP::Client do
       'faturamento_cliente' => 'expenditure',
       'cnpj_cliente' => 'cnpj'
     }
-    ERP::Client.pg_copy_from(File.open("#{Rails.root}/spec/fixtures/cliente.csv", 'r'), {
+    ERP::Client.pg_copy_from(File.open("#{Rails.root}/spec/fixtures/clients.csv", 'r'), {
       :delimiter => ';', 
       :map => map
     })
