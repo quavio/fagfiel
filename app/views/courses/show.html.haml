@@ -1,0 +1,13 @@
+- content_for :title, @course.title
+- content_for :submenu do
+  = link_to t("links.courses"), courses_path
+  - if current_user.is_admin?
+    |
+    = link_to t("links.edit_course"), edit_course_path(@course)
+    |
+    = link_to t("links.destroy_course"), course_path(@course), :method => :delete, :class => "alert"
+
+%p= @course.description
+%p= @course.start_at
+%p= @course.max_attendants
+.clear

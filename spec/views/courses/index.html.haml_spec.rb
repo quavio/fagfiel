@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe "courses/new" do
+describe "courses/index" do
   subject { rendered }
   before :each do
-    assign(:course, stub_model(Course))
+    assign(:courses, [stub_model(Course)])
   end
 
   context "when admin is logged in" do
@@ -11,9 +11,10 @@ describe "courses/new" do
       controller.stub(:current_user).and_return(stub_model(User, :role => 'a'))
       render
     end
-    it "should present new course form" do
-      assert_select "form"
+    it "should present courses list" do
+      assert_select(".course", 1)
     end
   end
 end
+
 
