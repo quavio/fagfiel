@@ -22,11 +22,9 @@ describe ERP::Manager do
       'email' => 'bartell@imdepa.com.br', 
       'name' => 'JBARTELL'
     }
-    DatabaseCleaner.clean
   end
 
   it "should transfer data from erp.users to public.users" do
-    puts ERP::Manager.count
     ERP::Manager.create!({
       'erp_id' => '000458', 
       'client_cnpj' => '80238439000196',
@@ -34,7 +32,7 @@ describe ERP::Manager do
       'name' => 'JBARTELL'
     })
     ERP::Manager.update_managers
-    u = Manager.first
+    u = ERP::Manager.first
     u.email.should == 'bartell@imdepa.com.br'
     u.name.should == 'JBARTELL'
   end

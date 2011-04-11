@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe ERP::Client do
+  before(:each) do
+    ERP::Client.destroy_all
+  end
+
   it "should import clients from file with suitable field mappings" do
     map = {
       'codigo_cliente' => 'erp_id',

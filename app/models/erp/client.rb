@@ -6,7 +6,7 @@ class ERP::Client < ActiveRecord::Base
     connection.execute "INSERT INTO public.resellers (user_id, manager_id, name, phone, credits) 
     SELECT DISTINCT 
       (SELECT u.id FROM public.users u WHERE u.email = trim(c.mail)),
-      (SELECT u.id FROM public.users u JOIN erp.managers m ON trim(m.email) = u.email WHERE m.erp_id = c.manager_id),
+      (SELECT u.id FROM public.users u JOIN erp.managers m ON trim(m.email) = u.email WHERE m.erp_id = c.manager_id LIMIT 1),
       trim(name), trim(phone), trim(expenditure)::numeric 
     FROM erp.clients c"
   end
