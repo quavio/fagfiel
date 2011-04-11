@@ -5,6 +5,13 @@ describe ERP::Manager do
     ERP::Manager.connection.execute "TRUNCATE erp.managers CASCADE;"
   end
 
+  it "should import erp users twice using different import_id" do
+    ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/users.csv", ERP::Import.create.id)
+    count = ERP::Manager.count
+    ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/users.csv", ERP::Import.create.id)
+    ERP::Manager.count.should == (count * 2)
+  end
+
   it "should import erp users from file with suitable field mappings" do
     import_id = ERP::Import.create.id
     ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/users.csv", import_id)

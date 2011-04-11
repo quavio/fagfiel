@@ -5,6 +5,13 @@ describe ERP::Client do
     ERP::Client.connection.execute "TRUNCATE erp.clients CASCADE;"
   end
 
+  it "should import erp clients twice using different import_id" do
+    ERP::Client.load_from_file("#{Rails.root}/spec/fixtures/users.csv", ERP::Import.create.id)
+    count = ERP::Client.count
+    ERP::Client.load_from_file("#{Rails.root}/spec/fixtures/users.csv", ERP::Import.create.id)
+    ERP::Client.count.should == (count * 2)
+  end
+
   it "should import clients from file with suitable field mappings" do
     import_id = ERP::Import.create.id
     ERP::Client.load_from_file "#{Rails.root}/spec/fixtures/clients.csv", import_id
