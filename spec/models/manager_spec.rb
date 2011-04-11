@@ -39,9 +39,9 @@ describe ERP::Manager do
       'import_id' => import_id
     })
     ERP::Manager.update_managers import_id
-    u = ERP::Manager.first
+    u = User.first
     u.email.should == 'bartell@imdepa.com.br'
     u.name.should == 'JBARTELL'
-    u.import_id.should == import_id
+    u.erp_id.should == '000458'
   end
 end

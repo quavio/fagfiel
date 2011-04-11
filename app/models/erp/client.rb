@@ -30,7 +30,7 @@ class ERP::Client < ActiveRecord::Base
 
   def self.update_resellers import_id
     ERP::Manager.update_managers import_id
-    connection.execute "INSERT INTO public.users (email) SELECT DISTINCT trim(mail) FROM erp.clients"
+    connection.execute "INSERT INTO public.users (email, erp_id) SELECT DISTINCT trim(mail), trim(erp_id) FROM erp.clients"
     connection.execute "INSERT INTO public.resellers (user_id, manager_id, name, phone, credits) 
     SELECT DISTINCT 
       (SELECT u.id FROM public.users u WHERE u.email = trim(c.mail)),

@@ -15,6 +15,6 @@ class ERP::Manager < ActiveRecord::Base
   end
 
   def self.update_managers import_id
-    connection.execute "INSERT INTO public.users (email, name) SELECT trim(email), MAX(trim(name)) FROM erp.managers GROUP BY trim(email)"
+    connection.execute "INSERT INTO public.users (email, name, erp_id) SELECT trim(email), MAX(trim(name)), trim(erp_id) FROM erp.managers GROUP BY trim(email), trim(erp_id)"
   end
 end

@@ -60,5 +60,6 @@ describe ERP::Client do
     r.credits.should == 22400
     r.user.email.should == 'emtecocb@hotmail.com'
     r.user.role.should == 'r'
+    r.user.erp_id.should == '005851'
   end
 end
