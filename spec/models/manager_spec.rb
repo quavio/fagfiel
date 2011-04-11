@@ -3,6 +3,7 @@ require 'spec_helper'
 describe ERP::Manager do
   before(:each) do
     ERP::Manager.connection.execute "TRUNCATE erp.managers CASCADE;"
+    ERP::Client.connection.execute "TRUNCATE erp.clients CASCADE;"
   end
 
   it "should import erp users twice using different import_id" do

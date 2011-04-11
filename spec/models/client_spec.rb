@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe ERP::Client do
   before(:each) do
+    ERP::Manager.connection.execute "TRUNCATE erp.managers CASCADE;"
     ERP::Client.connection.execute "TRUNCATE erp.clients CASCADE;"
   end
 
@@ -34,6 +35,13 @@ describe ERP::Client do
 
   it "should transfer data from clients to reseller" do
     import_id = ERP::Import.create.id
+    ERP::Manager.create!({
+      'erp_id' => '000467', 
+      'client_cnpj' => '80238439000196',
+      'email' => 'bartell@imdepa.com.br', 
+      'name' => 'JBARTELL',
+      'import_id' => import_id
+    })
     ERP::Client.create!({
       'erp_id' => '005851', 
       'name' => 'EMTECO COM E REPRES LTDA                ', 
