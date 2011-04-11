@@ -16,7 +16,9 @@ class ERP::Client < ActiveRecord::Base
       :map => map
     })
   end
+
   def self.update_resellers
+    ERP::Manager.load_from_file "#{Rails.root}/spec/fixtures/users.csv"
     ERP::Manager.update_managers
     connection.execute "INSERT INTO public.users (email) SELECT DISTINCT trim(mail) FROM erp.clients"
     connection.execute "INSERT INTO public.resellers (user_id, manager_id, name, phone, credits) 
