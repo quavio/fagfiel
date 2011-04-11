@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe ERP::Client do
   before(:each) do
-    ERP::Client.destroy_all
+    ERP::Client.connection.execute "TRUNCATE erp.clients CASCADE;"
   end
 
   it "should import clients from file with suitable field mappings" do
-    ERP::Client.load_from_file "#{Rails.root}/spec/fixtures/clients.csv"
+    import_id = ERP::Import.create.id
+    ERP::Client.load_from_file "#{Rails.root}/spec/fixtures/clients.csv", import_id
     at = ERP::Client.first.attributes
     at.delete 'id'
     at.delete 'created_at'
@@ -19,11 +20,13 @@ describe ERP::Client do
       'manager_id' => '000467', 
       'vendor' => '000097', 
       'expenditure' => '000000000022400',
-      'cnpj' => '55447189000157'
+      'cnpj' => '55447189000157',
+      'import_id' => import_id
     }
   end
 
   it "should transfer data from clients to reseller" do
+    import_id = ERP::Import.create.id
     ERP::Client.create!({
       'erp_id' => '005851', 
       'name' => 'EMTECO COM E REPRES LTDA                ', 
@@ -32,9 +35,10 @@ describe ERP::Client do
       'manager_id' => '000467', 
       'vendor' => '000097', 
       'expenditure' => '000000000022400',
-      'cnpj' => '55447189000157'
+      'cnpj' => '55447189000157',
+      'import_id' => import_id
     })
-    ERP::Client.update_resellers
+    ERP::Client.update_resellers import_id
     r = Reseller.first
     r.name.should == 'EMTECO COM E REPRES LTDA'
     r.phone.should == '36712236'
