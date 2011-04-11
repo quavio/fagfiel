@@ -6,20 +6,7 @@ describe ERP::Client do
   end
 
   it "should import clients from file with suitable field mappings" do
-    map = {
-      'codigo_cliente' => 'erp_id',
-      'nome_cliente' => 'name',
-      'telefone_cliente' => 'phone',
-      'mail_cliente' => 'mail',
-      'gerente_cliente' => 'manager_id',
-      'vendedor_cliente' => 'vendor',
-      'faturamento_cliente' => 'expenditure',
-      'cnpj_cliente' => 'cnpj'
-    }
-    ERP::Client.pg_copy_from(File.open("#{Rails.root}/spec/fixtures/clients.csv", 'r'), {
-      :delimiter => ';', 
-      :map => map
-    })
+    ERP::Client.load_from_file "#{Rails.root}/spec/fixtures/clients.csv"
     at = ERP::Client.first.attributes
     at.delete 'id'
     at.delete 'created_at'

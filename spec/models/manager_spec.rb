@@ -2,16 +2,7 @@ require 'spec_helper'
 
 describe ERP::Manager do
   it "should import erp users from file with suitable field mappings" do
-    map = {
-      'codigo' => 'erp_id',
-      'cnpj' => 'client_cnpj',
-      'email' => 'email',
-      'nome' => 'name'
-    }
-    ERP::Manager.pg_copy_from(File.open("#{Rails.root}/spec/fixtures/users.csv", 'r'), {
-      :delimiter => ';', 
-      :map => map
-    })
+    ERP::Manager.load_from_file "#{Rails.root}/spec/fixtures/users.csv"
     at = ERP::Manager.first.attributes
     at.delete 'id'
     at.delete 'created_at'
