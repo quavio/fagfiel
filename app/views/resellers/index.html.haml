@@ -8,9 +8,6 @@
       .top.left
         %h2= reseller.name
         .details
-          Usuário:
-          %b= link_to reseller.user.name, user_path(reseller.user)
-          |
           Gerente:
           %b= link_to reseller.manager.name, user_path(reseller.manager)
       .progress_bar.left.ui-progress-bar.ui-container

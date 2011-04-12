@@ -23,6 +23,7 @@
       position:fixed;
       text-align:center;
       top:0;
+      z-index:1000;
       @include border-radius(0 0 5px 5px);
       @include linear-gradient(color-stops(lighten(gray, 50%), lighten(gray, 30%)));
       .sign_out{
