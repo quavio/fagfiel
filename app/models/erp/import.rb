@@ -15,11 +15,9 @@ class ERP::Import < ActiveRecord::Base
       if ext == 'csv'
         import_class = IMPORT_MAP[name.join('.').downcase]
         if import_class and (previous_imports == 0 or File.new(f).mtime > last_import.created_at)
-          transaction do
-            id = create!.id
-            import_class.load_from_file(f, id)
-            import_class.import(id)
-          end
+          id = create!.id
+          import_class.load_from_file(f, id)
+          import_class.import(id)
         end
       end
     end
