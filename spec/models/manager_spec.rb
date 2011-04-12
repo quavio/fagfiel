@@ -50,6 +50,7 @@ describe ERP::Manager do
       u.email.should == 'bartell@imdepa.com.br'
       u.name.should == 'JBARTELL'
       u.erp_id.should == '000458'
+      u.role.should == 'm'
     end
 
     context "when we have duplicate emails in ERP::Manager" do

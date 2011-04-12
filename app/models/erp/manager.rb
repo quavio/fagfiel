@@ -42,9 +42,9 @@ class ERP::Manager < ActiveRecord::Base
     "
     # then we insert new managers
     connection.execute "
-      INSERT INTO public.users (email, name, erp_id, created_at) 
+      INSERT INTO public.users (email, name, erp_id, created_at, role) 
         SELECT 
-          trim(email), MAX(trim(name)), min(erp_id), current_timestamp
+          trim(email), MAX(trim(name)), min(erp_id), current_timestamp, 'm'
         FROM erp.managers 
         WHERE 
           managers.import_id = '#{import_id.to_i}'
