@@ -52,6 +52,22 @@ describe ERP::Manager do
       u.erp_id.should == '000458'
     end
 
+    context "when we have duplicate emails in ERP::Manager" do
+      before(:each) do
+        ERP::Manager.create!({
+          'erp_id' => '000459', 
+          'client_cnpj' => '80238439000196',
+          'email' => 'bartell@imdepa.com.br', 
+          'name' => 'JBARTELL',
+          'import_id' => @import_id
+        })
+      end
+      it "should transfer data with lower id" do
+        ERP::Manager.import @import_id
+        User.first.erp_id.should == '000458'
+      end
+    end
+
     context "when we update an already imported manager" do
       before(:each) do
         ERP::Manager.import @import_id

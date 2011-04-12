@@ -44,12 +44,12 @@ class ERP::Manager < ActiveRecord::Base
     connection.execute "
       INSERT INTO public.users (email, name, erp_id, created_at) 
         SELECT 
-          trim(email), MAX(trim(name)), erp_id, current_timestamp
+          trim(email), MAX(trim(name)), min(erp_id), current_timestamp
         FROM erp.managers 
         WHERE 
           managers.import_id = '#{import_id.to_i}'
           AND NOT EXISTS (SELECT 1 FROM public.users u WHERE u.erp_id = managers.erp_id)
-        GROUP BY trim(email), erp_id
+        GROUP BY trim(email)
     "
   end
 end
