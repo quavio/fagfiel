@@ -8,9 +8,9 @@ describe ERP::Client do
   end
 
   it "should import erp clients twice using different import_id" do
-    ERP::Client.load_from_file("#{Rails.root}/spec/fixtures/users.csv", ERP::Import.create.id)
+    ERP::Client.load_from_file("#{Rails.root}/spec/fixtures/managers.csv", ERP::Import.create.id)
     count = ERP::Client.count
-    ERP::Client.load_from_file("#{Rails.root}/spec/fixtures/users.csv", ERP::Import.create.id)
+    ERP::Client.load_from_file("#{Rails.root}/spec/fixtures/managers.csv", ERP::Import.create.id)
     ERP::Client.count.should == (count * 2)
   end
 
@@ -56,13 +56,13 @@ describe ERP::Client do
     end
 
     it "should not transfer data from clients to reseller when we pass a non-existing import_id" do
-      ERP::Client.update_resellers @import_id + 1
+      ERP::Client.import @import_id + 1
       User.all.should be_empty
       Reseller.all.should be_empty
     end
 
     it "should transfer data from clients to reseller when we pass the right import_id" do
-      ERP::Client.update_resellers @import_id
+      ERP::Client.import @import_id
       r = Reseller.first
       r.name.should == 'EMTECO COM E REPRES LTDA'
       r.phone.should == '36712236'
@@ -74,7 +74,7 @@ describe ERP::Client do
 
     context "when we update an already imported client" do
       before(:each) do
-        ERP::Client.update_resellers @import_id
+        ERP::Client.import @import_id
         ERP::Client.first.update_attributes({
           :name => 'updated name', 
           :phone => '999', 
@@ -84,7 +84,7 @@ describe ERP::Client do
       end
 
       it "should update reseller" do
-        ERP::Client.update_resellers @import_id
+        ERP::Client.import @import_id
         r = Reseller.first
         r.name.should == 'updated name'
         r.phone.should == '999'
@@ -96,7 +96,7 @@ describe ERP::Client do
       end
 
       it "should not update reseller based on a non-existing import_id" do
-        ERP::Client.update_resellers @import_id + 1
+        ERP::Client.import @import_id + 1
         r = Reseller.first
         r.name.should == 'EMTECO COM E REPRES LTDA'
         r.phone.should == '36712236'
@@ -110,7 +110,7 @@ describe ERP::Client do
         end
 
         it "should reset credits to imported expenditure" do
-          ERP::Client.update_resellers @import_id
+          ERP::Client.import @import_id
           Reseller.first.credits.should == 1
         end
       end

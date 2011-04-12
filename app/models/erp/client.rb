@@ -28,9 +28,9 @@ class ERP::Client < ActiveRecord::Base
     end
   end
 
-  def self.update_resellers import_id
+  def self.import import_id
     # First we update managers from the import
-    ERP::Manager.update_managers import_id
+    ERP::Manager.import import_id
     # Then we update existing resellers
     # the order matters so we wont update resellers inserted in the same import
     subquery = "(

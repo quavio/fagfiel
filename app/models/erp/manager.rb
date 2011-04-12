@@ -14,7 +14,7 @@ class ERP::Manager < ActiveRecord::Base
     end
   end
 
-  def self.update_managers import_id
+  def self.import import_id
     # First we update existing managers
     # the order matters so we wont update managers inserted in the same import
     subquery = "

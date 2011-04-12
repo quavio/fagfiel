@@ -8,14 +8,14 @@ describe ERP::Manager do
   end
 
   it "should import erp users twice using different import_id" do
-    ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/users.csv", ERP::Import.create.id)
+    ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/managers.csv", ERP::Import.create.id)
     count = ERP::Manager.count
-    ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/users.csv", ERP::Import.create.id)
+    ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/managers.csv", ERP::Import.create.id)
     ERP::Manager.count.should == (count * 2)
   end
 
   it "should import erp users from file with suitable field mappings" do
-    ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/users.csv", @import_id)
+    ERP::Manager.load_from_file("#{Rails.root}/spec/fixtures/managers.csv", @import_id)
     at = ERP::Manager.first.attributes
     at.delete 'id'
     at.delete 'created_at'
@@ -40,12 +40,12 @@ describe ERP::Manager do
       })
     end
     it "should not transfer data from erp.users to public.users when we pass a non-existing import_id" do
-      ERP::Manager.update_managers @import_id + 1
+      ERP::Manager.import @import_id + 1
       User.all.should be_empty
     end
 
     it "should transfer data from erp.users to public.users when we pass the right import_id" do
-      ERP::Manager.update_managers @import_id
+      ERP::Manager.import @import_id
       u = User.first
       u.email.should == 'bartell@imdepa.com.br'
       u.name.should == 'JBARTELL'
@@ -54,19 +54,19 @@ describe ERP::Manager do
 
     context "when we update an already imported manager" do
       before(:each) do
-        ERP::Manager.update_managers @import_id
+        ERP::Manager.import @import_id
         ERP::Manager.first.update_attributes :name => 'updated name', :email => 'updated_email@gmail.com'
       end
 
       it "should not update managers based on a non-existing import_id" do
-        ERP::Manager.update_managers @import_id + 1
+        ERP::Manager.import @import_id + 1
         u = User.first
         u.email.should == 'bartell@imdepa.com.br'
         u.name.should == 'JBARTELL'
       end
 
       it "should update managers" do
-        ERP::Manager.update_managers @import_id
+        ERP::Manager.import @import_id
         u = User.first
         u.name.should == 'updated name'
         u.email.should == 'updated_email@gmail.com'
