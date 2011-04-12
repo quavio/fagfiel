@@ -11,4 +11,5 @@ describe "shared/_a_menu" do
   it {assert_select "a", :text => "Revendas"}
   it {assert_select "a", :text => "Contato"}
   it {assert_select "a", :text => "FAQ"}
+  it {assert_select "a", :text => "Resgates"}
 end

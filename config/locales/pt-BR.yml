@@ -18,6 +18,7 @@ pt-BR:
       default: "%A, %d de %B de %Y, %H:%M h"
       short: "%d/%m, %H:%M h"
       long: "%A, %d de %B de %Y, %H:%M h"
+      order: "%d de %B de %Y"
     am: ""
     pm: ""
   
@@ -249,6 +250,7 @@ pt-BR:
       contact: "Contato"
       faq: "FAQ"
       seasonal_purchase_expectations: "Previsão de compra"
+      orders: "Resgates"
 
   page_title:
     courses:
@@ -271,6 +273,8 @@ pt-BR:
     general:
       contact: "Contato"
       faq: "Perguntas Freqüentes (FAQ)"
+    orders:
+      index: "Resgates"
 
   actions: "Ações"
   back: "Voltar"
@@ -296,6 +300,7 @@ pt-BR:
   notices:
     orders:
       create: "Resgate efetuado, aguarde para receber seu brinde."
+      delivered: "Resgate marcado como enviado."
     resellers:
       update: "Meta da %{reseller} alterada."
     contact:

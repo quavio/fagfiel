@@ -147,7 +147,7 @@ p.notice{
   margin-bottom:10px}
 
 .list{
-  div.freebie, div.reseller{
+  div.freebie, div.reseller, div.order{
     background:lighten(gray, 40%);
     border:1px solid gray;
     padding:20px; 
@@ -161,12 +161,12 @@ p.notice{
       padding:0 0 10px 0; 
       float:left;
       @include text-shadow(white, 0, 1px, 0);}}
+  img{
+    width:80px;
+    float:left; 
+    margin:0 15px 0 0; 
+    @include border-radius(10px);}
   div.freebie{
-    img{
-      width:80px;
-      float:left; 
-      margin:0 15px 0 0; 
-      @include border-radius(10px);}
     a{
       font-size:$font * 2;}
     .description{
@@ -181,13 +181,29 @@ p.notice{
   div.reseller{
     .details{
       float:right;}}
-  div.last{
+  div.order{
+    a{
+      @include text-shadow(transparent, 0, 0, 0)}
+    span{
+      @include text-shadow(white, 0, 1px, 0);
+      color:$green;
+      padding:10px 0;}
+    p{
+      @include text-shadow(white, 0, 1px, 0);
+      float:left;
+      font-size:$font * 1.5;
+      padding:10px 0}
+    form, span{
+      float:right}
+    .confirm_button, span{
+      font-size:$font * 1.5}}
+  div.last, div:last-child{
     margin:0;}}
 
 img.freebie{
   max-width:400px;}
 
-.order{
+.order_form{
   float:right;
   width:350px;
   ol, li{

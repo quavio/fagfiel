@@ -1,8 +1,9 @@
 module Creators
-  
+  @@serial = 0
+
   def create_user options = {}
     defaults = {
-      :email => "person#{(rand * 1000).round}@gmail.com",
+      :email => "person#{@@serial += 1}@quavio.com.br",
       :password => 'test pass salt'
     }.merge(options)
     User.create(defaults)
@@ -10,7 +11,7 @@ module Creators
   
   def create_reseller options = {}
     defaults = {
-      :name => "reseller #{(rand * 1000).round}",
+      :name => "reseller #{@@serial += 1}",
       :manager => create_user,
       :user_id => create_user.id
     }.merge(options)
@@ -19,14 +20,14 @@ module Creators
   
   def create_course options = {}
     defaults = {
-      :title => "course #{(rand * 1000).round}"
+      :title => "course #{@@serial += 1}"
     }.merge(options)
     Course.create(defaults)
   end
 
   def create_freebie options = {}
     defaults = {
-      :title => "freebie #{(rand * 1000).round}"
+      :title => "freebie #{@@serial += 1}"
     }.merge(options)
     Freebie.create(defaults)
   end
@@ -41,8 +42,8 @@ module Creators
 
   def create_product options = {}
     defaults = {
-      :code => rand * 1000,
-      :reference => "REF #{rand * 1000}",
+      :code => @@serial += 1,
+      :reference => "REF #{@@serial += 1}",
       :brand => "FAG",
       :group => "Rolamentos"
     }.merge(options)
@@ -61,7 +62,7 @@ module Creators
   def create_purchase_expectation options = {}
     defaults = {
       :seasonal_purchase => create_seasonal_purchase,
-      :quantity => rand * 1000,
+      :quantity => @@serial += 1,
       :year => Date.today.year
     }.merge(options)
     SeasonalPurchaseExpectation.create(defaults)
@@ -70,8 +71,8 @@ module Creators
   def create_purchase_history options = {}
     defaults = {
       :seasonal_purchase => create_seasonal_purchase,
-      :consulted => rand * 1000,
-      :bought => rand * 1000,
+      :consulted => @@serial += 1,
+      :bought => @@serial += 1,
       :year => Date.today.year
     }.merge(options)
     SeasonalPurchaseHistory.create(defaults)

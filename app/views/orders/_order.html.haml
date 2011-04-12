@@ -1,0 +1,14 @@
+.order
+  %p
+    %b= order.reseller.name
+    resgatou
+    = link_to order.freebie.title, order.freebie
+    no dia
+    = l(order.created_at, :format => :order)
+  - if order.delivered?
+    %span Enviado
+  - else
+    = form_for order do |form|
+      = form.check_box :delivered, :checked => true, :style => "display:none"
+      %input{:type => "submit", :value => "Enviei", :class => "confirm_button"}
+  .clear

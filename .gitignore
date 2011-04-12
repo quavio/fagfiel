@@ -8,4 +8,5 @@ config/database.yml
 *.DS_Store
 public/system
 *.swo
+*.swp
 db/development_structure.sql

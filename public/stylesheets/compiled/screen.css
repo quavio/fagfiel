@@ -265,7 +265,7 @@ p.notice {
 }
 
 /* line 150, ../../../app/stylesheets/screen.scss */
-.list div.freebie, .list div.reseller {
+.list div.freebie, .list div.reseller, .list div.order {
   background: #e6e6e6;
   border: 1px solid gray;
   padding: 20px;
@@ -281,17 +281,17 @@ p.notice {
   border-radius: 10px;
 }
 /* line 157, ../../../app/stylesheets/screen.scss */
-.list div.freebie .top, .list div.freebie .progress_bar, .list div.reseller .top, .list div.reseller .progress_bar {
+.list div.freebie .top, .list div.freebie .progress_bar, .list div.reseller .top, .list div.reseller .progress_bar, .list div.order .top, .list div.order .progress_bar {
   width: 100%;
 }
 /* line 160, ../../../app/stylesheets/screen.scss */
-.list div.freebie h2, .list div.reseller h2 {
+.list div.freebie h2, .list div.reseller h2, .list div.order h2 {
   padding: 0 0 10px 0;
   float: left;
   text-shadow: white 0 1px 0;
 }
-/* line 165, ../../../app/stylesheets/screen.scss */
-.list div.freebie img {
+/* line 164, ../../../app/stylesheets/screen.scss */
+.list img {
   width: 80px;
   float: left;
   margin: 0 15px 0 0;
@@ -323,53 +323,78 @@ p.notice {
 .list div.reseller .details {
   float: right;
 }
-/* line 184, ../../../app/stylesheets/screen.scss */
-.list div.last {
+/* line 185, ../../../app/stylesheets/screen.scss */
+.list div.order a {
+  text-shadow: transparent 0 0 0;
+}
+/* line 187, ../../../app/stylesheets/screen.scss */
+.list div.order span {
+  text-shadow: white 0 1px 0;
+  color: #00823c;
+  padding: 10px 0;
+}
+/* line 191, ../../../app/stylesheets/screen.scss */
+.list div.order p {
+  text-shadow: white 0 1px 0;
+  float: left;
+  font-size: 18px;
+  padding: 10px 0;
+}
+/* line 196, ../../../app/stylesheets/screen.scss */
+.list div.order form, .list div.order span {
+  float: right;
+}
+/* line 198, ../../../app/stylesheets/screen.scss */
+.list div.order .confirm_button, .list div.order span {
+  font-size: 18px;
+}
+/* line 200, ../../../app/stylesheets/screen.scss */
+.list div.last, .list div:last-child {
   margin: 0;
 }
 
-/* line 187, ../../../app/stylesheets/screen.scss */
+/* line 203, ../../../app/stylesheets/screen.scss */
 img.freebie {
   max-width: 400px;
 }
 
-/* line 190, ../../../app/stylesheets/screen.scss */
-.order {
+/* line 206, ../../../app/stylesheets/screen.scss */
+.order_form {
   float: right;
   width: 350px;
 }
-/* line 193, ../../../app/stylesheets/screen.scss */
-.order ol, .order li {
+/* line 209, ../../../app/stylesheets/screen.scss */
+.order_form ol, .order_form li {
   margin: 0;
   padding: 0;
   height: 0;
 }
-/* line 198, ../../../app/stylesheets/screen.scss */
-.order #error_explanation ol, .order #error_explanation li {
+/* line 214, ../../../app/stylesheets/screen.scss */
+.order_form #error_explanation ol, .order_form #error_explanation li {
   height: auto;
 }
-/* line 200, ../../../app/stylesheets/screen.scss */
-.order input {
+/* line 216, ../../../app/stylesheets/screen.scss */
+.order_form input {
   float: right;
 }
-/* line 202, ../../../app/stylesheets/screen.scss */
-.order table {
+/* line 218, ../../../app/stylesheets/screen.scss */
+.order_form table {
   width: 100%;
   margin: 0 0 10px 0;
   background: lightgray;
 }
-/* line 206, ../../../app/stylesheets/screen.scss */
-.order table td {
+/* line 222, ../../../app/stylesheets/screen.scss */
+.order_form table td {
   padding: 10px;
 }
 
-/* line 210, ../../../app/stylesheets/screen.scss */
+/* line 226, ../../../app/stylesheets/screen.scss */
 form.contact textarea {
   width: 100%;
   height: 100px;
 }
 
-/* line 214, ../../../app/stylesheets/screen.scss */
+/* line 230, ../../../app/stylesheets/screen.scss */
 form.new_seasonal_purchase_expectation {
   margin-bottom: 10px;
   border: 1px gray solid;
@@ -384,22 +409,22 @@ form.new_seasonal_purchase_expectation {
   border-radius: 10px;
   padding: 10px;
 }
-/* line 220, ../../../app/stylesheets/screen.scss */
+/* line 236, ../../../app/stylesheets/screen.scss */
 form.new_seasonal_purchase_expectation #seasonal_purchase_expectation_quantity {
   width: 60px;
 }
-/* line 222, ../../../app/stylesheets/screen.scss */
+/* line 238, ../../../app/stylesheets/screen.scss */
 form.new_seasonal_purchase_expectation label {
   text-shadow: white 1px 1px 1px;
 }
-/* line 224, ../../../app/stylesheets/screen.scss */
+/* line 240, ../../../app/stylesheets/screen.scss */
 form.new_seasonal_purchase_expectation input[type='text'] {
   font-size: 12px;
   display: inline;
   margin-right: 10px;
 }
 
-/* line 229, ../../../app/stylesheets/screen.scss */
+/* line 245, ../../../app/stylesheets/screen.scss */
 span#purchase_history {
   background: gray;
   padding: 5px;
@@ -418,12 +443,12 @@ span#purchase_history {
   border-radius: 5px;
 }
 
-/* line 238, ../../../app/stylesheets/screen.scss */
+/* line 254, ../../../app/stylesheets/screen.scss */
 .ui-autocomplete-loading {
   background: white url("/../images/ajax-loader.gif") right center no-repeat;
 }
 
-/* line 241, ../../../app/stylesheets/screen.scss */
+/* line 257, ../../../app/stylesheets/screen.scss */
 form.edit_seasonal_purchase_expectation input {
   display: inline;
   margin-right: 10px;
