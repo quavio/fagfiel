@@ -13,7 +13,7 @@ gem 'unicorn'
 gem 'devise'
 gem 'paperclip'
 gem 'formtastic', '>= 1.2.3'
-gem 'postgres-copy'
+gem 'postgres-copy', '>= 0.3.3'
 gem 'jquery-rails'
 gem 'texticle'
 

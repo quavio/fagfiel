@@ -6,7 +6,6 @@
 .list
   - for course in @courses
     .course{:class => @courses.last == course ? "last" : nil}
-      = image_tag course.image.url(:normal)
       .description
         = link_to course.title, course
         %p= course.description

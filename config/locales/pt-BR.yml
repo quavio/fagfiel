@@ -181,6 +181,12 @@ pt-BR:
         current_password: "Senha atual"
         name: "Nome"
         phone: "Telefone"
+      course:
+        title: "Nome"
+        description: "Descrição"
+        price: "Preço"
+        start_at: "Inicio"
+        max_attendants: "Máximo de participantes"
       freebie:
         title: "Nome"
         description: "Descrição"

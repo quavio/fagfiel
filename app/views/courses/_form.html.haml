@@ -4,7 +4,7 @@
     = form.input :price, :required => true, :value_method => Proc.new { |a| "#{a}" }
     = form.input :description
     = form.input :start_at
-    = form.input :image, :as => :file
+    = form.input :max_attendants
   .actions
     = form.buttons do 
       = form.commit_button 
