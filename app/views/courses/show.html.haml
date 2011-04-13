@@ -10,7 +10,10 @@
 %p= @course.description
 %p
   Inicia dia:
-  %b= l @course.start_at, :format => :long
+  - if @course.start_at?
+    %b= l @course.start_at, :format => :long
+  - else
+    %b ?
 %p
   Número máximo de participantes:
   %b= @course.max_attendants || "?"

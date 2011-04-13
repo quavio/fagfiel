@@ -481,6 +481,15 @@ form.edit_seasonal_purchase_expectation input {
   margin-right: 10px;
 }
 
+/* line 278, ../../../app/stylesheets/screen.scss */
+li.date ol label {
+  display: none;
+}
+/* line 280, ../../../app/stylesheets/screen.scss */
+li.date ol li {
+  float: left;
+}
+
 /* line 1, ../../../app/stylesheets/header.scss */
 #header {
   background: white;

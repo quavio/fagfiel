@@ -1,17 +1,16 @@
+- if @course.errors.any?
+  #error_explanation
+    %ul
+      - @course.errors.full_messages.each do |msg|
+        %li= msg
+
 = semantic_form_for @course, :html => { :multipart => true } do |form|
   = form.inputs do 
     = form.input :title, :as => :string, :required => true
-    = form.input :price, :required => true, :value_method => Proc.new { |a| "#{a}" }
+    = form.input :price, :required => true, :value_method => Proc.new { |a| "#{a}" }, :input_html => {:size => 8}
     = form.input :description
     = form.input :start_at
-    = form.input :max_attendants
+    = form.input :max_attendants, :input_html => {:size => 3}
   .actions
     = form.buttons do 
       = form.commit_button 
-- if @course.errors.any?
-  #errorExplanation
-    %h2= "#{pluralize(@course.errors.count, 'error')} prohibited this user from being saved:"
-    %ul
-    - @course.errors.full_messages.each do |msg|
-      %li= msg
-

@@ -6,8 +6,11 @@
     %span.price= number_to_currency course.price
     %span.max_attendants
       Máx. participantes:
-      %b= course.max_attendants
+      %b= course.max_attendants || "?"
     %span.start_at
       Inicia dia
-      %b= l(course.start_at, :format => :long)
+      - if course.start_at
+        %b= l(course.start_at, :format => :long)
+      - else
+        %b ?
   .clear

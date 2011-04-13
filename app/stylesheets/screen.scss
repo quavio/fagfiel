@@ -273,6 +273,13 @@ form.edit_seasonal_purchase_expectation{
     display:inline;
     margin-right:10px;}}
 
+li.date{
+  ol{
+    label{
+      display:none}
+    li{
+      float:left}}}
+
 @import "header";
 @import "devise";
 @import "default";
