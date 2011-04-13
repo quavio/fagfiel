@@ -20,6 +20,7 @@ module Creators
   
   def create_course options = {}
     defaults = {
+      :start_at => Date.today + 1,
       :title => "course #{@@serial += 1}"
     }.merge(options)
     Course.create(defaults)

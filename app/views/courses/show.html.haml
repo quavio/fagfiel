@@ -8,6 +8,10 @@
     = link_to t("links.destroy_course"), course_path(@course), :method => :delete, :class => "alert"
 
 %p= @course.description
-%p= @course.start_at
-%p= @course.max_attendants
+%p
+  Inicia dia:
+  %b= l @course.start_at, :format => :long
+%p
+  Número máximo de participantes:
+  %b= @course.max_attendants || "?"
 .clear

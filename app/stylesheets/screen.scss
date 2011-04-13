@@ -147,7 +147,7 @@ p.notice{
   margin-bottom:10px}
 
 .list{
-  div.freebie, div.reseller, div.order{
+  div.freebie, div.reseller, div.order, div.course{
     background:lighten(gray, 40%);
     border:1px solid gray;
     padding:20px; 
@@ -159,18 +159,17 @@ p.notice{
     }
     .progress_bar{
       margin-bottom:5px;}
+    a{
+      font-size:$font * 2;}
+    img{
+      width:80px;
+      float:left; 
+      margin:0 15px 0 0; 
+      @include border-radius(10px);}
     h2{
       padding:0 0 10px 0; 
       float:left;
-      @include text-shadow(white, 0, 1px, 0);}}
-  img{
-    width:80px;
-    float:left; 
-    margin:0 15px 0 0; 
-    @include border-radius(10px);}
-  div.freebie{
-    a{
-      font-size:$font * 2;}
+      @include text-shadow(white, 0, 1px, 0);}
     .description{
       float:left; 
       width:500px;}
@@ -179,10 +178,17 @@ p.notice{
       color:$red; 
       font-size:$font * 2; 
       font-weight:bold; 
-      @include text-shadow(white, 0, 1px, 0);}}
+      margin-bottom:5px;
+      @include text-shadow(white, 0, 1px, 0);}
+    .max_attendants, .start_at{
+      width:100%;
+      text-align:right;
+      float:right}}
   div.reseller{
     h2{
       font-size:$font * 1.5}
+    a{
+      font-size:$font}
     .details{
       float:right;}}
   div.order{
@@ -201,6 +207,11 @@ p.notice{
       float:right}
     .confirm_button, span{
       font-size:$font * 1.5}}
+  div.course{
+    .left{
+      width:586px}
+    .right{
+      width:250px}}
   div.last, div:last-child{
     margin:0;}}
 

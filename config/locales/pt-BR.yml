@@ -243,6 +243,7 @@ pt-BR:
     new_course: "Novo curso"
     edit_course: "Alterar curso"
     courses: "Lista de cursos"
+    destroy_course: "Remover curso"
     new_freebie: "Novo brinde"
     edit_freebie: "Alterar brinde"
     destroy_freebie: "Remover brinde"
