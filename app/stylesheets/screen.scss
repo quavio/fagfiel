@@ -23,6 +23,7 @@ $width: 900px;
   padding:5px 10px;
   text-decoration:none;
   @include border-radius(10px);
+  @include box-shadow(inset, 0, 1px, 0, lighten($color, 50%));
   @include linear-gradient(color-stops(lighten($color, 20%), $color));
   @include text-shadow(black, -1px, -1px, -1px);
   &:hover{
@@ -202,6 +203,7 @@ p.notice{
       @include text-shadow(white, 0, 1px, 0);
       float:left;
       font-size:$font * 1.5;
+      width:700px;
       padding:10px 0}
     form, span{
       float:right}
