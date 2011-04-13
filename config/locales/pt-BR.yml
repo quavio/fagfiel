@@ -264,6 +264,7 @@ pt-BR:
     courses:
       new: "Novo curso"
       index: "Cursos"
+      edit: "Editar curso"
     freebies:
       index: "Brindes"
       new: "Novo brinde"
