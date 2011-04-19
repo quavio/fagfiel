@@ -93,8 +93,8 @@ GEM
     pg (0.10.1)
     polyglot (0.3.1)
     postgres-copy (0.3.3)
-      activerecord (>= 3.0.0)
       activerecord
+      activerecord (>= 3.0.0)
       pg
       rails
       rake

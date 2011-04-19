@@ -13,7 +13,7 @@ feature "Ship Order", %q{
     order = create_order :reseller => reseller, :freebie => freebie
 
     click_link "Resgates"
-    click_button "Enviei"
+    click_button "Enviado"
 
     order.reload
     order.should be_delivered

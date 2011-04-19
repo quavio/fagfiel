@@ -391,32 +391,32 @@ img.freebie {
 }
 
 /* line 223, ../../../app/stylesheets/screen.scss */
-.order_form {
+form.order {
   float: right;
   width: 350px;
 }
 /* line 226, ../../../app/stylesheets/screen.scss */
-.order_form ol, .order_form li {
+form.order ol, form.order li {
   margin: 0;
   padding: 0;
   height: 0;
 }
 /* line 231, ../../../app/stylesheets/screen.scss */
-.order_form #error_explanation ol, .order_form #error_explanation li {
+form.order #error_explanation ol, form.order #error_explanation li {
   height: auto;
 }
 /* line 233, ../../../app/stylesheets/screen.scss */
-.order_form input {
+form.order input {
   float: right;
 }
 /* line 235, ../../../app/stylesheets/screen.scss */
-.order_form table {
+form.order table {
   width: 100%;
   margin: 0 0 10px 0;
   background: lightgray;
 }
 /* line 239, ../../../app/stylesheets/screen.scss */
-.order_form table td {
+form.order table td {
   padding: 10px;
 }
 
