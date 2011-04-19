@@ -1,117 +1,79 @@
 require 'spec_helper'
 
 describe ResellersController do
+  let(:admin){create_user :role => "a"}
+  let(:manager){create_user :role => "m"}
+  let(:reseller){create_user :role => "r"}
+  let(:reseller1){stub_model(Reseller, :credits => 2000, :goal => 2000)}
+  let(:reseller2){stub_model(Reseller, :credits => 0, :goal => 2000)}
+
+  before(:each) do
+    Reseller.stub(:all).and_return([reseller1, reseller2])
+    Reseller.stub(:find).with(1).and_return(reseller1)
+    reseller1.stub(:save).and_return(true)
+    Reseller.stub(:find).with(1).and_return(reseller1)
+    User.any_instance.expects(:resellers).returns([reseller1])
+  end
 
   context "when admin is signed in" do
-    before :each do
-      sign_out :user
-      sign_in create_user(:role => "a")
-      @reseller1 = create_reseller(:credits => 2000, :goal => 2000)
-      @reseller2 = create_reseller(:credits => 0, :goal => 2000)
-    end
+    before(:each){sign_in admin}
 
     describe "GET 'index'" do
-      it "should assign all resellers ordered by goal percentage" do
-        get 'index'
-        assigns[:resellers].should be_== [@reseller2, @reseller1]
-      end
+      before(:each){get 'index'}
+      it{should assign_to(:resellers).with([reseller2, reseller1])}
     end
 
     describe "GET 'edit'" do
-      it "should assign @reseller" do
-        reseller = create_reseller
-        get 'edit', :id => reseller
-        assigns[:reseller].should be_== reseller
-      end
+      before(:each){get 'edit', :id => 1}
+      it{should assign_to(:reseller).with(reseller1)}
     end
 
     describe "PUT 'update'" do
-      it "should redirect to resellers" do
-        reseller = create_reseller
-        put 'update', :id => reseller
-        response.should redirect_to(resellers_path)
-      end
+      before(:each){put 'update', :id => 1}
+      it{should redirect_to(resellers_path)}
     end
   end
 
   context "when manager is signed in" do
-    before :each do
-      @manager = create_user(:role => "m")
-      sign_out :user
-      sign_in @manager
-    end
+    before(:each){sign_in manager}
 
     describe "GET 'index'" do
-      it "should respond succefully" do
-        get 'index'
-        assigns[:resellers].should be_empty
-        response.should be_success
-      end
+      before(:each){get 'index'}
+      it{should assign_to(:resellers).with([reseller1])}
     end
 
-    context "and has resellers" do
-      before :each do
-        @reseller1 = create_reseller
-        @reseller2 = create_reseller(:manager => @manager)
-      end
+    describe "GET 'edit'" do
+      before(:each){get 'edit', :id => 1}
+      it{should redirect_to(root_path)}
+      it{should set_the_flash.to(I18n.t("alerts.require_admin"))}
+    end
 
-      describe "GET 'index'" do
-        it "should assign only manager's resellers to @resellers" do
-          get 'index'
-          assigns[:resellers].should be_== [@reseller2]
-        end
-      end
-
-      describe "GET 'edit'" do
-        it "should be redirected" do
-          reseller = create_reseller
-          get 'edit', :id => reseller
-          flash[:alert].should be_== I18n.t("alerts.require_admin")
-          response.should redirect_to(root_path)
-        end
-      end
-
-      describe "PUT 'update'" do
-        it "should be redirected" do
-          reseller = create_reseller
-          put 'update', :id => reseller
-          flash[:alert].should be_== I18n.t("alerts.require_admin")
-          response.should redirect_to(root_path)
-        end
-      end
+    describe "PUT 'update'" do
+      before(:each){put 'update', :id => 1}
+      it{should redirect_to(root_path)}
+      it{should set_the_flash.to(I18n.t("alerts.require_admin"))}
     end
   end
 
   context "when reseller is signed in" do
-    before :each do
-      sign_out :user
-      sign_in create_user(:role => "r")
-    end
+    before(:each){sign_in reseller}
 
     describe "GET 'index'" do
-      it "should be redirected" do
-        get 'index'
-        flash[:alert].should be_== I18n.t("alerts.require_admin_or_manager")
-        response.should redirect_to(root_path)
-      end
+      before(:each){get 'index'}
+      it{should redirect_to(root_path)}
+      it{should set_the_flash.to(I18n.t("alerts.require_admin_or_manager"))}
     end
 
     describe "GET 'edit'" do
-      it "should be redirected" do
-        reseller = create_reseller
-        get 'edit', :id => reseller
-        flash[:alert].should be_== I18n.t("alerts.require_admin")
-        response.should redirect_to(root_path)
-      end
+      before(:each){get 'edit', :id => 1}
+      it{should redirect_to(root_path)}
+      it{should set_the_flash.to(I18n.t("alerts.require_admin"))}
     end
 
     describe "PUT 'update'" do
-      it "should be redirected" do
-        reseller = create_reseller
-        put 'update', :id => reseller
-        flash[:alert].should be_== I18n.t("alerts.require_admin")
-        response.should redirect_to(root_path)
-      end
+      before(:each){put 'update', :id => 1}
+      it{should redirect_to(root_path)}
+      it{should set_the_flash.to(I18n.t("alerts.require_admin"))}
     end
   end
 end
