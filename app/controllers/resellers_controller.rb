@@ -7,6 +7,7 @@ class ResellersController < ApplicationController
   def index
     @resellers = Reseller.all if current_user.role == "a"
     @resellers = current_user.resellers if current_user.role == "m"
+    @resellers.sort!{|a,b| a.goal_percentage <=> b.goal_percentage}
   end
 
   def update

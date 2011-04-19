@@ -6,12 +6,14 @@ describe ResellersController do
     before :each do
       sign_out :user
       sign_in create_user(:role => "a")
+      @reseller1 = create_reseller(:credits => 2000, :goal => 2000)
+      @reseller2 = create_reseller(:credits => 0, :goal => 2000)
     end
 
     describe "GET 'index'" do
-      it "should assign all resellers to @resellers" do
+      it "should assign all resellers ordered by goal percentage" do
         get 'index'
-        assigns[:resellers].should be_== Reseller.all
+        assigns[:resellers].should be_== [@reseller2, @reseller1]
       end
     end
 
