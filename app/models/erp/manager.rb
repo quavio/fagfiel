@@ -17,28 +17,15 @@ class ERP::Manager < ActiveRecord::Base
   def self.import import_id
     # First we update existing managers
     # the order matters so we wont update managers inserted in the same import
-    subquery = "
-      (SELECT 
-          %{field}
-        FROM erp.managers 
-        WHERE 
-          managers.import_id = '#{import_id.to_i}'
-          AND managers.erp_id = users.erp_id
-      )
-    "
     connection.execute "
       UPDATE public.users SET
-        email = #{subquery % {:field => 'trim(email)'}}, 
-        name = #{subquery % {:field => 'trim(name)'}},
+        email = trim(managers.email), 
+        name = trim(managers.name),
         updated_at = current_timestamp
+      FROM erp.managers 
       WHERE
-          EXISTS (
-            SELECT 1 
-            FROM erp.managers 
-            WHERE 
-              users.erp_id = managers.erp_id 
-              AND managers.import_id = '#{import_id.to_i}'
-          )
+        users.erp_id = managers.erp_id 
+        AND managers.import_id = '#{import_id.to_i}'
     "
     # then we insert new managers
     connection.execute "

@@ -33,49 +33,32 @@ class ERP::Client < ActiveRecord::Base
     ERP::Manager.import import_id
     # Then we update existing resellers
     # the order matters so we wont update resellers inserted in the same import
-    subquery = "(
-      SELECT 
-        %{fields}
-      FROM erp.clients
-      WHERE 
-        clients.import_id = '#{import_id.to_i}'
-        AND clients.erp_id = users.erp_id
-    )"
     connection.execute "
       UPDATE public.users SET
-        email = #{subquery % {:fields => 'trim(clients.mail)'}},
+        email = trim(clients.mail),
         updated_at = current_timestamp
+      FROM erp.clients
       WHERE
-          EXISTS (
-            SELECT 1 
-            FROM erp.clients
-            WHERE 
-              users.erp_id = clients.erp_id 
-              AND clients.import_id = '#{import_id.to_i}'
-          )
+        users.erp_id = clients.erp_id 
+        AND clients.import_id = '#{import_id.to_i}'
     "
     connection.execute "
       UPDATE public.resellers SET
-        name = #{subquery % {:fields => 'trim(clients.name)'}}, 
-        phone = #{subquery % {:fields => 'trim(clients.phone)'}}, 
-        credits = #{subquery % {:fields => '
+        name = trim(clients.name), 
+        phone = trim(clients.phone), 
+        credits = 
           CASE 
             WHEN extract(year from current_timestamp) = extract(year from resellers.updated_at) THEN
               credits + trim(clients.expenditure)::numeric
             ELSE
               trim(clients.expenditure)::numeric
-          END'}},
+          END,
         updated_at = current_timestamp
-      FROM public.users
+      FROM public.users, erp.clients
       WHERE
         users.id = resellers.user_id
-        AND EXISTS (
-            SELECT 1 
-            FROM erp.clients
-            WHERE 
-              users.erp_id = clients.erp_id 
-              AND clients.import_id = '#{import_id.to_i}'
-          )
+        AND users.erp_id = clients.erp_id 
+        AND clients.import_id = '#{import_id.to_i}'
     "
     # and finally we insert new ones
     connection.execute "
