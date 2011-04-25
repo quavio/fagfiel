@@ -67,6 +67,7 @@ describe ERP::Client do
       r.name.should == 'EMTECO COM E REPRES LTDA'
       r.phone.should == '36712236'
       r.month_expenditure.should == 22400
+        r.credits.should == 2
       r.user.email.should == 'emtecocb@hotmail.com'
       r.user.role.should == 'r'
       r.user.erp_id.should == '005851'
@@ -91,6 +92,7 @@ describe ERP::Client do
         # credits should always accumulate the expenditure 
         # unless current year > year from updated_at
         r.month_expenditure.should == 22401
+        r.credits.should == 2
         r.user.email.should == 'updated_email@gmail.com'
         r.user.role.should == 'r'
       end
@@ -101,17 +103,20 @@ describe ERP::Client do
         r.name.should == 'EMTECO COM E REPRES LTDA'
         r.phone.should == '36712236'
         r.month_expenditure.should == 22400
+        r.credits.should == 2
         r.user.email.should == 'emtecocb@hotmail.com'
       end
       
       context "when the last update was in the previous year" do
         before(:each) do
-          Reseller.first.update_attribute :updated_at, Time.now - 1.year
+          Reseller.first.update_attribute :updated_at, Time.now - 1.month
         end
 
         it "should reset credits to imported expenditure" do
           ERP::Client.import @import_id
-          Reseller.first.month_expenditure.should == 1
+          r = Reseller.first
+          r.month_expenditure.should == 1
+          r.credits.should == 2
         end
       end
     end

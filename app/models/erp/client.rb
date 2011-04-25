@@ -44,11 +44,12 @@ class ERP::Client < ActiveRecord::Base
     "
     connection.execute "
       UPDATE public.resellers SET
-        name = trim(clients.name), 
-        phone = trim(clients.phone), 
+        name = trim(clients.name),
+        phone = trim(clients.phone),
+        credits = credits + trunc(trim(clients.expenditure)::numeric / resellers.goal),
         month_expenditure = 
           CASE 
-            WHEN extract(year from current_timestamp) = extract(year from resellers.updated_at) THEN
+            WHEN extract(month from current_timestamp) = extract(month from resellers.updated_at) THEN
               month_expenditure + trim(clients.expenditure)::numeric
             ELSE
               trim(clients.expenditure)::numeric
@@ -70,11 +71,11 @@ class ERP::Client < ActiveRecord::Base
           AND NOT EXISTS (SELECT 1 FROM public.users u WHERE u.erp_id = clients.erp_id)
     "
     connection.execute "
-      INSERT INTO public.resellers (user_id, manager_id, name, phone, month_expenditure, created_at, updated_at) 
+      INSERT INTO public.resellers (user_id, manager_id, name, phone, month_expenditure, credits, created_at, updated_at) 
         SELECT DISTINCT 
           u.id as user_id,
           m.id as manager_id,
-          trim(c.name), trim(c.phone), trim(c.expenditure)::numeric,
+          trim(c.name), trim(c.phone), trim(c.expenditure)::numeric, trunc(trim(c.expenditure)::numeric / 7500),
           current_timestamp,
           current_timestamp
         FROM 
