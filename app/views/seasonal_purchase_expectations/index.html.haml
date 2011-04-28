@@ -31,23 +31,27 @@
   - else
     %tr
       %th{:colspan => 3}
-      %th.past{:colspan => 2}= l(@date - 1.year, :format => :month_and_year)
-      %th.future= l(@date, :format => :month_and_year)
+      %th.past{:colspan => 4} Quantidade Comprada
+      %th.future Previsão de compra
     %tr
       %th.product Referência
       %th.product Marca
       %th.product Grupo
-      %th.past Qt. Consultada
-      %th.past Qt. Comprada
-      %th.future Previsão de compra
+      %th.last_year= l(@date - 1.year, :format => :month_and_year)
+      %th.past= l(@date - 3.month, :format => :month_and_year)
+      %th.past= l(@date - 2.month, :format => :month_and_year)
+      %th.past= l(@date - 1.month, :format => :month_and_year)
+      %th.future= l(@date, :format => :month_and_year)
       %th
     - @purchase_expectations.each do |purchase_expectation|
       %tr
         %td.product= purchase_expectation.product.reference
         %td.product= purchase_expectation.product.brand
         %td.product= purchase_expectation.product.group
-        %td.past= purchase_expectation.history ? purchase_expectation.history.consulted : 0
-        %td.past= purchase_expectation.history ? purchase_expectation.history.bought : 0
+        %td.last_year= purchase_expectation.history ? purchase_expectation.history.bought : 0
+        %td.past= purchase_expectation.last_three_months_history[2] ? purchase_expectation.last_three_months_history[2].bought : 0
+        %td.past= purchase_expectation.last_three_months_history[1] ? purchase_expectation.last_three_months_history[1].bought : 0
+        %td.past= purchase_expectation.last_three_months_history[0] ? purchase_expectation.last_three_months_history[0].bought : 0
         %td.future= purchase_expectation.quantity
         %td.actions
           = link_to("Editar", edit_reseller_seasonal_purchase_expectation_path(@reseller, params[:year], params[:month], purchase_expectation))
