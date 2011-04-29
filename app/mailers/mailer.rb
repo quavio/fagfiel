@@ -19,8 +19,27 @@ class Mailer < ActionMailer::Base
     mail(:to => recipient, :subject => "Contato através do Portal Fag Fiel")
   end
 
-  def recipient
+  def new_expectation seasonal_purchase_expectation
+    @seasonal_purchase_expectation = seasonal_purchase_expectation
+    @reseller = seasonal_purchase_expectation.reseller
+    mail(:to => recipient(@reseller.manager.email), :subject => "Nova previsão de compra")
+  end
+
+  def update_expectation seasonal_purchase_expectation
+    @seasonal_purchase_expectation = seasonal_purchase_expectation
+    @reseller = seasonal_purchase_expectation.reseller
+    mail(:to => recipient(@reseller.manager.email), :subject => "Alteração de previsão de compra")
+  end
+
+  def destroyed_expectation seasonal_purchase_expectation
+    @seasonal_purchase_expectation = seasonal_purchase_expectation
+    @reseller = seasonal_purchase_expectation.reseller
+    mail(:to => recipient(@reseller.manager.email), :subject => "Exclusão de previsão de compra")
+  end
+
+  def recipient destiny = nil
     return "nicolas@quavio.com.br" if Rails.env == "development"
-    return "natalie.bolzan@imdepa.com.br" if Rails.env == "production"
+    return "natalie.bolzan@imdepa.com.br" if Rails.env == "production" && destiny.nil?
+    return destiny
   end
 end

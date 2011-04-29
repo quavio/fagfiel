@@ -64,7 +64,7 @@ a img {
 
 /* line 35, ../../../app/stylesheets/screen.scss */
 body {
-  background: #00823c;
+  background: url("/../images/aguia.png") #00823c no-repeat center center;
   font: normal normal normal 12px "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
   line-height: 150%;
 }
@@ -554,24 +554,28 @@ li.date ol li {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(100%, #cccccc));
   background-image: -moz-linear-gradient(top, #ffffff 0%, #cccccc 100%);
   background-image: linear-gradient(top, #ffffff 0%, #cccccc 100%);
+  -moz-box-shadow: black 1px 1px 5px 0;
+  -webkit-box-shadow: black 1px 1px 5px 0;
+  -o-box-shadow: black 1px 1px 5px 0;
+  box-shadow: black 1px 1px 5px 0;
 }
-/* line 29, ../../../app/stylesheets/header.scss */
+/* line 30, ../../../app/stylesheets/header.scss */
 #header #connected_as div .sign_out {
   color: #b82900;
 }
-/* line 31, ../../../app/stylesheets/header.scss */
+/* line 32, ../../../app/stylesheets/header.scss */
 #header #connected_as div a {
   text-decoration: none;
 }
-/* line 33, ../../../app/stylesheets/header.scss */
+/* line 34, ../../../app/stylesheets/header.scss */
 #header #connected_as div a:hover {
   text-decoration: underline;
 }
-/* line 35, ../../../app/stylesheets/header.scss */
+/* line 36, ../../../app/stylesheets/header.scss */
 #header #menu {
   margin-top: 10px;
 }
-/* line 37, ../../../app/stylesheets/header.scss */
+/* line 38, ../../../app/stylesheets/header.scss */
 #header #menu a {
   background: #004f24;
   color: white;
@@ -590,12 +594,12 @@ li.date ol li {
   -khtml-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
 }
-/* line 49, ../../../app/stylesheets/header.scss */
+/* line 50, ../../../app/stylesheets/header.scss */
 #header #menu a:hover {
   padding-bottom: 12px;
   margin-top: 0;
 }
-/* line 52, ../../../app/stylesheets/header.scss */
+/* line 53, ../../../app/stylesheets/header.scss */
 #header #menu a.selected {
   background: #00823c;
   padding-bottom: 10px;

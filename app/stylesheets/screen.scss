@@ -33,7 +33,7 @@ $width: 900px;
     @include linear-gradient(color-stops(lighten($color, 20%), $color));}}
 
 body{
-  background:$green; 
+  background:url("/../images/aguia.png") $green no-repeat center center;
   font: normal normal normal $font 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; 
   line-height:150%;}
 

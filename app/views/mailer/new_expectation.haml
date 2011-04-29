@@ -1,0 +1,15 @@
+%p
+  A revenda
+  %b= @reseller.name
+  acaba de incluir uma nova previsão de compra.
+
+%p
+  = @seasonal_purchase_expectation.quantity
+  unidade(s) do produto
+  = @seasonal_purchase_expectation.product.reference
+  para
+  = "#{@seasonal_purchase_expectation.seasonal_purchase.month}/#{@seasonal_purchase_expectation.year}"
+
+%p
+  Confira esta e outras previsões dessa revenda através
+  = link_to "deste link", reseller_seasonal_purchase_expectations_url(:reseller_id => @reseller.id, :year => @seasonal_purchase_expectation.year, :month => @seasonal_purchase_expectation.seasonal_purchase.month)

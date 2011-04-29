@@ -14,7 +14,10 @@ class SeasonalPurchaseExpectationsController < ApplicationController
     product = Product.find_by_reference(params[:product_reference])
     if product
       seasonal_purchase = SeasonalPurchase.find_or_create_by_product_id_and_reseller_id_and_month(product.id, @reseller.id, params[:month])
-      unless SeasonalPurchaseExpectation.create(params[:seasonal_purchase_expectation].merge({:seasonal_purchase => seasonal_purchase, :year => params[:year]})).valid?
+      seasonal_purchase_expectation = SeasonalPurchaseExpectation.create(params[:seasonal_purchase_expectation].merge({:seasonal_purchase => seasonal_purchase, :year => params[:year]}))
+      if seasonal_purchase_expectation.valid?
+        Mailer.new_expectation(seasonal_purchase_expectation).deliver
+      else
         flash[:alert] = t("alerts.seasonal_purchase_expectations.expectation_already_exist", :product => product.reference)
       end
     else
@@ -30,12 +33,14 @@ class SeasonalPurchaseExpectationsController < ApplicationController
   def update
     seasonal_purchase_expectation = SeasonalPurchaseExpectation.find(params[:id])
     seasonal_purchase_expectation.update_attributes(params[:seasonal_purchase_expectation])
+    Mailer.update_expectation(seasonal_purchase_expectation).deliver
     redirect_to reseller_seasonal_purchase_expectations_path(@reseller, seasonal_purchase_expectation.year, seasonal_purchase_expectation.seasonal_purchase.month)
   end
 
   def destroy
     seasonal_purchase_expectation = SeasonalPurchaseExpectation.find(params[:id])
     seasonal_purchase_expectation.destroy
+    Mailer.destroyed_expectation(seasonal_purchase_expectation).deliver
     redirect_to reseller_seasonal_purchase_expectations_path(@reseller, params[:year], params[:month])
   end
 end
