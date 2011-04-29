@@ -8,7 +8,6 @@ describe "layouts/default" do
       controller.stub(:current_user).and_return(stub_model(User, :id => 1, :role => 'r', :reseller => stub_model(Reseller, :id => 2)))
       render
     end
-    it { should_not match /<a.*>#{t('links.menu.courses')}<\/a>/ } 
   end
 
   context "when manager is logged in" do
@@ -16,7 +15,6 @@ describe "layouts/default" do
       controller.stub(:current_user).and_return(stub_model(User, :id => 1, :role => 'm'))
       render
     end
-    it { should_not match /<a.*>#{t('links.menu.courses')}<\/a>/ } 
   end
 
   context "when admin is logged in" do
@@ -24,7 +22,6 @@ describe "layouts/default" do
       controller.stub(:current_user).and_return(stub_model(User, :id => 1, :role => 'a'))
       render
     end
-    it { should match /<a.*>#{t('links.menu.courses')}<\/a>/ } 
   end
 end
 

@@ -7,7 +7,6 @@ describe "shared/_a_menu" do
   end
 
   it {assert_select "a", :text => "Brindes"}
-  it {assert_select "a", :text => "Cursos"}
   it {assert_select "a", :text => "Revendas"}
   it {assert_select "a", :text => "Contato"}
   it {assert_select "a", :text => "FAQ"}

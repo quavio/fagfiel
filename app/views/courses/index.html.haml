@@ -1,7 +1,0 @@
-- content_for :title, t('page_title.courses.index')
-- content_for :submenu do
-  - if current_user.is_admin?
-    = link_to t('links.new_course'), new_course_path
-
-.list
-  =render @courses
