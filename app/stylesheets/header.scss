@@ -36,21 +36,24 @@
   #menu{
     margin-top:10px;
     a{
+      float:right;
+      padding:7px 0 5px 7px;
+      margin:7px 0 0 0;}
+    a.tab{
       background:darken($green, 10%);
       color:white;
       cursor:pointer;
       display:block;
       float:left;
       font-weight:bold;
-      margin:7px 0 0 0;
-      padding:7px 7px 5px 7px;
       text-decoration:none;
+      padding:7px 7px 5px 7px;
       @include text-shadow(black, -1px, -1px, -1px);
       @include border-radius(10px 10px 0 0);
       &:hover{
         padding-bottom:12px;
         margin-top:0;}}
-    a.selected{
+    a.tab.selected{
       background:$green;
       padding-bottom:10px;
       margin-top:0;

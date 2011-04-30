@@ -10,5 +10,5 @@ describe "shared/_r_menu" do
   it {assert_select "a", :text => "Brindes"}
   it {assert_select "a", :text => "Previsão de compra"}
   it {assert_select "a", :text => "Contato"}
-  it {assert_select "a", :text => "FAQ"}
+  it {assert_select "a", :text => "Montagem de rolamentos"}
 end

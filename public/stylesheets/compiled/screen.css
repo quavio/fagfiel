@@ -597,15 +597,20 @@ li.date ol li {
 }
 /* line 38, ../../../app/stylesheets/header.scss */
 #header #menu a {
+  float: right;
+  padding: 7px 0 5px 7px;
+  margin: 7px 0 0 0;
+}
+/* line 42, ../../../app/stylesheets/header.scss */
+#header #menu a.tab {
   background: #004f24;
   color: white;
   cursor: pointer;
   display: block;
   float: left;
   font-weight: bold;
-  margin: 7px 0 0 0;
-  padding: 7px 7px 5px 7px;
   text-decoration: none;
+  padding: 7px 7px 5px 7px;
   text-shadow: black -1px -1px -1px;
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
@@ -614,13 +619,13 @@ li.date ol li {
   -khtml-border-radius: 10px 10px 0 0;
   border-radius: 10px 10px 0 0;
 }
-/* line 50, ../../../app/stylesheets/header.scss */
-#header #menu a:hover {
+/* line 53, ../../../app/stylesheets/header.scss */
+#header #menu a.tab:hover {
   padding-bottom: 12px;
   margin-top: 0;
 }
-/* line 53, ../../../app/stylesheets/header.scss */
-#header #menu a.selected {
+/* line 56, ../../../app/stylesheets/header.scss */
+#header #menu a.tab.selected {
   background: #00823c;
   padding-bottom: 10px;
   margin-top: 0;

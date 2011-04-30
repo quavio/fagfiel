@@ -1,7 +1,6 @@
 PortalInafag::Application.routes.draw do
   get "general/contact", :as => :contact
   post "general/contact"
-  get "general/faq", :as => :faq
 
   resources :users
   resources :resellers do
