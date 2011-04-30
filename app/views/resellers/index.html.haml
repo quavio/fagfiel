@@ -23,10 +23,12 @@
           = link_to "Alterar meta", edit_reseller_path(reseller)
           )
           |
-        Créditos:
-        %b= number_to_currency reseller.credits
+        Acumulado:
+        %b= reseller.credits
+        pontos
         |
-        Débitos:
-        %b= number_to_currency reseller.debits
+        Resgatado:
+        %b= reseller.debits
+        pontos
         |
         = link_to "Previsão de compra", reseller_seasonal_purchase_expectations_path(reseller, Date.today.year, Date.today.month)
