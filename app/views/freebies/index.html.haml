@@ -9,6 +9,12 @@
       = image_tag freebie.image.url(:normal)
       .description
         = link_to freebie.title, freebie
-        %p= freebie.description
-      .price= number_to_currency(freebie.price)
+        %p
+          = freebie.description
+          - if freebie.is_course?
+            %br
+            = "Limite de #{freebie.attendees_limit} participantes"
+      .price
+        = freebie.price
+        pontos
       .clear

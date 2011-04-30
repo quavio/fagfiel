@@ -4,4 +4,8 @@ class Freebie < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :price
   validates_numericality_of :price
+
+  def is_course?
+    course
+  end
 end

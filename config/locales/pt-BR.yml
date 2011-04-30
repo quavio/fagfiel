@@ -193,6 +193,8 @@ pt-BR:
         description: "Descrição"
         price: "Preço"
         image: "Foto"
+        course: "Curso"
+        attendees_limit: "Limite de participantes"
       order:
         reseller: "Revenda"
       reseller:

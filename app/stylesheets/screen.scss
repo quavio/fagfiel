@@ -32,6 +32,8 @@ $width: 900px;
   &:active{
     @include linear-gradient(color-stops(lighten($color, 20%), $color));}}
 
+html{height:100%}
+
 body{
   background:url("/../images/aguia.png") $green no-repeat center center;
   font: normal normal normal $font 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; 
@@ -242,9 +244,15 @@ form.order{
   table{
     width:100%;
     margin:0 0 10px 0;
-    background:lightgray;
+    th{
+      text-align:center}
     td{
-      padding:10px;}}}
+      padding:10px;
+      text-align:right}
+    td.point{
+      background:lightgray;
+      @include border-radius(20px);
+      text-align:center;}}}
 
 form.contact{
   textarea{

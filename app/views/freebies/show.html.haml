@@ -1,4 +1,7 @@
-- content_for :title, @freebie.title
+- if @freebie.is_course?
+  - content_for :title, "#{@freebie.title} (curso)"
+- else
+  - content_for :title, @freebie.title
 - content_for :submenu do
   = link_to t("links.freebies"), freebies_path
   - if current_user.is_admin?
@@ -11,17 +14,20 @@
   = semantic_form_for @order do |form|
     %table
       %tr
+        %th
+        %th Pontos
+      %tr
         %td Saldo disponível:
-        %td
-          %b= number_to_currency @order.reseller.balance
+        %td.point.green
+          %b= @order.reseller.balance
       %tr
-        %td Valor do brinde:
-        %td
-          %b= number_to_currency @freebie.price
+        %td Preço do brinde:
+        %td.point.red
+          %b= @freebie.price
       %tr
-        %td Saldo disponível - Valor do brinde:
-        %td
-          %b= number_to_currency(@order.reseller.balance - @freebie.price)
+        %td Saldo final:
+        %td.point
+          %b= @order.reseller.balance - @freebie.price
     - if @order.errors.any?
       #error_explanation
         %ul
@@ -34,5 +40,7 @@
       = form.commit_button :button_html => { :class => "confirm_button" }
 
 = image_tag @freebie.image.url(:original), :class => "freebie"
+- if @freebie.is_course?
+  %p= "Limite de #{@freebie.attendees_limit} participantes."
 %p= @freebie.description
 .clear

@@ -9,7 +9,15 @@
     = form.input :title, :as => :string, :required => true
     = form.input :price, :required => true, :value_method => Proc.new { |a| "#{a}" }
     = form.input :description
+    = form.input :course
+    = form.input :attendees_limit, :wrapper_html => {:style => "display:none;"}
     = form.input :image, :as => :file
   .actions
     - form.buttons do 
-      = form.commit_button 
+      = form.commit_button
+
+:javascript
+  $("#freebie_course").change(function() {
+    if($("#freebie_course").is(":checked")) $("#freebie_attendees_limit_input").fadeIn();
+    else $("#freebie_attendees_limit_input").fadeOut();
+  });
