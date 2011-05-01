@@ -1,6 +1,5 @@
 # coding:utf-8
 class SeasonalPurchaseExpectationsController < ApplicationController
-  before_filter :require_reseller, :only => [:create]
   before_filter :require_same_reseller
   before_filter {@reseller = Reseller.find(params[:reseller_id])}
   before_filter {@date = Date.new(params[:year].to_i, params[:month].to_i)}

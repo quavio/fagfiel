@@ -9,20 +9,19 @@
   |
   = select_tag :date, options_for_select((Date.today..Date.today + 1.year - 1.month).map{|date| [l(date, :format => :month_and_year), reseller_seasonal_purchase_expectations_path(@reseller, date.year, date.month)]}.uniq.insert(0, "Ver previsão para:")), :onchange => "window.location = this.value"
 
-- if current_user.is_reseller?
-  = form_for [@reseller, @seasonal_purchase_expectation] do |form|
-    - if @seasonal_purchase_expectation.errors.any?
-      #error_explanation
-        %ul
-          - @seasonal_purchase_expectation.errors.full_messages.each do |msg|
-            %li= msg
-    = label_tag :product_reference, "Produto"
-    = text_field_tag :product_reference
-    %span#purchase_history Ano passado: consultou 10, comprou 10
-    %img#purchase_history_loading{:src => "/images/ajax-loader.gif", :style => "display:none"}
-    = form.label :quantity, "Quantidade"
-    = form.text_field :quantity
-    = form.submit "Adicionar previsão"
+= form_for [@reseller, @seasonal_purchase_expectation] do |form|
+  - if @seasonal_purchase_expectation.errors.any?
+    #error_explanation
+      %ul
+        - @seasonal_purchase_expectation.errors.full_messages.each do |msg|
+          %li= msg
+  = label_tag :product_reference, "Produto"
+  = text_field_tag :product_reference
+  %span#purchase_history Ano passado: consultou 10, comprou 10
+  %img#purchase_history_loading{:src => "/images/ajax-loader.gif", :style => "display:none"}
+  = form.label :quantity, "Quantidade"
+  = form.text_field :quantity
+  = form.submit "Adicionar previsão"
 
 %table
   - if @purchase_expectations.empty?
