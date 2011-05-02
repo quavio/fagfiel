@@ -62,7 +62,7 @@
     $( "#product_reference" ).autocomplete({
       source: function(request, response) {
         $.ajax({
-          url: "http://localhost:3000/products.json",
+          url: "#{products_url :format => :json}",
           dataType: "json",
           data: { search: request.term + "*" },
           success: function(data){
