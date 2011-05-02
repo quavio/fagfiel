@@ -2,6 +2,10 @@
 - content_for :submenu do
   - if current_user.is_admin?
     = link_to t('links.new_freebie'), new_freebie_path
+  - if current_user.is_reseller?
+    Você possui 
+    %b= current_user.reseller.balance
+    pontos para resgatar
 
 .list
   - for freebie in @freebies
