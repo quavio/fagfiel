@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout :specify_layout 
   before_filter :authenticate_user! 
+  before_filter :mailer_set_url_options
   
   def require_same_user
     redirect_to root_path, :alert => t("alerts.require_same_user") if params[:id].to_i != current_user.id
@@ -27,5 +28,9 @@ class ApplicationController < ActionController::Base
   
   def specify_layout 
     current_user ? "default" : "devise"
+  end
+
+  def mailer_set_url_options
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
   end  
 end
