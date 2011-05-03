@@ -2,6 +2,6 @@
   = link_to t("links.menu.freebies"), freebies_path, :class => (params[:controller] == "freebies" ? "tab selected" : "tab")
   = link_to t("links.menu.resellers"), resellers_path, :class => (params[:controller] == "resellers" || params[:controller] == "purchase_expectations" ? "tab selected" : "tab")
   = link_to t("links.menu.orders"), orders_path, :class => (params[:controller] == "orders" ? "tab selected" : "tab")
+  = link_to t("links.menu.documents"), documents_path, :class => (params[:controller] == "general" && params[:action] == "documents" ? "tab selected" : "tab")
   = link_to t("links.menu.contact"), contact_path, :class => (params[:controller] == "general" && params[:action] == "contact" ? "tab selected" : "tab")
-  = link_to "Montagem de rolamentos", "/montagem_de_rolamentos.pdf", :title => "Download das perguntas mais frequentes sobre montagem de rolamentos", :target => "_blank"
   .clear 

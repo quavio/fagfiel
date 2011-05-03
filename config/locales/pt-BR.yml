@@ -258,7 +258,7 @@ pt-BR:
       freebies: "Brindes"
       resellers: "Revendas"
       contact: "Contato"
-      faq: "FAQ"
+      documents: "Documentos"
       seasonal_purchase_expectations: "Previsão de compra"
       orders: "Resgates"
 
@@ -283,7 +283,7 @@ pt-BR:
       edit: "Alterar previsão de compra do produto %{product} para %{date}"
     general:
       contact: "Contato"
-      faq: "Perguntas Freqüentes (FAQ)"
+      documents: "Documentos para download"
     orders:
       index: "Resgates"
 

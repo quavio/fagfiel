@@ -9,5 +9,5 @@ describe "shared/_m_menu" do
   it {assert_select "a", :text => "Brindes"}
   it {assert_select "a", :text => "Revendas"}
   it {assert_select "a", :text => "Contato"}
-  it {assert_select "a", :text => "Montagem de rolamentos"}
+  it {assert_select "a", :text => "Documentos"}
 end

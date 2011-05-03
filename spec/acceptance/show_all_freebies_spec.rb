@@ -10,7 +10,7 @@ feature "Show All Freebies" do
     click_link "Brindes"
     
     within(:css, ".submenu") do
-      page.should have_selector("b", :text => "1000")
+      page.should have_selector("span.big", :text => "1000")
     end    
   end
 end
