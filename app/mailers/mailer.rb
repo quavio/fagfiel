@@ -22,19 +22,19 @@ class Mailer < ActionMailer::Base
   def new_expectation seasonal_purchase_expectation
     @seasonal_purchase_expectation = seasonal_purchase_expectation
     @reseller = seasonal_purchase_expectation.reseller
-    mail(:to => recipient(@reseller.manager.email), :subject => "Nova previsão de compra")
+    mail(:to => recipient([@reseller.manager.email, @reseller.user.email]), :subject => "Nova previsão de compra")
   end
 
   def update_expectation seasonal_purchase_expectation
     @seasonal_purchase_expectation = seasonal_purchase_expectation
     @reseller = seasonal_purchase_expectation.reseller
-    mail(:to => recipient(@reseller.manager.email), :subject => "Alteração de previsão de compra")
+    mail(:to => recipient([@reseller.manager.email, @reseller.user.email]), :subject => "Alteração de previsão de compra")
   end
 
   def destroyed_expectation seasonal_purchase_expectation
     @seasonal_purchase_expectation = seasonal_purchase_expectation
     @reseller = seasonal_purchase_expectation.reseller
-    mail(:to => recipient(@reseller.manager.email), :subject => "Exclusão de previsão de compra")
+    mail(:to => recipient([@reseller.manager.email, @reseller.user.email]), :subject => "Exclusão de previsão de compra")
   end
 
   def recipient destiny = nil

@@ -53,9 +53,9 @@ describe SeasonalPurchaseExpectationsController do
         }.to_not change{SeasonalPurchaseExpectation.count}
       end
 
-      it "should send an email to reseller manager" do
+      it "should send an email to reseller and manager" do
         post :create, :reseller_id => reseller.id, :year => Date.today.year, :month => Date.today.month, :product_reference => product.reference, :seasonal_purchase_expectation => {:quantity => 10}
-        ActionMailer::Base.deliveries.last.to.should be_== [manager.email]
+        ActionMailer::Base.deliveries.last.to.should be_== [manager.email, user.email]
       end
 
     end
@@ -64,7 +64,7 @@ describe SeasonalPurchaseExpectationsController do
       before(:each){put :update, :reseller_id => reseller.id, :year => Date.today.year, :month => Date.today.month, :id => seasonal_purchase_expectation.id, :seasonal_purchase_expectation => {:quantity => 10}}
 
       it "should send an email to reseller manager" do
-        ActionMailer::Base.deliveries.last.to.should be_== [manager.email]
+        ActionMailer::Base.deliveries.last.to.should be_== [manager.email, user.email]
       end
     end
 
@@ -73,7 +73,7 @@ describe SeasonalPurchaseExpectationsController do
       before(:each){delete :destroy, :reseller_id => reseller.id, :year => Date.today.year, :month => Date.today.month, :id => seasonal_purchase_expectation_to_be_destroyed.id}
 
       it "should send an email to reseller manager" do
-        ActionMailer::Base.deliveries.last.to.should be_== [manager.email]
+        ActionMailer::Base.deliveries.last.to.should be_== [manager.email, user.email]
       end
 
     end
