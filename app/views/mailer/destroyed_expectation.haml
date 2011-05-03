@@ -1,7 +1,7 @@
 %p
-  A revenda
+  A
   %b= @reseller.name
-  acaba de excluir uma previsão de compra.
+  excluiu uma previsão de compra.
 
 %p
   = @seasonal_purchase_expectation.quantity
@@ -11,5 +11,5 @@
   = "#{@seasonal_purchase_expectation.seasonal_purchase.month}/#{@seasonal_purchase_expectation.year}"
 
 %p
-  Confira as previsões dessa revenda através
+  Confira as previsões através
   = link_to "deste link", reseller_seasonal_purchase_expectations_url(:reseller_id => @reseller.id, :year => @seasonal_purchase_expectation.year, :month => @seasonal_purchase_expectation.seasonal_purchase.month)

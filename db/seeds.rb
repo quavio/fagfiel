@@ -8,10 +8,10 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 User.create(:role => "a", :email => "admin@quavio.com.br", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
-User.create(:role => "r", :email => "revenda@quavio.com.br", :password => "20110206", :password_confirmation => "20110206", :name => "Tomás")
-User.create(:role => "m", :email => "gerente@quavio.com.br", :password => "20110206", :password_confirmation => "20110206", :name => "Diogo")
+User.create(:role => "r", :email => "nicolas.iensen@gmail.com", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
+User.create(:role => "m", :email => "nicolas@quavio.com.br", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
 
 Reseller.create(
   :name => "Quavio", 
-  :manager => User.find_by_email("gerente@quavio.com.br"), 
-  :user => User.find_by_email("revenda@quavio.com.br")) if Reseller.find_by_name("Quavio").nil?
+  :manager => User.find_by_email("nicolas@quavio.com.br"), 
+  :user => User.find_by_email("nicolas.iensen@gmail.com")) if Reseller.find_by_name("Quavio").nil?
