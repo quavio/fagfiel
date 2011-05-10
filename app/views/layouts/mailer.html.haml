@@ -5,56 +5,56 @@
 %table{:width => "100%", :height => "100%", :bgcolor => "#00823c"}
   %tr
     %td
-      %table{:align => "center", :cellpadding => "0px", :cellspacing => "0px"}
+      %table{:align => "center", :cellpadding => "0", :cellspacing => "0"}
         %tr.header_top
-          %td{:width => "620px", :style => "background:url('#{image_path("mailer/mailer_top.png")}'); height:15px"}
+          %td{:width => "620", :height => "15", :style => "background:url('#{image_path("mailer/mailer_top.png")}');"}
         %tr.header
-          %td{:width => "620px", :style => "background:url('#{image_path("mailer/mailer_middle.png")}')"}
-            %table{:width => "620px", :cellpadding => "0px", :cellspacing => "0px"}
+          %td{:width => "620", :style => "background:url('#{image_path("mailer/mailer_middle.png")}')"}
+            %table{:width => "620", :cellpadding => "0", :cellspacing => "0"}
               %tr
-                %td{:colspan => "4", :height => "15px"}
+                %td{:colspan => "4", :height => "15"}
               %tr
-                %td{:width => "30px"}
+                %td{:width => "30"}
                 %td
                   = link_to image_tag("ina-fag.png", :id => "ina-fag"), "http://www.schaeffler.com/content.schaeffler.com.br/pt/ina_fag_products/index.jsp", :target => "_blank"
                 %td{:align => "right"}
                   = link_to image_tag("imdepa.png", :id => "imdepa"), "http://imdepa.com.br/", :target => "_blank"
-                %td{:width => "30px"}
+                %td{:width => "30"}
         %tr.content
-          %td{:width => "620px", :style => "background:url('#{image_path("mailer/mailer_middle.png")}')"}
+          %td{:width => "620", :style => "background:url('#{image_path("mailer/mailer_middle.png")}')"}
             %table{:cellspacing => "0", :cellpadding => "0"}
               %tr
-                %td{:colspan => "3", :height => "15px"}
+                %td{:colspan => "3", :height => "15"}
               %tr
-                %td{:width => "30px"}
-                %td{:width => "560px"}
+                %td{:width => "30"}
+                %td{:width => "560"}
                   %hr
                   = yield
-                %td{:width => "30px"}
+                %td{:width => "30"}
               %tr
-                %td{:colspan => "3", :height => "15px"}
+                %td{:colspan => "3", :height => "15"}
         %tr.content_bottom
-          %td{:width => "620px", :style => "background:url('#{image_path("mailer/mailer_bottom.png")}'); height:15px"}
+          %td{:width => "620", :height => "15", :style => "background:url('#{image_path("mailer/mailer_bottom.png")}');"}
         %tr.footer
-          %td{:width => "620px"}
+          %td{:width => "620"}
             %table
               %tr
-                %td{:height => "5px", :colspan => "3"}
+                %td{:height => "5", :colspan => "3"}
               %tr
-                %td{:width => "10px"}
-                %td{:width => "600px"}
-                  %table{:width => "600px", :cellpadding => "0", :cellspacing => "0"}
+                %td{:width => "10"}
+                %td{:width => "600"}
+                  %table{:width => "600", :cellpadding => "0", :cellspacing => "0"}
                     %tr
-                      %td{:height => "5px"}
+                      %td{:height => "5"}
                     %tr
-                      %td{:width => "5px"}
+                      %td{:width => "5"}
                       %td{:style => "color:white; font-size:12px", :align => "center"}
                         Você está recebendo este e-mail pois possui cadastrado no portal 
                         = link_to "INA FAG Fiel", root_url, :style => "color:white"
                         %br
                         Em caso de dúvidas entre em contato através do e-mail
                         = link_to "natalie.bolzan@imdepa.com.br", "mailto:natalie.bolzan@imdepa.com.br", :style => "color:white"
-                      %td{:width => "5px"}
+                      %td{:width => "5"}
                     %tr
-                      %td{:height => "5px"}
-                %td{:width => "10px"}
+                      %td{:height => "5"}
+                %td{:width => "10"}
