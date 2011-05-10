@@ -1,11 +1,10 @@
 %p
-  %b
-    O cadastro da revenda
-    = @user.reseller.name
-    foi alterado:
+  O cadastro da revenda
+  %b= @user ? @user.reseller.name : "Quavio"
+  foi alterado:
 %p
   Nome do responsável:
-  %b= @user.name
+  %b= @user ? @user.name : "Nícolas"
 %p
   Telefone:
-  %b= @user.phone
+  %b= @user ? @user.phone : "51 9999-9999"

@@ -1,5 +1,9 @@
 %p
-  = image_tag @order.freebie.image.url(:normal)
-  %b= @order.reseller.name
-  resgatou o brinde
-  %b= @order.freebie.title
+  - if @order
+    = image_tag @order.freebie.image.url(:normal)
+  - else
+    = image_tag "normal/missing.png"
+  A
+  %b= @order ? @order.reseller.name : "Quavio"
+  resgatou um(a)
+  %b= @order ? @order.freebie.title : "Boné"

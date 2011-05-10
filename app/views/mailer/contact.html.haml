@@ -1,12 +1,13 @@
 %p
-  %b= @user.name
+  %b= @user ? @user.name : "Nícolas"
   enviou a seguinte mensagem:
 
-%p= @message
+%p{:style => "font-style:italic"}= @message ? "#{@message}" : "Teste... 1, 2, 3..."
 
 %p
   Responda ao
-  = @user.name
-  = @user.email
+  = @user ? @user.name : "Nícolas"
   |
-  = @user.phone
+  = @user ? link_to(@user.email, "mailto:#{@user.email}") : link_to("nicolas@quavio.com.br", "nicolas@quavio.com.br")
+  |
+  = @user ? @user.phone : "51 9999-9999"

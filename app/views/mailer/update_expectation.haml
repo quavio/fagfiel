@@ -1,15 +1,19 @@
 %p
   A 
-  %b= @reseller.name
-  alterou uma previsão de compra.
+  %b= @reseller ? @reseller.name : "Quavio"
+  %b alterou 
+  uma previsão de compra.
 
 %p
-  = @seasonal_purchase_expectation.quantity
+  %b= @seasonal_purchase_expectation ? @seasonal_purchase_expectation.quantity : "10"
   unidade(s) do produto
-  = @seasonal_purchase_expectation.product.reference
+  %b= @seasonal_purchase_expectation ? @seasonal_purchase_expectation.product.reference : "XDAS 221"
   para
-  = "#{@seasonal_purchase_expectation.seasonal_purchase.month}/#{@seasonal_purchase_expectation.year}"
+  %b= @seasonal_purchase_expectation ? "#{@seasonal_purchase_expectation.seasonal_purchase.month}/#{@seasonal_purchase_expectation.year}." : "Maio de 2011."
 
 %p
   Confira esta e outras previsões através
-  = link_to "deste link", reseller_seasonal_purchase_expectations_url(:reseller_id => @reseller.id, :year => @seasonal_purchase_expectation.year, :month => @seasonal_purchase_expectation.seasonal_purchase.month)
+  - if @reseller && @seasonal_purchase_expectation
+    = link_to "deste link", reseller_seasonal_purchase_expectations_url(:reseller_id => @reseller.id, :year => @seasonal_purchase_expectation.year, :month => @seasonal_purchase_expectation.seasonal_purchase.month)
+  - else
+    = link_to "deste link", root_url

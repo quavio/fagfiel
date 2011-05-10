@@ -1,4 +1,14 @@
+%h1 Bem-vindo cliente INA FAG
 %p
-  Welcome #{@resource.email}!
-%p You can confirm your account through the link below:
-%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+  A partir de hoje você poderá acompanhar seus pontos e metas e solicitar o resgate de brindes através do 
+  %b Portal INA FAG Fiel.
+%p Para melhor atendermos seus pedidos, a revenda poderá incluir suas previsões de compra para os itens INA FAG diretamente no Portal.
+%p Confirme a sua participação neste programa de fidelidade através do link abaixo:
+- if @resource
+  %p= link_to 'Confirmar minha conta', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+-else
+  %p= link_to 'Confirmar minha conta', root_path
+%p
+  Em caso de dúvida entre em contato com a filial que lhe atende ou com Natalie - 51 21219912 - 
+  = link_to "natalie.bolzan@imdepa.com.br", "natalie.bolzan@imdepa.com.br"
+%p Obrigado por fazer parte deste projeto.
