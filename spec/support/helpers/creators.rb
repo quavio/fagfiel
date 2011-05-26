@@ -6,7 +6,9 @@ module Creators
       :email => "person#{@@serial += 1}@quavio.com.br",
       :password => 'test pass salt'
     }.merge(options)
-    User.create(defaults)
+    u = User.create(defaults)
+    u.confirm!
+    u
   end
   
   def create_reseller options = {}

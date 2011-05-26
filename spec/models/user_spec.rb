@@ -19,5 +19,11 @@ describe User do
     its(:is_admin?)     { should be_false }
     its(:is_manager?)   { should be_false }
   end
+
+  it "should send invitation email on .invite!" do
+    ActionMailer::Base.deliveries = []
+    User.invite! :email => 'test@test.com'
+    ActionMailer::Base.deliveries.size.should == 1
+  end
 end
 

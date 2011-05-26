@@ -7,9 +7,12 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-User.create(:role => "a", :email => "admin@quavio.com.br", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
-User.create(:role => "r", :email => "nicolas.iensen@gmail.com", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
-User.create(:role => "m", :email => "nicolas@quavio.com.br", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
+u = User.create(:role => "a", :email => "admin@quavio.com.br", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
+u.confirm!
+u = User.create(:role => "r", :email => "nicolas.iensen@gmail.com", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
+u.confirm!
+u = User.create(:role => "m", :email => "nicolas@quavio.com.br", :password => "20110206", :password_confirmation => "20110206", :name => "Nícolas")
+u.confirm!
 
 Reseller.create(
   :name => "Quavio", 
