@@ -14,7 +14,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'paperclip'
 gem 'formtastic', '>= 1.2.3'
-gem 'postgres-copy', '>= 0.3.3'
+gem 'postgres-copy', '>= 0.3.4'
 gem 'jquery-rails'
 gem 'texticle'
 
