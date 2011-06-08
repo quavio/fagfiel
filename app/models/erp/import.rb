@@ -1,7 +1,8 @@
 class ERP::Import < ActiveRecord::Base
   IMPORT_MAP = {
     'clients' => ERP::Client,
-    'managers' => ERP::Manager
+    'managers' => ERP::Manager,
+    'products' => ERP::Product
   }
   set_table_name 'erp.imports'
 

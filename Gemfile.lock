@@ -29,7 +29,7 @@ GEM
       activemodel (= 3.0.5)
       activesupport (= 3.0.5)
     activesupport (3.0.5)
-    arel (2.0.9)
+    arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     capybara (0.4.1.2)
@@ -52,6 +52,9 @@ GEM
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
       warden (~> 1.0.3)
+    devise_invitable (0.4.2)
+      devise (<= 1.4.0, >= 1.2.0)
+      rails (~> 3.0.0)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -68,7 +71,7 @@ GEM
     haml (3.0.25)
     has_scope (0.5.0)
     hpricot (0.8.4)
-    i18n (0.5.0)
+    i18n (0.6.0)
     inherited_resources (1.2.1)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
@@ -77,7 +80,7 @@ GEM
       thor (~> 0.14.4)
     json_pure (1.5.1)
     kgio (2.3.3)
-    mail (2.2.15)
+    mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -90,17 +93,17 @@ GEM
     paperclip (2.3.11)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
-    pg (0.10.1)
+    pg (0.11.0)
     polyglot (0.3.1)
-    postgres-copy (0.3.3)
+    postgres-copy (0.3.4)
       activerecord
       activerecord (>= 3.0.0)
       pg
       rails
-      rake
+      rake (= 0.8.7)
       rspec (~> 2.5)
       rspec-core (~> 2.5)
-    rack (1.2.2)
+    rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-test (0.5.7)
@@ -129,7 +132,7 @@ GEM
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
       rspec-mocks (~> 2.5.0)
-    rspec-core (2.5.1)
+    rspec-core (2.5.2)
     rspec-expectations (2.5.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.5.0)
@@ -155,7 +158,7 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.26)
+    tzinfo (0.3.27)
     unicorn (3.5.0)
       kgio (~> 2.3)
       rack
@@ -173,6 +176,7 @@ DEPENDENCIES
   compass
   database_cleaner
   devise
+  devise_invitable
   factory_girl_rails
   formtastic (>= 1.2.3)
   haml
@@ -184,7 +188,7 @@ DEPENDENCIES
   mocha
   paperclip
   pg
-  postgres-copy (>= 0.3.3)
+  postgres-copy (>= 0.3.4)
   rails (= 3.0.5)
   rails-erd
   rcov

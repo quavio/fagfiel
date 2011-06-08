@@ -31,6 +31,7 @@ feature "Redeem freebie" do
       :password => "123456", 
       :password_confirmation => "123456")
     reseller = create_reseller(:user => user, :credits => 0)
+    ActionMailer::Base.deliveries = []
     freebie = create_freebie(:price => 1000)
     sign_in "reseller@quavio.com.br", "123456"
 
